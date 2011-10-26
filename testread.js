@@ -11,7 +11,7 @@ function go() {
 
     // taking care of data
     console.log('got it');
-    console.log(data.substr(0, 10));
+    console.log(data.substr(0, data.indexOf('\n')));
   }
   
   function handler() {
