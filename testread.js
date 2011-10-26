@@ -17,7 +17,7 @@ function go() {
     while (data) {
       
       endOfNextLine = data.indexOf('\n');
-      console.log(data.substr(0, endOfNextLine));
+      // console.log(data.substr(0, endOfNextLine));
       data = data.slice(endOfNextLine + 1);
       
     }
