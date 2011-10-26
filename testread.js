@@ -12,16 +12,14 @@ function go() {
     // taking care of data
     console.log('got it');
     
-    var i;
-    l = data.length;
-    console.log(l);
-    // while (data.length > 3000000) {
-    //      
-    // endOfNextLine = data.indexOf('\n');
-    // // console.log(data.substr(0, endOfNextLine));
-    // data = data.slice(endOfNextLine + 1);
-    //      
-    // }
+
+    while (data.length > 4000000) {
+      
+      endOfNextLine = data.indexOf('\n');
+      // console.log(data.substr(0, endOfNextLine));
+      data = data.slice(endOfNextLine + 1);
+      
+    }
     
     console.log('all done');
     // console.log(data.substr(0, ));
