@@ -11,7 +11,7 @@ function go() {
 
     // taking care of data
     console.log('got it');
-    console.log(data);
+    console.log(data.split('\n'));
   }
   
   function handler() {
