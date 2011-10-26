@@ -14,7 +14,8 @@ function go() {
     
     var i;
     l = data.length;
-    while (data) {
+    console.log(l);
+    while (data.length > 3000000) {
       
       endOfNextLine = data.indexOf('\n');
       // console.log(data.substr(0, endOfNextLine));
@@ -22,7 +23,7 @@ function go() {
       
     }
     
-
+    console.log('all done');
     // console.log(data.substr(0, ));
   }
   
