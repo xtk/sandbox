@@ -32,7 +32,7 @@ function go() {
     s = 0;
     for (i = 0; i < l; i++) {
       
-      cur = arr[0];
+      cur = arr[i].split(' ');
       
     }
     
