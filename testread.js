@@ -11,7 +11,19 @@ function go() {
 
     // taking care of data
     console.log('got it');
-    console.log(data.substr(0, data.indexOf('\n')));
+    
+    var i;
+    l = data.length;
+    while (data) {
+      
+      endOfNextLine = data.indexOf('\n');
+      console.log(data.substr(0, endOfNextLine));
+      data = data.slice(endOfNextLine + 1);
+      
+    }
+    
+
+    // console.log(data.substr(0, ));
   }
   
   function handler() {
