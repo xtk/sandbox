@@ -18,8 +18,8 @@ function go() {
 
     if (this.readyState == 4 && this.status == 200) {
       // so far so good
-      if (this.responseXML != null) {// success!
-        test(this.responseXML);
+      if (this.responseText != null) {// success!
+        test(this.responseText);
       } else {
         test(null);
       }
