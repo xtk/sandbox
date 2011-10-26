@@ -23,8 +23,18 @@ function go() {
     //      
     // }
     
+    // the following takes less than 1 sec but more memory
+    // arr = data.split('\n');
+    // console.log(arr[0]);
+    
     arr = data.split('\n');
-    console.log(arr[0]);
+    l = arr.length;
+    s = 0;
+    for (i = 0; i < l; i++) {
+      
+      cur = arr[0];
+      
+    }
     
     console.log('all done');
     console.log(new Date());
