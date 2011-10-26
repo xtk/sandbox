@@ -10,10 +10,10 @@ function go() {
   function test(data) {
 
     // taking care of data
-    console.log('got it');
+    console.log(new Date());
     
 
-    while (data.length > 4000000) {
+    while (data.length > 1) {
       
       endOfNextLine = data.indexOf('\n');
       // console.log(data.substr(0, endOfNextLine));
@@ -22,6 +22,7 @@ function go() {
     }
     
     console.log('all done');
+    console.log(new Date());
     // console.log(data.substr(0, ));
   }
   
