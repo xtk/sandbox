@@ -24,6 +24,7 @@ function go() {
     // }
     
     arr = data.split('\n');
+    console.log(arr[0]);
     
     console.log('all done');
     console.log(new Date());
