@@ -12,14 +12,18 @@ function go() {
     // taking care of data
     console.log(new Date());
     
-
-    while (data.length > 1) {
-      
-      endOfNextLine = data.indexOf('\n');
-      // console.log(data.substr(0, endOfNextLine));
-      data = data.slice(endOfNextLine + 1);
-      
-    }
+    //
+    // the following takes 3m:53s on my macbook air
+    //
+    // while (data.length > 1) {
+    //      
+    // endOfNextLine = data.indexOf('\n');
+    // // console.log(data.substr(0, endOfNextLine));
+    // data = data.slice(endOfNextLine + 1);
+    //      
+    // }
+    
+    arr = data.split('\n');
     
     console.log('all done');
     console.log(new Date());
