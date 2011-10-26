@@ -11,7 +11,7 @@ function go() {
 
     // taking care of data
     console.log('got it');
-    console.log(this.responseXML);
+    console.log(data);
   }
   
   function handler() {
