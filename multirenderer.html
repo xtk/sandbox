@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>XTK Load TRK File</title>
+
+<script type="text/javascript" src="xtk.js"></script>
+
+<script type="text/javascript">
+  
+  var run = function() {
+      
+      var r1 = new X.renderer('r1');
+      r1.init();
+
+      var r2 = new X.renderer('r2');
+      r2.init();
+      r2.camera().setPosition(100,0,0);
+      
+      var r3 = new X.renderer('r3');
+      r3.init();      
+      r3.camera().setPosition(0,100,0);
+      
+      var avf = new X.object();
+      avf.load('tissue.vtk');
+      
+      r1.add(avf);
+      r2.add(avf);
+      r3.add(avf);
+      
+      r1.render();
+      r2.render();
+      r3.render();
+
+  };
+</script>
+
+</head>
+
+<body onload="run()">
+  <div id='r1' style='background-color:#000000; float: left; width: 200px; height: 200px; margin:10px;'></div>
+  <div id='r2' style='background-color:#000000; float: left; width: 200px; height: 200px; margin:10px;'></div>
+  <div id='r3' style='background-color:#000000; float: left; width: 200px; height: 200px; margin:10px;'></div>
+</body>
+</html>
