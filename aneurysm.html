@@ -16,19 +16,23 @@
       model.load('P0004_model.vtk');
       model.setOpacity(0.5);
       model.setColor(0.7,0.7,0.7);
+      model.setCaption('Blood vessels and aneurysm');
       
       var centerlines = new X.object();
       centerlines.load('P0004_centerlines.vtk');
+      centerlines.setCaption('Centerlines');
       
       var neckplane = new X.object();
       neckplane.load('P0004_neckplane.vtk');
       neckplane.setOpacity(0.7); // TODO has no effect, why?
       neckplane.setColor(0.5,0.5,0.5);
+      neckplane.setCaption('Neckplane');
       
       var section = new X.object();
       section.load('P0004_section.vtk');
       section.setColor(1,0,0);
       section.setLineWidth(5);
+      section.setCaption('Section');
       
       r.add(model);
       r.add(centerlines);      
