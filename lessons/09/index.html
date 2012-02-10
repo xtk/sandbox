@@ -49,7 +49,7 @@
     
     // add the object
     r.add(pits);
-
+    
     // the onShowtime function gets called automatically, just before the first rendering happens
     r.onShowtime = function() {
       
@@ -91,9 +91,10 @@
       setInterval(function() {
         
         // rotate the camera in X-direction (which triggers re-rendering)
-        r.camera().rotate(new goog.math.Vec2(1,0));
+        r.camera().rotate([1,0]);
         
       },15);    
+      
       
       
     };
