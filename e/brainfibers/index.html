@@ -35,12 +35,13 @@
 <head>
 <title>Brainfibers</title>
 
-<script type="text/javascript" src="http://get.goXTK.com/xtk.js"></script>
+<script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script>
 
 <script type="text/javascript">
   var run = function() {
 
     r = new X.renderer('r');
+    r.config.STATISTICS_ENABLED = true;
     r.config.PICKING_ENABLED = false;
     r.init();
     

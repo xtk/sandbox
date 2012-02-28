@@ -38,6 +38,7 @@
   var run = function() {
     
     var r = new X.renderer('r');
+    r.config.STATISTICS_ENABLED = true;
     r.init();
     
     // load a .NRRD file to the X.volume
