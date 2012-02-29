@@ -1,0 +1,314 @@
+
+<html>
+<!-- WebGL Export for 3D Slicer4 powered by XTK -- http://goXTK.com -->
+  <head>
+    <title>WebGL Export</title>
+    <script type="text/javascript" src="http://goXTK.com/xtk_nightly.js"></script>
+    <script type="text/javascript">
+      var run = function() {
+      
+        r0 = new X.renderer('r0');
+        r0.init();
+
+
+        scene = new X.object();
+        vtkMRMLModelHierarchyNode1 = new X.object();
+        scene.children().push(vtkMRMLModelHierarchyNode1);
+
+        vtkMRMLModelNode4 = new X.object();
+        vtkMRMLModelNode4.load('Model_3_Left-Cerebral-Cortex.vtk');
+        vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
+        vtkMRMLModelNode4.setOpacity(1.0);
+        vtkMRMLModelNode4.setVisible(false);
+        vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode4);
+
+        vtkMRMLModelNode5 = new X.object();
+        vtkMRMLModelNode5.load('Model_4_Left-Lateral-Ventricle.vtk');
+        vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
+        vtkMRMLModelNode5.setOpacity(1.0);
+        vtkMRMLModelNode5.setVisible(true);
+        vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode5);
+
+        vtkMRMLModelNode6 = new X.object();
+        vtkMRMLModelNode6.load('Model_5_Left-Inf-Lat-Vent.vtk');
+        vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
+        vtkMRMLModelNode6.setOpacity(1.0);
+        vtkMRMLModelNode6.setVisible(true);
+        vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode6);
+
+        vtkMRMLModelNode7 = new X.object();
+        vtkMRMLModelNode7.load('Model_8_Left-Cerebellum-Cortex.vtk');
+        vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
+        vtkMRMLModelNode7.setOpacity(1.0);
+        vtkMRMLModelNode7.setVisible(true);
+        vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode7);
+
+        vtkMRMLModelNode8 = new X.object();
+        vtkMRMLModelNode8.load('Model_10_Left-Thalamus-Proper.vtk');
+        vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
+        vtkMRMLModelNode8.setOpacity(1.0);
+        vtkMRMLModelNode8.setVisible(true);
+        vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode8);
+
+        vtkMRMLModelNode9 = new X.object();
+        vtkMRMLModelNode9.load('Model_11_Left-Caudate.vtk');
+        vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
+        vtkMRMLModelNode9.setOpacity(1.0);
+        vtkMRMLModelNode9.setVisible(true);
+        vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode9);
+
+        vtkMRMLModelNode10 = new X.object();
+        vtkMRMLModelNode10.load('Model_12_Left-Putamen.vtk');
+        vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
+        vtkMRMLModelNode10.setOpacity(1.0);
+        vtkMRMLModelNode10.setVisible(true);
+        vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode10);
+
+        vtkMRMLModelNode11 = new X.object();
+        vtkMRMLModelNode11.load('Model_13_Left-Pallidum.vtk');
+        vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
+        vtkMRMLModelNode11.setOpacity(1.0);
+        vtkMRMLModelNode11.setVisible(true);
+        vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode11);
+
+        vtkMRMLModelNode12 = new X.object();
+        vtkMRMLModelNode12.load('Model_14_3rd-Ventricle.vtk');
+        vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
+        vtkMRMLModelNode12.setOpacity(1.0);
+        vtkMRMLModelNode12.setVisible(true);
+        vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode12);
+
+        vtkMRMLModelNode13 = new X.object();
+        vtkMRMLModelNode13.load('Model_15_4th-Ventricle.vtk');
+        vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
+        vtkMRMLModelNode13.setOpacity(1.0);
+        vtkMRMLModelNode13.setVisible(true);
+        vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode13);
+
+        vtkMRMLModelNode14 = new X.object();
+        vtkMRMLModelNode14.load('Model_17_Left-Hippocampus.vtk');
+        vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
+        vtkMRMLModelNode14.setOpacity(1.0);
+        vtkMRMLModelNode14.setVisible(true);
+        vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode14);
+
+        vtkMRMLModelNode15 = new X.object();
+        vtkMRMLModelNode15.load('Model_18_Left-Amygdala.vtk');
+        vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
+        vtkMRMLModelNode15.setOpacity(1.0);
+        vtkMRMLModelNode15.setVisible(true);
+        vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode15);
+
+        vtkMRMLModelNode16 = new X.object();
+        vtkMRMLModelNode16.load('Model_24_CSF.vtk');
+        vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
+        vtkMRMLModelNode16.setOpacity(1.0);
+        vtkMRMLModelNode16.setVisible(true);
+        vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode16);
+
+        vtkMRMLModelNode17 = new X.object();
+        vtkMRMLModelNode17.load('Model_26_Left-Accumbens-area.vtk');
+        vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
+        vtkMRMLModelNode17.setOpacity(1.0);
+        vtkMRMLModelNode17.setVisible(true);
+        vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode17);
+
+        vtkMRMLModelNode18 = new X.object();
+        vtkMRMLModelNode18.load('Model_28_Left-VentralDC.vtk');
+        vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
+        vtkMRMLModelNode18.setOpacity(1.0);
+        vtkMRMLModelNode18.setVisible(true);
+        vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode18);
+
+        vtkMRMLModelNode19 = new X.object();
+        vtkMRMLModelNode19.load('Model_30_Left-vessel.vtk');
+        vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
+        vtkMRMLModelNode19.setOpacity(1.0);
+        vtkMRMLModelNode19.setVisible(true);
+        vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode19);
+
+        vtkMRMLModelNode20 = new X.object();
+        vtkMRMLModelNode20.load('Model_42_Right-Cerebral-Cortex.vtk');
+        vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
+        vtkMRMLModelNode20.setOpacity(1.0);
+        vtkMRMLModelNode20.setVisible(true);
+        vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode20);
+
+        vtkMRMLModelNode21 = new X.object();
+        vtkMRMLModelNode21.load('Model_43_Right-Lateral-Ventricle.vtk');
+        vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
+        vtkMRMLModelNode21.setOpacity(1.0);
+        vtkMRMLModelNode21.setVisible(true);
+        vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode21);
+
+        vtkMRMLModelNode22 = new X.object();
+        vtkMRMLModelNode22.load('Model_44_Right-Inf-Lat-Vent.vtk');
+        vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
+        vtkMRMLModelNode22.setOpacity(1.0);
+        vtkMRMLModelNode22.setVisible(true);
+        vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode22);
+
+        vtkMRMLModelNode23 = new X.object();
+        vtkMRMLModelNode23.load('Model_47_Right-Cerebellum-Cortex.vtk');
+        vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
+        vtkMRMLModelNode23.setOpacity(1.0);
+        vtkMRMLModelNode23.setVisible(true);
+        vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode23);
+
+        vtkMRMLModelNode24 = new X.object();
+        vtkMRMLModelNode24.load('Model_49_Right-Thalamus-Proper.vtk');
+        vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
+        vtkMRMLModelNode24.setOpacity(1.0);
+        vtkMRMLModelNode24.setVisible(true);
+        vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode24);
+
+        vtkMRMLModelNode25 = new X.object();
+        vtkMRMLModelNode25.load('Model_50_Right-Caudate.vtk');
+        vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
+        vtkMRMLModelNode25.setOpacity(1.0);
+        vtkMRMLModelNode25.setVisible(true);
+        vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode25);
+
+        vtkMRMLModelNode26 = new X.object();
+        vtkMRMLModelNode26.load('Model_51_Right-Putamen.vtk');
+        vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
+        vtkMRMLModelNode26.setOpacity(1.0);
+        vtkMRMLModelNode26.setVisible(true);
+        vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode26);
+
+        vtkMRMLModelNode27 = new X.object();
+        vtkMRMLModelNode27.load('Model_52_Right-Pallidum.vtk');
+        vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
+        vtkMRMLModelNode27.setOpacity(1.0);
+        vtkMRMLModelNode27.setVisible(true);
+        vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode27);
+
+        vtkMRMLModelNode28 = new X.object();
+        vtkMRMLModelNode28.load('Model_53_Right-Hippocampus.vtk');
+        vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
+        vtkMRMLModelNode28.setOpacity(1.0);
+        vtkMRMLModelNode28.setVisible(true);
+        vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode28);
+
+        vtkMRMLModelNode29 = new X.object();
+        vtkMRMLModelNode29.load('Model_54_Right-Amygdala.vtk');
+        vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
+        vtkMRMLModelNode29.setOpacity(1.0);
+        vtkMRMLModelNode29.setVisible(true);
+        vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode29);
+
+        vtkMRMLModelNode30 = new X.object();
+        vtkMRMLModelNode30.load('Model_58_Right-Accumbens-area.vtk');
+        vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
+        vtkMRMLModelNode30.setOpacity(1.0);
+        vtkMRMLModelNode30.setVisible(true);
+        vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode30);
+
+        vtkMRMLModelNode31 = new X.object();
+        vtkMRMLModelNode31.load('Model_60_Right-VentralDC.vtk');
+        vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
+        vtkMRMLModelNode31.setOpacity(1.0);
+        vtkMRMLModelNode31.setVisible(true);
+        vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode31);
+
+        vtkMRMLModelNode32 = new X.object();
+        vtkMRMLModelNode32.load('Model_62_Right-vessel.vtk');
+        vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
+        vtkMRMLModelNode32.setOpacity(1.0);
+        vtkMRMLModelNode32.setVisible(true);
+        vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode32);
+
+        vtkMRMLModelNode33 = new X.object();
+        vtkMRMLModelNode33.load('Model_85_Optic-Chiasm.vtk');
+        vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
+        vtkMRMLModelNode33.setOpacity(1.0);
+        vtkMRMLModelNode33.setVisible(true);
+        vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode33);
+
+        vtkMRMLModelNode34 = new X.object();
+        vtkMRMLModelNode34.load('Model_172_Vermis.vtk');
+        vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
+        vtkMRMLModelNode34.setOpacity(1.0);
+        vtkMRMLModelNode34.setVisible(true);
+        vtkMRMLModelNode34.setCaption('Model_172_Vermis');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode34);
+
+        vtkMRMLModelNode35 = new X.object();
+        vtkMRMLModelNode35.load('Model_173_Midbrain.vtk');
+        vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
+        vtkMRMLModelNode35.setOpacity(1.0);
+        vtkMRMLModelNode35.setVisible(true);
+        vtkMRMLModelNode35.setCaption('Model_173_Midbrain');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode35);
+
+        vtkMRMLModelNode36 = new X.object();
+        vtkMRMLModelNode36.load('Model_174_Pons.vtk');
+        vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
+        vtkMRMLModelNode36.setOpacity(1.0);
+        vtkMRMLModelNode36.setVisible(true);
+        vtkMRMLModelNode36.setCaption('Model_174_Pons');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode36);
+
+        vtkMRMLModelNode37 = new X.object();
+        vtkMRMLModelNode37.load('Model_175_Medulla.vtk');
+        vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
+        vtkMRMLModelNode37.setOpacity(1.0);
+        vtkMRMLModelNode37.setVisible(true);
+        vtkMRMLModelNode37.setCaption('Model_175_Medulla');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode37);
+
+        vtkMRMLModelNode38 = new X.object();
+        vtkMRMLModelNode38.load('Model_218_Amygdala.vtk');
+        vtkMRMLModelNode38.setColor(0.40784300000000001, 1.0, 1.0);
+        vtkMRMLModelNode38.setOpacity(1.0);
+        vtkMRMLModelNode38.setVisible(true);
+        vtkMRMLModelNode38.setCaption('Model_218_Amygdala');
+        vtkMRMLModelHierarchyNode1.children().push(vtkMRMLModelNode38);
+
+
+
+        r0.add(scene);
+        r0.camera().setPosition(-490.23600607796453, 344.84560844332805, -82.310614686356232);
+        r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
+        r0.render();
+
+
+
+      };
+    </script>
+  </head>
+  <body style="margin:0px; padding:0px;" onload="run()">
+        <div id="r0" style="background-color: #000000;; width: 100%; height: 100%;"></div>
+
+  </body>
+</html>
