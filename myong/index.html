@@ -3,12 +3,15 @@
 <!-- WebGL Export for 3D Slicer4 powered by XTK -- http://goXTK.com -->
   <head>
     <title>Myong's Baby Brains</title>
-    <script type="text/javascript" src="xtk.js"></script>
+    <script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script>
+    <script type="text/javascript" src="dat.gui.min.js"></script>
     <script type="text/javascript">
-      var run = function() {
+    
+    var run = function() {
 
         b03month_r0 = new X.renderer('b03month_r0');
         b03month_r0.init();
+        b03month_r0.canvas().style.position = "fixed";
 
 
         scene = new X.object();
@@ -20,7 +23,7 @@
         b03month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b03month_vtkMRMLModelNode4.setOpacity(1.0);
         b03month_vtkMRMLModelNode4.setVisible(true);
-        b03month_vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        b03month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode4);
 
         b03month_vtkMRMLModelNode5 = new X.object();
@@ -28,7 +31,7 @@
         b03month_vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b03month_vtkMRMLModelNode5.setOpacity(1.0);
         b03month_vtkMRMLModelNode5.setVisible(true);
-        b03month_vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        b03month_vtkMRMLModelNode5.setCaption('4_Left-Lateral-Ventricle');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode5);
 
         b03month_vtkMRMLModelNode6 = new X.object();
@@ -36,7 +39,7 @@
         b03month_vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b03month_vtkMRMLModelNode6.setOpacity(1.0);
         b03month_vtkMRMLModelNode6.setVisible(true);
-        b03month_vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        b03month_vtkMRMLModelNode6.setCaption('5_Left-Inf-Lat-Vent');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode6);
 
         b03month_vtkMRMLModelNode7 = new X.object();
@@ -44,7 +47,7 @@
         b03month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b03month_vtkMRMLModelNode7.setOpacity(1.0);
         b03month_vtkMRMLModelNode7.setVisible(true);
-        b03month_vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        b03month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode7);
 
         b03month_vtkMRMLModelNode8 = new X.object();
@@ -52,7 +55,7 @@
         b03month_vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b03month_vtkMRMLModelNode8.setOpacity(1.0);
         b03month_vtkMRMLModelNode8.setVisible(true);
-        b03month_vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        b03month_vtkMRMLModelNode8.setCaption('10_Left-Thalamus-Proper');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode8);
 
         b03month_vtkMRMLModelNode9 = new X.object();
@@ -60,7 +63,7 @@
         b03month_vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b03month_vtkMRMLModelNode9.setOpacity(1.0);
         b03month_vtkMRMLModelNode9.setVisible(true);
-        b03month_vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        b03month_vtkMRMLModelNode9.setCaption('11_Left-Caudate');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode9);
 
         b03month_vtkMRMLModelNode10 = new X.object();
@@ -68,7 +71,7 @@
         b03month_vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b03month_vtkMRMLModelNode10.setOpacity(1.0);
         b03month_vtkMRMLModelNode10.setVisible(true);
-        b03month_vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        b03month_vtkMRMLModelNode10.setCaption('12_Left-Putamen');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode10);
 
         b03month_vtkMRMLModelNode11 = new X.object();
@@ -76,7 +79,7 @@
         b03month_vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
         b03month_vtkMRMLModelNode11.setOpacity(1.0);
         b03month_vtkMRMLModelNode11.setVisible(true);
-        b03month_vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        b03month_vtkMRMLModelNode11.setCaption('13_Left-Pallidum');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode11);
 
         b03month_vtkMRMLModelNode12 = new X.object();
@@ -84,7 +87,7 @@
         b03month_vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
         b03month_vtkMRMLModelNode12.setOpacity(1.0);
         b03month_vtkMRMLModelNode12.setVisible(true);
-        b03month_vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        b03month_vtkMRMLModelNode12.setCaption('14_3rd-Ventricle');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode12);
 
         b03month_vtkMRMLModelNode13 = new X.object();
@@ -92,7 +95,7 @@
         b03month_vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
         b03month_vtkMRMLModelNode13.setOpacity(1.0);
         b03month_vtkMRMLModelNode13.setVisible(true);
-        b03month_vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        b03month_vtkMRMLModelNode13.setCaption('15_4th-Ventricle');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode13);
 
         b03month_vtkMRMLModelNode14 = new X.object();
@@ -100,7 +103,7 @@
         b03month_vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b03month_vtkMRMLModelNode14.setOpacity(1.0);
         b03month_vtkMRMLModelNode14.setVisible(true);
-        b03month_vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        b03month_vtkMRMLModelNode14.setCaption('17_Left-Hippocampus');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode14);
 
         b03month_vtkMRMLModelNode15 = new X.object();
@@ -108,7 +111,7 @@
         b03month_vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
         b03month_vtkMRMLModelNode15.setOpacity(1.0);
         b03month_vtkMRMLModelNode15.setVisible(true);
-        b03month_vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        b03month_vtkMRMLModelNode15.setCaption('18_Left-Amygdala');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode15);
 
         b03month_vtkMRMLModelNode16 = new X.object();
@@ -116,7 +119,7 @@
         b03month_vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
         b03month_vtkMRMLModelNode16.setOpacity(1.0);
         b03month_vtkMRMLModelNode16.setVisible(true);
-        b03month_vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        b03month_vtkMRMLModelNode16.setCaption('24_CSF');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode16);
 
         b03month_vtkMRMLModelNode17 = new X.object();
@@ -124,7 +127,7 @@
         b03month_vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
         b03month_vtkMRMLModelNode17.setOpacity(1.0);
         b03month_vtkMRMLModelNode17.setVisible(true);
-        b03month_vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        b03month_vtkMRMLModelNode17.setCaption('26_Left-Accumbens-area');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode17);
 
         b03month_vtkMRMLModelNode18 = new X.object();
@@ -132,7 +135,7 @@
         b03month_vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b03month_vtkMRMLModelNode18.setOpacity(1.0);
         b03month_vtkMRMLModelNode18.setVisible(true);
-        b03month_vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        b03month_vtkMRMLModelNode18.setCaption('28_Left-VentralDC');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode18);
 
         b03month_vtkMRMLModelNode19 = new X.object();
@@ -140,7 +143,7 @@
         b03month_vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b03month_vtkMRMLModelNode19.setOpacity(1.0);
         b03month_vtkMRMLModelNode19.setVisible(true);
-        b03month_vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        b03month_vtkMRMLModelNode19.setCaption('30_Left-vessel');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode19);
 
         b03month_vtkMRMLModelNode20 = new X.object();
@@ -148,7 +151,7 @@
         b03month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b03month_vtkMRMLModelNode20.setOpacity(1.0);
         b03month_vtkMRMLModelNode20.setVisible(true);
-        b03month_vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        b03month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode20);
 
         b03month_vtkMRMLModelNode21 = new X.object();
@@ -156,7 +159,7 @@
         b03month_vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b03month_vtkMRMLModelNode21.setOpacity(1.0);
         b03month_vtkMRMLModelNode21.setVisible(true);
-        b03month_vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        b03month_vtkMRMLModelNode21.setCaption('43_Right-Lateral-Ventricle');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode21);
 
         b03month_vtkMRMLModelNode22 = new X.object();
@@ -164,7 +167,7 @@
         b03month_vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b03month_vtkMRMLModelNode22.setOpacity(1.0);
         b03month_vtkMRMLModelNode22.setVisible(true);
-        b03month_vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        b03month_vtkMRMLModelNode22.setCaption('44_Right-Inf-Lat-Vent');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode22);
 
         b03month_vtkMRMLModelNode23 = new X.object();
@@ -172,7 +175,7 @@
         b03month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b03month_vtkMRMLModelNode23.setOpacity(1.0);
         b03month_vtkMRMLModelNode23.setVisible(true);
-        b03month_vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        b03month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode23);
 
         b03month_vtkMRMLModelNode24 = new X.object();
@@ -180,7 +183,7 @@
         b03month_vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b03month_vtkMRMLModelNode24.setOpacity(1.0);
         b03month_vtkMRMLModelNode24.setVisible(true);
-        b03month_vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        b03month_vtkMRMLModelNode24.setCaption('49_Right-Thalamus-Proper');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode24);
 
         b03month_vtkMRMLModelNode25 = new X.object();
@@ -188,7 +191,7 @@
         b03month_vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b03month_vtkMRMLModelNode25.setOpacity(1.0);
         b03month_vtkMRMLModelNode25.setVisible(true);
-        b03month_vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        b03month_vtkMRMLModelNode25.setCaption('50_Right-Caudate');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode25);
 
         b03month_vtkMRMLModelNode26 = new X.object();
@@ -196,7 +199,7 @@
         b03month_vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b03month_vtkMRMLModelNode26.setOpacity(1.0);
         b03month_vtkMRMLModelNode26.setVisible(true);
-        b03month_vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        b03month_vtkMRMLModelNode26.setCaption('51_Right-Putamen');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode26);
 
         b03month_vtkMRMLModelNode27 = new X.object();
@@ -204,7 +207,7 @@
         b03month_vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
         b03month_vtkMRMLModelNode27.setOpacity(1.0);
         b03month_vtkMRMLModelNode27.setVisible(true);
-        b03month_vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        b03month_vtkMRMLModelNode27.setCaption('52_Right-Pallidum');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode27);
 
         b03month_vtkMRMLModelNode28 = new X.object();
@@ -212,7 +215,7 @@
         b03month_vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b03month_vtkMRMLModelNode28.setOpacity(1.0);
         b03month_vtkMRMLModelNode28.setVisible(true);
-        b03month_vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        b03month_vtkMRMLModelNode28.setCaption('53_Right-Hippocampus');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode28);
 
         b03month_vtkMRMLModelNode29 = new X.object();
@@ -220,7 +223,7 @@
         b03month_vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
         b03month_vtkMRMLModelNode29.setOpacity(1.0);
         b03month_vtkMRMLModelNode29.setVisible(true);
-        b03month_vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        b03month_vtkMRMLModelNode29.setCaption('54_Right-Amygdala');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode29);
 
         b03month_vtkMRMLModelNode30 = new X.object();
@@ -228,7 +231,7 @@
         b03month_vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
         b03month_vtkMRMLModelNode30.setOpacity(1.0);
         b03month_vtkMRMLModelNode30.setVisible(true);
-        b03month_vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        b03month_vtkMRMLModelNode30.setCaption('58_Right-Accumbens-area');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode30);
 
         b03month_vtkMRMLModelNode31 = new X.object();
@@ -236,7 +239,7 @@
         b03month_vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b03month_vtkMRMLModelNode31.setOpacity(1.0);
         b03month_vtkMRMLModelNode31.setVisible(true);
-        b03month_vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        b03month_vtkMRMLModelNode31.setCaption('60_Right-VentralDC');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode31);
 
         b03month_vtkMRMLModelNode32 = new X.object();
@@ -244,7 +247,7 @@
         b03month_vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b03month_vtkMRMLModelNode32.setOpacity(1.0);
         b03month_vtkMRMLModelNode32.setVisible(true);
-        b03month_vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        b03month_vtkMRMLModelNode32.setCaption('62_Right-vessel');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode32);
 
         b03month_vtkMRMLModelNode33 = new X.object();
@@ -252,7 +255,7 @@
         b03month_vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
         b03month_vtkMRMLModelNode33.setOpacity(1.0);
         b03month_vtkMRMLModelNode33.setVisible(true);
-        b03month_vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        b03month_vtkMRMLModelNode33.setCaption('85_Optic-Chiasm');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode33);
 
         b03month_vtkMRMLModelNode34 = new X.object();
@@ -260,7 +263,7 @@
         b03month_vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
         b03month_vtkMRMLModelNode34.setOpacity(1.0);
         b03month_vtkMRMLModelNode34.setVisible(true);
-        b03month_vtkMRMLModelNode34.setCaption('Model_172_Vermis');
+        b03month_vtkMRMLModelNode34.setCaption('172_Vermis');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode34);
 
         b03month_vtkMRMLModelNode35 = new X.object();
@@ -268,7 +271,7 @@
         b03month_vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
         b03month_vtkMRMLModelNode35.setOpacity(1.0);
         b03month_vtkMRMLModelNode35.setVisible(true);
-        b03month_vtkMRMLModelNode35.setCaption('Model_173_Midbrain');
+        b03month_vtkMRMLModelNode35.setCaption('173_Midbrain');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode35);
 
         b03month_vtkMRMLModelNode36 = new X.object();
@@ -276,7 +279,7 @@
         b03month_vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
         b03month_vtkMRMLModelNode36.setOpacity(1.0);
         b03month_vtkMRMLModelNode36.setVisible(true);
-        b03month_vtkMRMLModelNode36.setCaption('Model_174_Pons');
+        b03month_vtkMRMLModelNode36.setCaption('174_Pons');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode36);
 
         b03month_vtkMRMLModelNode37 = new X.object();
@@ -284,7 +287,7 @@
         b03month_vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
         b03month_vtkMRMLModelNode37.setOpacity(1.0);
         b03month_vtkMRMLModelNode37.setVisible(true);
-        b03month_vtkMRMLModelNode37.setCaption('Model_175_Medulla');
+        b03month_vtkMRMLModelNode37.setCaption('175_Medulla');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode37);
 
 
@@ -298,6 +301,7 @@
 
         b04month_r0 = new X.renderer('b04month_r0');      
         b04month_r0.init();
+        b04month_r0.canvas().style.position = "fixed";
 
 
         scene = new X.object();
@@ -309,7 +313,7 @@
         b04month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b04month_vtkMRMLModelNode4.setOpacity(1.0);
         b04month_vtkMRMLModelNode4.setVisible(true);
-        b04month_vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        b04month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode4);
 
         b04month_vtkMRMLModelNode5 = new X.object();
@@ -317,7 +321,7 @@
         b04month_vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b04month_vtkMRMLModelNode5.setOpacity(1.0);
         b04month_vtkMRMLModelNode5.setVisible(true);
-        b04month_vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        b04month_vtkMRMLModelNode5.setCaption('4_Left-Lateral-Ventricle');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode5);
 
         b04month_vtkMRMLModelNode6 = new X.object();
@@ -325,7 +329,7 @@
         b04month_vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b04month_vtkMRMLModelNode6.setOpacity(1.0);
         b04month_vtkMRMLModelNode6.setVisible(true);
-        b04month_vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        b04month_vtkMRMLModelNode6.setCaption('5_Left-Inf-Lat-Vent');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode6);
 
         b04month_vtkMRMLModelNode7 = new X.object();
@@ -333,7 +337,7 @@
         b04month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b04month_vtkMRMLModelNode7.setOpacity(1.0);
         b04month_vtkMRMLModelNode7.setVisible(true);
-        b04month_vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        b04month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode7);
 
         b04month_vtkMRMLModelNode8 = new X.object();
@@ -341,7 +345,7 @@
         b04month_vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b04month_vtkMRMLModelNode8.setOpacity(1.0);
         b04month_vtkMRMLModelNode8.setVisible(true);
-        b04month_vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        b04month_vtkMRMLModelNode8.setCaption('10_Left-Thalamus-Proper');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode8);
 
         b04month_vtkMRMLModelNode9 = new X.object();
@@ -349,7 +353,7 @@
         b04month_vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b04month_vtkMRMLModelNode9.setOpacity(1.0);
         b04month_vtkMRMLModelNode9.setVisible(true);
-        b04month_vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        b04month_vtkMRMLModelNode9.setCaption('11_Left-Caudate');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode9);
 
         b04month_vtkMRMLModelNode10 = new X.object();
@@ -357,7 +361,7 @@
         b04month_vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b04month_vtkMRMLModelNode10.setOpacity(1.0);
         b04month_vtkMRMLModelNode10.setVisible(true);
-        b04month_vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        b04month_vtkMRMLModelNode10.setCaption('12_Left-Putamen');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode10);
 
         b04month_vtkMRMLModelNode11 = new X.object();
@@ -365,7 +369,7 @@
         b04month_vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
         b04month_vtkMRMLModelNode11.setOpacity(1.0);
         b04month_vtkMRMLModelNode11.setVisible(true);
-        b04month_vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        b04month_vtkMRMLModelNode11.setCaption('13_Left-Pallidum');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode11);
 
         b04month_vtkMRMLModelNode12 = new X.object();
@@ -373,7 +377,7 @@
         b04month_vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
         b04month_vtkMRMLModelNode12.setOpacity(1.0);
         b04month_vtkMRMLModelNode12.setVisible(true);
-        b04month_vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        b04month_vtkMRMLModelNode12.setCaption('14_3rd-Ventricle');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode12);
 
         b04month_vtkMRMLModelNode13 = new X.object();
@@ -381,7 +385,7 @@
         b04month_vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
         b04month_vtkMRMLModelNode13.setOpacity(1.0);
         b04month_vtkMRMLModelNode13.setVisible(true);
-        b04month_vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        b04month_vtkMRMLModelNode13.setCaption('15_4th-Ventricle');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode13);
 
         b04month_vtkMRMLModelNode14 = new X.object();
@@ -389,7 +393,7 @@
         b04month_vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b04month_vtkMRMLModelNode14.setOpacity(1.0);
         b04month_vtkMRMLModelNode14.setVisible(true);
-        b04month_vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        b04month_vtkMRMLModelNode14.setCaption('17_Left-Hippocampus');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode14);
 
         b04month_vtkMRMLModelNode15 = new X.object();
@@ -397,7 +401,7 @@
         b04month_vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
         b04month_vtkMRMLModelNode15.setOpacity(1.0);
         b04month_vtkMRMLModelNode15.setVisible(true);
-        b04month_vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        b04month_vtkMRMLModelNode15.setCaption('18_Left-Amygdala');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode15);
 
         b04month_vtkMRMLModelNode16 = new X.object();
@@ -405,7 +409,7 @@
         b04month_vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
         b04month_vtkMRMLModelNode16.setOpacity(1.0);
         b04month_vtkMRMLModelNode16.setVisible(true);
-        b04month_vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        b04month_vtkMRMLModelNode16.setCaption('24_CSF');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode16);
 
         b04month_vtkMRMLModelNode17 = new X.object();
@@ -413,7 +417,7 @@
         b04month_vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
         b04month_vtkMRMLModelNode17.setOpacity(1.0);
         b04month_vtkMRMLModelNode17.setVisible(true);
-        b04month_vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        b04month_vtkMRMLModelNode17.setCaption('26_Left-Accumbens-area');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode17);
 
         b04month_vtkMRMLModelNode18 = new X.object();
@@ -421,7 +425,7 @@
         b04month_vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b04month_vtkMRMLModelNode18.setOpacity(1.0);
         b04month_vtkMRMLModelNode18.setVisible(true);
-        b04month_vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        b04month_vtkMRMLModelNode18.setCaption('28_Left-VentralDC');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode18);
 
         b04month_vtkMRMLModelNode19 = new X.object();
@@ -429,7 +433,7 @@
         b04month_vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b04month_vtkMRMLModelNode19.setOpacity(1.0);
         b04month_vtkMRMLModelNode19.setVisible(true);
-        b04month_vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        b04month_vtkMRMLModelNode19.setCaption('30_Left-vessel');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode19);
 
         b04month_vtkMRMLModelNode20 = new X.object();
@@ -437,7 +441,7 @@
         b04month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b04month_vtkMRMLModelNode20.setOpacity(1.0);
         b04month_vtkMRMLModelNode20.setVisible(true);
-        b04month_vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        b04month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode20);
 
         b04month_vtkMRMLModelNode21 = new X.object();
@@ -445,7 +449,7 @@
         b04month_vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b04month_vtkMRMLModelNode21.setOpacity(1.0);
         b04month_vtkMRMLModelNode21.setVisible(true);
-        b04month_vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        b04month_vtkMRMLModelNode21.setCaption('43_Right-Lateral-Ventricle');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode21);
 
         b04month_vtkMRMLModelNode22 = new X.object();
@@ -453,7 +457,7 @@
         b04month_vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b04month_vtkMRMLModelNode22.setOpacity(1.0);
         b04month_vtkMRMLModelNode22.setVisible(true);
-        b04month_vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        b04month_vtkMRMLModelNode22.setCaption('44_Right-Inf-Lat-Vent');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode22);
 
         b04month_vtkMRMLModelNode23 = new X.object();
@@ -461,7 +465,7 @@
         b04month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b04month_vtkMRMLModelNode23.setOpacity(1.0);
         b04month_vtkMRMLModelNode23.setVisible(true);
-        b04month_vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        b04month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode23);
 
         b04month_vtkMRMLModelNode24 = new X.object();
@@ -469,7 +473,7 @@
         b04month_vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b04month_vtkMRMLModelNode24.setOpacity(1.0);
         b04month_vtkMRMLModelNode24.setVisible(true);
-        b04month_vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        b04month_vtkMRMLModelNode24.setCaption('49_Right-Thalamus-Proper');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode24);
 
         b04month_vtkMRMLModelNode25 = new X.object();
@@ -477,7 +481,7 @@
         b04month_vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b04month_vtkMRMLModelNode25.setOpacity(1.0);
         b04month_vtkMRMLModelNode25.setVisible(true);
-        b04month_vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        b04month_vtkMRMLModelNode25.setCaption('50_Right-Caudate');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode25);
 
         b04month_vtkMRMLModelNode26 = new X.object();
@@ -485,7 +489,7 @@
         b04month_vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b04month_vtkMRMLModelNode26.setOpacity(1.0);
         b04month_vtkMRMLModelNode26.setVisible(true);
-        b04month_vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        b04month_vtkMRMLModelNode26.setCaption('51_Right-Putamen');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode26);
 
         b04month_vtkMRMLModelNode27 = new X.object();
@@ -493,7 +497,7 @@
         b04month_vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
         b04month_vtkMRMLModelNode27.setOpacity(1.0);
         b04month_vtkMRMLModelNode27.setVisible(true);
-        b04month_vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        b04month_vtkMRMLModelNode27.setCaption('52_Right-Pallidum');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode27);
 
         b04month_vtkMRMLModelNode28 = new X.object();
@@ -501,7 +505,7 @@
         b04month_vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b04month_vtkMRMLModelNode28.setOpacity(1.0);
         b04month_vtkMRMLModelNode28.setVisible(true);
-        b04month_vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        b04month_vtkMRMLModelNode28.setCaption('53_Right-Hippocampus');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode28);
 
         b04month_vtkMRMLModelNode29 = new X.object();
@@ -509,7 +513,7 @@
         b04month_vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
         b04month_vtkMRMLModelNode29.setOpacity(1.0);
         b04month_vtkMRMLModelNode29.setVisible(true);
-        b04month_vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        b04month_vtkMRMLModelNode29.setCaption('54_Right-Amygdala');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode29);
 
         b04month_vtkMRMLModelNode30 = new X.object();
@@ -517,7 +521,7 @@
         b04month_vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
         b04month_vtkMRMLModelNode30.setOpacity(1.0);
         b04month_vtkMRMLModelNode30.setVisible(true);
-        b04month_vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        b04month_vtkMRMLModelNode30.setCaption('58_Right-Accumbens-area');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode30);
 
         b04month_vtkMRMLModelNode31 = new X.object();
@@ -525,7 +529,7 @@
         b04month_vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b04month_vtkMRMLModelNode31.setOpacity(1.0);
         b04month_vtkMRMLModelNode31.setVisible(true);
-        b04month_vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        b04month_vtkMRMLModelNode31.setCaption('60_Right-VentralDC');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode31);
 
         b04month_vtkMRMLModelNode32 = new X.object();
@@ -533,7 +537,7 @@
         b04month_vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b04month_vtkMRMLModelNode32.setOpacity(1.0);
         b04month_vtkMRMLModelNode32.setVisible(true);
-        b04month_vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        b04month_vtkMRMLModelNode32.setCaption('62_Right-vessel');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode32);
 
         b04month_vtkMRMLModelNode33 = new X.object();
@@ -541,7 +545,7 @@
         b04month_vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
         b04month_vtkMRMLModelNode33.setOpacity(1.0);
         b04month_vtkMRMLModelNode33.setVisible(true);
-        b04month_vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        b04month_vtkMRMLModelNode33.setCaption('85_Optic-Chiasm');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode33);
 
         b04month_vtkMRMLModelNode34 = new X.object();
@@ -549,7 +553,7 @@
         b04month_vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
         b04month_vtkMRMLModelNode34.setOpacity(1.0);
         b04month_vtkMRMLModelNode34.setVisible(true);
-        b04month_vtkMRMLModelNode34.setCaption('Model_172_Vermis');
+        b04month_vtkMRMLModelNode34.setCaption('172_Vermis');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode34);
 
         b04month_vtkMRMLModelNode35 = new X.object();
@@ -557,7 +561,7 @@
         b04month_vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
         b04month_vtkMRMLModelNode35.setOpacity(1.0);
         b04month_vtkMRMLModelNode35.setVisible(true);
-        b04month_vtkMRMLModelNode35.setCaption('Model_173_Midbrain');
+        b04month_vtkMRMLModelNode35.setCaption('173_Midbrain');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode35);
 
         b04month_vtkMRMLModelNode36 = new X.object();
@@ -565,7 +569,7 @@
         b04month_vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
         b04month_vtkMRMLModelNode36.setOpacity(1.0);
         b04month_vtkMRMLModelNode36.setVisible(true);
-        b04month_vtkMRMLModelNode36.setCaption('Model_174_Pons');
+        b04month_vtkMRMLModelNode36.setCaption('174_Pons');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode36);
 
         b04month_vtkMRMLModelNode37 = new X.object();
@@ -573,7 +577,7 @@
         b04month_vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
         b04month_vtkMRMLModelNode37.setOpacity(1.0);
         b04month_vtkMRMLModelNode37.setVisible(true);
-        b04month_vtkMRMLModelNode37.setCaption('Model_175_Medulla');
+        b04month_vtkMRMLModelNode37.setCaption('175_Medulla');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode37);
 
 
@@ -587,6 +591,7 @@
 
         b06month_r0 = new X.renderer('b06month_r0');     
         b06month_r0.init();
+        b06month_r0.canvas().style.position = "fixed";
 
 
         scene = new X.object();
@@ -598,7 +603,7 @@
         b06month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b06month_vtkMRMLModelNode4.setOpacity(1.0);
         b06month_vtkMRMLModelNode4.setVisible(true);
-        b06month_vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        b06month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode4);
 
         b06month_vtkMRMLModelNode5 = new X.object();
@@ -606,7 +611,7 @@
         b06month_vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b06month_vtkMRMLModelNode5.setOpacity(1.0);
         b06month_vtkMRMLModelNode5.setVisible(true);
-        b06month_vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        b06month_vtkMRMLModelNode5.setCaption('4_Left-Lateral-Ventricle');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode5);
 
         b06month_vtkMRMLModelNode6 = new X.object();
@@ -614,7 +619,7 @@
         b06month_vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b06month_vtkMRMLModelNode6.setOpacity(1.0);
         b06month_vtkMRMLModelNode6.setVisible(true);
-        b06month_vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        b06month_vtkMRMLModelNode6.setCaption('5_Left-Inf-Lat-Vent');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode6);
 
         b06month_vtkMRMLModelNode7 = new X.object();
@@ -622,7 +627,7 @@
         b06month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b06month_vtkMRMLModelNode7.setOpacity(1.0);
         b06month_vtkMRMLModelNode7.setVisible(true);
-        b06month_vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        b06month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode7);
 
         b06month_vtkMRMLModelNode8 = new X.object();
@@ -630,7 +635,7 @@
         b06month_vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b06month_vtkMRMLModelNode8.setOpacity(1.0);
         b06month_vtkMRMLModelNode8.setVisible(true);
-        b06month_vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        b06month_vtkMRMLModelNode8.setCaption('10_Left-Thalamus-Proper');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode8);
 
         b06month_vtkMRMLModelNode9 = new X.object();
@@ -638,7 +643,7 @@
         b06month_vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b06month_vtkMRMLModelNode9.setOpacity(1.0);
         b06month_vtkMRMLModelNode9.setVisible(true);
-        b06month_vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        b06month_vtkMRMLModelNode9.setCaption('11_Left-Caudate');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode9);
 
         b06month_vtkMRMLModelNode10 = new X.object();
@@ -646,7 +651,7 @@
         b06month_vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b06month_vtkMRMLModelNode10.setOpacity(1.0);
         b06month_vtkMRMLModelNode10.setVisible(true);
-        b06month_vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        b06month_vtkMRMLModelNode10.setCaption('12_Left-Putamen');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode10);
 
         b06month_vtkMRMLModelNode11 = new X.object();
@@ -654,7 +659,7 @@
         b06month_vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
         b06month_vtkMRMLModelNode11.setOpacity(1.0);
         b06month_vtkMRMLModelNode11.setVisible(true);
-        b06month_vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        b06month_vtkMRMLModelNode11.setCaption('13_Left-Pallidum');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode11);
 
         b06month_vtkMRMLModelNode12 = new X.object();
@@ -662,7 +667,7 @@
         b06month_vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
         b06month_vtkMRMLModelNode12.setOpacity(1.0);
         b06month_vtkMRMLModelNode12.setVisible(true);
-        b06month_vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        b06month_vtkMRMLModelNode12.setCaption('14_3rd-Ventricle');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode12);
 
         b06month_vtkMRMLModelNode13 = new X.object();
@@ -670,7 +675,7 @@
         b06month_vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
         b06month_vtkMRMLModelNode13.setOpacity(1.0);
         b06month_vtkMRMLModelNode13.setVisible(true);
-        b06month_vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        b06month_vtkMRMLModelNode13.setCaption('15_4th-Ventricle');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode13);
 
         b06month_vtkMRMLModelNode14 = new X.object();
@@ -678,7 +683,7 @@
         b06month_vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b06month_vtkMRMLModelNode14.setOpacity(1.0);
         b06month_vtkMRMLModelNode14.setVisible(true);
-        b06month_vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        b06month_vtkMRMLModelNode14.setCaption('17_Left-Hippocampus');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode14);
 
         b06month_vtkMRMLModelNode15 = new X.object();
@@ -686,7 +691,7 @@
         b06month_vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
         b06month_vtkMRMLModelNode15.setOpacity(1.0);
         b06month_vtkMRMLModelNode15.setVisible(true);
-        b06month_vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        b06month_vtkMRMLModelNode15.setCaption('18_Left-Amygdala');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode15);
 
         b06month_vtkMRMLModelNode16 = new X.object();
@@ -694,7 +699,7 @@
         b06month_vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
         b06month_vtkMRMLModelNode16.setOpacity(1.0);
         b06month_vtkMRMLModelNode16.setVisible(true);
-        b06month_vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        b06month_vtkMRMLModelNode16.setCaption('24_CSF');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode16);
 
         b06month_vtkMRMLModelNode17 = new X.object();
@@ -702,7 +707,7 @@
         b06month_vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
         b06month_vtkMRMLModelNode17.setOpacity(1.0);
         b06month_vtkMRMLModelNode17.setVisible(true);
-        b06month_vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        b06month_vtkMRMLModelNode17.setCaption('26_Left-Accumbens-area');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode17);
 
         b06month_vtkMRMLModelNode18 = new X.object();
@@ -710,7 +715,7 @@
         b06month_vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b06month_vtkMRMLModelNode18.setOpacity(1.0);
         b06month_vtkMRMLModelNode18.setVisible(true);
-        b06month_vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        b06month_vtkMRMLModelNode18.setCaption('28_Left-VentralDC');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode18);
 
         b06month_vtkMRMLModelNode19 = new X.object();
@@ -718,7 +723,7 @@
         b06month_vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b06month_vtkMRMLModelNode19.setOpacity(1.0);
         b06month_vtkMRMLModelNode19.setVisible(true);
-        b06month_vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        b06month_vtkMRMLModelNode19.setCaption('30_Left-vessel');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode19);
 
         b06month_vtkMRMLModelNode20 = new X.object();
@@ -726,7 +731,7 @@
         b06month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b06month_vtkMRMLModelNode20.setOpacity(1.0);
         b06month_vtkMRMLModelNode20.setVisible(true);
-        b06month_vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        b06month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode20);
 
         b06month_vtkMRMLModelNode21 = new X.object();
@@ -734,7 +739,7 @@
         b06month_vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b06month_vtkMRMLModelNode21.setOpacity(1.0);
         b06month_vtkMRMLModelNode21.setVisible(true);
-        b06month_vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        b06month_vtkMRMLModelNode21.setCaption('43_Right-Lateral-Ventricle');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode21);
 
         b06month_vtkMRMLModelNode22 = new X.object();
@@ -742,7 +747,7 @@
         b06month_vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b06month_vtkMRMLModelNode22.setOpacity(1.0);
         b06month_vtkMRMLModelNode22.setVisible(true);
-        b06month_vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        b06month_vtkMRMLModelNode22.setCaption('44_Right-Inf-Lat-Vent');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode22);
 
         b06month_vtkMRMLModelNode23 = new X.object();
@@ -750,7 +755,7 @@
         b06month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b06month_vtkMRMLModelNode23.setOpacity(1.0);
         b06month_vtkMRMLModelNode23.setVisible(true);
-        b06month_vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        b06month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode23);
 
         b06month_vtkMRMLModelNode24 = new X.object();
@@ -758,7 +763,7 @@
         b06month_vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b06month_vtkMRMLModelNode24.setOpacity(1.0);
         b06month_vtkMRMLModelNode24.setVisible(true);
-        b06month_vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        b06month_vtkMRMLModelNode24.setCaption('49_Right-Thalamus-Proper');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode24);
 
         b06month_vtkMRMLModelNode25 = new X.object();
@@ -766,7 +771,7 @@
         b06month_vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b06month_vtkMRMLModelNode25.setOpacity(1.0);
         b06month_vtkMRMLModelNode25.setVisible(true);
-        b06month_vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        b06month_vtkMRMLModelNode25.setCaption('50_Right-Caudate');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode25);
 
         b06month_vtkMRMLModelNode26 = new X.object();
@@ -774,7 +779,7 @@
         b06month_vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b06month_vtkMRMLModelNode26.setOpacity(1.0);
         b06month_vtkMRMLModelNode26.setVisible(true);
-        b06month_vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        b06month_vtkMRMLModelNode26.setCaption('51_Right-Putamen');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode26);
 
         b06month_vtkMRMLModelNode27 = new X.object();
@@ -782,7 +787,7 @@
         b06month_vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
         b06month_vtkMRMLModelNode27.setOpacity(1.0);
         b06month_vtkMRMLModelNode27.setVisible(true);
-        b06month_vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        b06month_vtkMRMLModelNode27.setCaption('52_Right-Pallidum');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode27);
 
         b06month_vtkMRMLModelNode28 = new X.object();
@@ -790,7 +795,7 @@
         b06month_vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b06month_vtkMRMLModelNode28.setOpacity(1.0);
         b06month_vtkMRMLModelNode28.setVisible(true);
-        b06month_vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        b06month_vtkMRMLModelNode28.setCaption('53_Right-Hippocampus');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode28);
 
         b06month_vtkMRMLModelNode29 = new X.object();
@@ -798,7 +803,7 @@
         b06month_vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
         b06month_vtkMRMLModelNode29.setOpacity(1.0);
         b06month_vtkMRMLModelNode29.setVisible(true);
-        b06month_vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        b06month_vtkMRMLModelNode29.setCaption('54_Right-Amygdala');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode29);
 
         b06month_vtkMRMLModelNode30 = new X.object();
@@ -806,7 +811,7 @@
         b06month_vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
         b06month_vtkMRMLModelNode30.setOpacity(1.0);
         b06month_vtkMRMLModelNode30.setVisible(true);
-        b06month_vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        b06month_vtkMRMLModelNode30.setCaption('58_Right-Accumbens-area');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode30);
 
         b06month_vtkMRMLModelNode31 = new X.object();
@@ -814,7 +819,7 @@
         b06month_vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b06month_vtkMRMLModelNode31.setOpacity(1.0);
         b06month_vtkMRMLModelNode31.setVisible(true);
-        b06month_vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        b06month_vtkMRMLModelNode31.setCaption('60_Right-VentralDC');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode31);
 
         b06month_vtkMRMLModelNode32 = new X.object();
@@ -822,7 +827,7 @@
         b06month_vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b06month_vtkMRMLModelNode32.setOpacity(1.0);
         b06month_vtkMRMLModelNode32.setVisible(true);
-        b06month_vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        b06month_vtkMRMLModelNode32.setCaption('62_Right-vessel');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode32);
 
         b06month_vtkMRMLModelNode33 = new X.object();
@@ -830,7 +835,7 @@
         b06month_vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
         b06month_vtkMRMLModelNode33.setOpacity(1.0);
         b06month_vtkMRMLModelNode33.setVisible(true);
-        b06month_vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        b06month_vtkMRMLModelNode33.setCaption('85_Optic-Chiasm');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode33);
 
         b06month_vtkMRMLModelNode34 = new X.object();
@@ -838,7 +843,7 @@
         b06month_vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
         b06month_vtkMRMLModelNode34.setOpacity(1.0);
         b06month_vtkMRMLModelNode34.setVisible(true);
-        b06month_vtkMRMLModelNode34.setCaption('Model_172_Vermis');
+        b06month_vtkMRMLModelNode34.setCaption('172_Vermis');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode34);
 
         b06month_vtkMRMLModelNode35 = new X.object();
@@ -846,7 +851,7 @@
         b06month_vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
         b06month_vtkMRMLModelNode35.setOpacity(1.0);
         b06month_vtkMRMLModelNode35.setVisible(true);
-        b06month_vtkMRMLModelNode35.setCaption('Model_173_Midbrain');
+        b06month_vtkMRMLModelNode35.setCaption('173_Midbrain');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode35);
 
         b06month_vtkMRMLModelNode36 = new X.object();
@@ -854,7 +859,7 @@
         b06month_vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
         b06month_vtkMRMLModelNode36.setOpacity(1.0);
         b06month_vtkMRMLModelNode36.setVisible(true);
-        b06month_vtkMRMLModelNode36.setCaption('Model_174_Pons');
+        b06month_vtkMRMLModelNode36.setCaption('174_Pons');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode36);
 
         b06month_vtkMRMLModelNode37 = new X.object();
@@ -862,7 +867,7 @@
         b06month_vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
         b06month_vtkMRMLModelNode37.setOpacity(1.0);
         b06month_vtkMRMLModelNode37.setVisible(true);
-        b06month_vtkMRMLModelNode37.setCaption('Model_175_Medulla');
+        b06month_vtkMRMLModelNode37.setCaption('175_Medulla');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode37);
 
 
@@ -877,6 +882,7 @@
 
         b07month_r0 = new X.renderer('b07month_r0');
         b07month_r0.init();
+        b07month_r0.canvas().style.position = "fixed";
 
 
         scene = new X.object();
@@ -888,7 +894,7 @@
         b07month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b07month_vtkMRMLModelNode4.setOpacity(1.0);
         b07month_vtkMRMLModelNode4.setVisible(true);
-        b07month_vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        b07month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode4);
 
         b07month_vtkMRMLModelNode5 = new X.object();
@@ -896,7 +902,7 @@
         b07month_vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b07month_vtkMRMLModelNode5.setOpacity(1.0);
         b07month_vtkMRMLModelNode5.setVisible(true);
-        b07month_vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        b07month_vtkMRMLModelNode5.setCaption('4_Left-Lateral-Ventricle');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode5);
 
         b07month_vtkMRMLModelNode6 = new X.object();
@@ -904,7 +910,7 @@
         b07month_vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b07month_vtkMRMLModelNode6.setOpacity(1.0);
         b07month_vtkMRMLModelNode6.setVisible(true);
-        b07month_vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        b07month_vtkMRMLModelNode6.setCaption('5_Left-Inf-Lat-Vent');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode6);
 
         b07month_vtkMRMLModelNode7 = new X.object();
@@ -912,7 +918,7 @@
         b07month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b07month_vtkMRMLModelNode7.setOpacity(1.0);
         b07month_vtkMRMLModelNode7.setVisible(true);
-        b07month_vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        b07month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode7);
 
         b07month_vtkMRMLModelNode8 = new X.object();
@@ -920,7 +926,7 @@
         b07month_vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b07month_vtkMRMLModelNode8.setOpacity(1.0);
         b07month_vtkMRMLModelNode8.setVisible(true);
-        b07month_vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        b07month_vtkMRMLModelNode8.setCaption('10_Left-Thalamus-Proper');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode8);
 
         b07month_vtkMRMLModelNode9 = new X.object();
@@ -928,7 +934,7 @@
         b07month_vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b07month_vtkMRMLModelNode9.setOpacity(1.0);
         b07month_vtkMRMLModelNode9.setVisible(true);
-        b07month_vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        b07month_vtkMRMLModelNode9.setCaption('11_Left-Caudate');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode9);
 
         b07month_vtkMRMLModelNode10 = new X.object();
@@ -936,7 +942,7 @@
         b07month_vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b07month_vtkMRMLModelNode10.setOpacity(1.0);
         b07month_vtkMRMLModelNode10.setVisible(true);
-        b07month_vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        b07month_vtkMRMLModelNode10.setCaption('12_Left-Putamen');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode10);
 
         b07month_vtkMRMLModelNode11 = new X.object();
@@ -944,7 +950,7 @@
         b07month_vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
         b07month_vtkMRMLModelNode11.setOpacity(1.0);
         b07month_vtkMRMLModelNode11.setVisible(true);
-        b07month_vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        b07month_vtkMRMLModelNode11.setCaption('13_Left-Pallidum');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode11);
 
         b07month_vtkMRMLModelNode12 = new X.object();
@@ -952,7 +958,7 @@
         b07month_vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
         b07month_vtkMRMLModelNode12.setOpacity(1.0);
         b07month_vtkMRMLModelNode12.setVisible(true);
-        b07month_vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        b07month_vtkMRMLModelNode12.setCaption('14_3rd-Ventricle');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode12);
 
         b07month_vtkMRMLModelNode13 = new X.object();
@@ -960,7 +966,7 @@
         b07month_vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
         b07month_vtkMRMLModelNode13.setOpacity(1.0);
         b07month_vtkMRMLModelNode13.setVisible(true);
-        b07month_vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        b07month_vtkMRMLModelNode13.setCaption('15_4th-Ventricle');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode13);
 
         b07month_vtkMRMLModelNode14 = new X.object();
@@ -968,7 +974,7 @@
         b07month_vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b07month_vtkMRMLModelNode14.setOpacity(1.0);
         b07month_vtkMRMLModelNode14.setVisible(true);
-        b07month_vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        b07month_vtkMRMLModelNode14.setCaption('17_Left-Hippocampus');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode14);
 
         b07month_vtkMRMLModelNode15 = new X.object();
@@ -976,7 +982,7 @@
         b07month_vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
         b07month_vtkMRMLModelNode15.setOpacity(1.0);
         b07month_vtkMRMLModelNode15.setVisible(true);
-        b07month_vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        b07month_vtkMRMLModelNode15.setCaption('18_Left-Amygdala');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode15);
 
         b07month_vtkMRMLModelNode16 = new X.object();
@@ -984,7 +990,7 @@
         b07month_vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
         b07month_vtkMRMLModelNode16.setOpacity(1.0);
         b07month_vtkMRMLModelNode16.setVisible(true);
-        b07month_vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        b07month_vtkMRMLModelNode16.setCaption('24_CSF');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode16);
 
         b07month_vtkMRMLModelNode17 = new X.object();
@@ -992,7 +998,7 @@
         b07month_vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
         b07month_vtkMRMLModelNode17.setOpacity(1.0);
         b07month_vtkMRMLModelNode17.setVisible(true);
-        b07month_vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        b07month_vtkMRMLModelNode17.setCaption('26_Left-Accumbens-area');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode17);
 
         b07month_vtkMRMLModelNode18 = new X.object();
@@ -1000,7 +1006,7 @@
         b07month_vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b07month_vtkMRMLModelNode18.setOpacity(1.0);
         b07month_vtkMRMLModelNode18.setVisible(true);
-        b07month_vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        b07month_vtkMRMLModelNode18.setCaption('28_Left-VentralDC');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode18);
 
         b07month_vtkMRMLModelNode19 = new X.object();
@@ -1008,7 +1014,7 @@
         b07month_vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b07month_vtkMRMLModelNode19.setOpacity(1.0);
         b07month_vtkMRMLModelNode19.setVisible(true);
-        b07month_vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        b07month_vtkMRMLModelNode19.setCaption('30_Left-vessel');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode19);
 
         b07month_vtkMRMLModelNode20 = new X.object();
@@ -1016,7 +1022,7 @@
         b07month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b07month_vtkMRMLModelNode20.setOpacity(1.0);
         b07month_vtkMRMLModelNode20.setVisible(true);
-        b07month_vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        b07month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode20);
 
         b07month_vtkMRMLModelNode21 = new X.object();
@@ -1024,7 +1030,7 @@
         b07month_vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b07month_vtkMRMLModelNode21.setOpacity(1.0);
         b07month_vtkMRMLModelNode21.setVisible(true);
-        b07month_vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        b07month_vtkMRMLModelNode21.setCaption('43_Right-Lateral-Ventricle');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode21);
 
         b07month_vtkMRMLModelNode22 = new X.object();
@@ -1032,7 +1038,7 @@
         b07month_vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b07month_vtkMRMLModelNode22.setOpacity(1.0);
         b07month_vtkMRMLModelNode22.setVisible(true);
-        b07month_vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        b07month_vtkMRMLModelNode22.setCaption('44_Right-Inf-Lat-Vent');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode22);
 
         b07month_vtkMRMLModelNode23 = new X.object();
@@ -1040,7 +1046,7 @@
         b07month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b07month_vtkMRMLModelNode23.setOpacity(1.0);
         b07month_vtkMRMLModelNode23.setVisible(true);
-        b07month_vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        b07month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode23);
 
         b07month_vtkMRMLModelNode24 = new X.object();
@@ -1048,7 +1054,7 @@
         b07month_vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b07month_vtkMRMLModelNode24.setOpacity(1.0);
         b07month_vtkMRMLModelNode24.setVisible(true);
-        b07month_vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        b07month_vtkMRMLModelNode24.setCaption('49_Right-Thalamus-Proper');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode24);
 
         b07month_vtkMRMLModelNode25 = new X.object();
@@ -1056,7 +1062,7 @@
         b07month_vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b07month_vtkMRMLModelNode25.setOpacity(1.0);
         b07month_vtkMRMLModelNode25.setVisible(true);
-        b07month_vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        b07month_vtkMRMLModelNode25.setCaption('50_Right-Caudate');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode25);
 
         b07month_vtkMRMLModelNode26 = new X.object();
@@ -1064,7 +1070,7 @@
         b07month_vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b07month_vtkMRMLModelNode26.setOpacity(1.0);
         b07month_vtkMRMLModelNode26.setVisible(true);
-        b07month_vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        b07month_vtkMRMLModelNode26.setCaption('51_Right-Putamen');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode26);
 
         b07month_vtkMRMLModelNode27 = new X.object();
@@ -1072,7 +1078,7 @@
         b07month_vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
         b07month_vtkMRMLModelNode27.setOpacity(1.0);
         b07month_vtkMRMLModelNode27.setVisible(true);
-        b07month_vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        b07month_vtkMRMLModelNode27.setCaption('52_Right-Pallidum');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode27);
 
         b07month_vtkMRMLModelNode28 = new X.object();
@@ -1080,7 +1086,7 @@
         b07month_vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b07month_vtkMRMLModelNode28.setOpacity(1.0);
         b07month_vtkMRMLModelNode28.setVisible(true);
-        b07month_vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        b07month_vtkMRMLModelNode28.setCaption('53_Right-Hippocampus');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode28);
 
         b07month_vtkMRMLModelNode29 = new X.object();
@@ -1088,7 +1094,7 @@
         b07month_vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
         b07month_vtkMRMLModelNode29.setOpacity(1.0);
         b07month_vtkMRMLModelNode29.setVisible(true);
-        b07month_vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        b07month_vtkMRMLModelNode29.setCaption('54_Right-Amygdala');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode29);
 
         b07month_vtkMRMLModelNode30 = new X.object();
@@ -1096,7 +1102,7 @@
         b07month_vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
         b07month_vtkMRMLModelNode30.setOpacity(1.0);
         b07month_vtkMRMLModelNode30.setVisible(true);
-        b07month_vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        b07month_vtkMRMLModelNode30.setCaption('58_Right-Accumbens-area');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode30);
 
         b07month_vtkMRMLModelNode31 = new X.object();
@@ -1104,7 +1110,7 @@
         b07month_vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b07month_vtkMRMLModelNode31.setOpacity(1.0);
         b07month_vtkMRMLModelNode31.setVisible(true);
-        b07month_vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        b07month_vtkMRMLModelNode31.setCaption('60_Right-VentralDC');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode31);
 
         b07month_vtkMRMLModelNode32 = new X.object();
@@ -1112,7 +1118,7 @@
         b07month_vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b07month_vtkMRMLModelNode32.setOpacity(1.0);
         b07month_vtkMRMLModelNode32.setVisible(true);
-        b07month_vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        b07month_vtkMRMLModelNode32.setCaption('62_Right-vessel');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode32);
 
         b07month_vtkMRMLModelNode33 = new X.object();
@@ -1120,7 +1126,7 @@
         b07month_vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
         b07month_vtkMRMLModelNode33.setOpacity(1.0);
         b07month_vtkMRMLModelNode33.setVisible(true);
-        b07month_vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        b07month_vtkMRMLModelNode33.setCaption('85_Optic-Chiasm');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode33);
 
         b07month_vtkMRMLModelNode34 = new X.object();
@@ -1128,7 +1134,7 @@
         b07month_vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
         b07month_vtkMRMLModelNode34.setOpacity(1.0);
         b07month_vtkMRMLModelNode34.setVisible(true);
-        b07month_vtkMRMLModelNode34.setCaption('Model_172_Vermis');
+        b07month_vtkMRMLModelNode34.setCaption('172_Vermis');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode34);
 
         b07month_vtkMRMLModelNode35 = new X.object();
@@ -1136,7 +1142,7 @@
         b07month_vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
         b07month_vtkMRMLModelNode35.setOpacity(1.0);
         b07month_vtkMRMLModelNode35.setVisible(true);
-        b07month_vtkMRMLModelNode35.setCaption('Model_173_Midbrain');
+        b07month_vtkMRMLModelNode35.setCaption('173_Midbrain');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode35);
 
         b07month_vtkMRMLModelNode36 = new X.object();
@@ -1144,7 +1150,7 @@
         b07month_vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
         b07month_vtkMRMLModelNode36.setOpacity(1.0);
         b07month_vtkMRMLModelNode36.setVisible(true);
-        b07month_vtkMRMLModelNode36.setCaption('Model_174_Pons');
+        b07month_vtkMRMLModelNode36.setCaption('174_Pons');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode36);
 
         b07month_vtkMRMLModelNode37 = new X.object();
@@ -1152,7 +1158,7 @@
         b07month_vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
         b07month_vtkMRMLModelNode37.setOpacity(1.0);
         b07month_vtkMRMLModelNode37.setVisible(true);
-        b07month_vtkMRMLModelNode37.setCaption('Model_175_Medulla');
+        b07month_vtkMRMLModelNode37.setCaption('175_Medulla');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode37);
 
 
@@ -1166,6 +1172,7 @@
 
         b12month_r0 = new X.renderer('b12month_r0');
         b12month_r0.init();
+        b12month_r0.canvas().style.position = "fixed";
 
 
         scene = new X.object();
@@ -1177,7 +1184,7 @@
         b12month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b12month_vtkMRMLModelNode4.setOpacity(1.0);
         b12month_vtkMRMLModelNode4.setVisible(true);
-        b12month_vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        b12month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode4);
 
         b12month_vtkMRMLModelNode5 = new X.object();
@@ -1185,7 +1192,7 @@
         b12month_vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b12month_vtkMRMLModelNode5.setOpacity(1.0);
         b12month_vtkMRMLModelNode5.setVisible(true);
-        b12month_vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        b12month_vtkMRMLModelNode5.setCaption('4_Left-Lateral-Ventricle');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode5);
 
         b12month_vtkMRMLModelNode6 = new X.object();
@@ -1193,7 +1200,7 @@
         b12month_vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b12month_vtkMRMLModelNode6.setOpacity(1.0);
         b12month_vtkMRMLModelNode6.setVisible(true);
-        b12month_vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        b12month_vtkMRMLModelNode6.setCaption('5_Left-Inf-Lat-Vent');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode6);
 
         b12month_vtkMRMLModelNode7 = new X.object();
@@ -1201,7 +1208,7 @@
         b12month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b12month_vtkMRMLModelNode7.setOpacity(1.0);
         b12month_vtkMRMLModelNode7.setVisible(true);
-        b12month_vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        b12month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode7);
 
         b12month_vtkMRMLModelNode8 = new X.object();
@@ -1209,7 +1216,7 @@
         b12month_vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b12month_vtkMRMLModelNode8.setOpacity(1.0);
         b12month_vtkMRMLModelNode8.setVisible(true);
-        b12month_vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        b12month_vtkMRMLModelNode8.setCaption('10_Left-Thalamus-Proper');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode8);
 
         b12month_vtkMRMLModelNode9 = new X.object();
@@ -1217,7 +1224,7 @@
         b12month_vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b12month_vtkMRMLModelNode9.setOpacity(1.0);
         b12month_vtkMRMLModelNode9.setVisible(true);
-        b12month_vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        b12month_vtkMRMLModelNode9.setCaption('11_Left-Caudate');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode9);
 
         b12month_vtkMRMLModelNode10 = new X.object();
@@ -1225,7 +1232,7 @@
         b12month_vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b12month_vtkMRMLModelNode10.setOpacity(1.0);
         b12month_vtkMRMLModelNode10.setVisible(true);
-        b12month_vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        b12month_vtkMRMLModelNode10.setCaption('12_Left-Putamen');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode10);
 
         b12month_vtkMRMLModelNode11 = new X.object();
@@ -1233,7 +1240,7 @@
         b12month_vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
         b12month_vtkMRMLModelNode11.setOpacity(1.0);
         b12month_vtkMRMLModelNode11.setVisible(true);
-        b12month_vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        b12month_vtkMRMLModelNode11.setCaption('13_Left-Pallidum');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode11);
 
         b12month_vtkMRMLModelNode12 = new X.object();
@@ -1241,7 +1248,7 @@
         b12month_vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
         b12month_vtkMRMLModelNode12.setOpacity(1.0);
         b12month_vtkMRMLModelNode12.setVisible(true);
-        b12month_vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        b12month_vtkMRMLModelNode12.setCaption('14_3rd-Ventricle');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode12);
 
         b12month_vtkMRMLModelNode13 = new X.object();
@@ -1249,7 +1256,7 @@
         b12month_vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
         b12month_vtkMRMLModelNode13.setOpacity(1.0);
         b12month_vtkMRMLModelNode13.setVisible(true);
-        b12month_vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        b12month_vtkMRMLModelNode13.setCaption('15_4th-Ventricle');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode13);
 
         b12month_vtkMRMLModelNode14 = new X.object();
@@ -1257,7 +1264,7 @@
         b12month_vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b12month_vtkMRMLModelNode14.setOpacity(1.0);
         b12month_vtkMRMLModelNode14.setVisible(true);
-        b12month_vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        b12month_vtkMRMLModelNode14.setCaption('17_Left-Hippocampus');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode14);
 
         b12month_vtkMRMLModelNode15 = new X.object();
@@ -1265,7 +1272,7 @@
         b12month_vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
         b12month_vtkMRMLModelNode15.setOpacity(1.0);
         b12month_vtkMRMLModelNode15.setVisible(true);
-        b12month_vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        b12month_vtkMRMLModelNode15.setCaption('18_Left-Amygdala');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode15);
 
         b12month_vtkMRMLModelNode16 = new X.object();
@@ -1273,7 +1280,7 @@
         b12month_vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
         b12month_vtkMRMLModelNode16.setOpacity(1.0);
         b12month_vtkMRMLModelNode16.setVisible(true);
-        b12month_vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        b12month_vtkMRMLModelNode16.setCaption('24_CSF');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode16);
 
         b12month_vtkMRMLModelNode17 = new X.object();
@@ -1281,7 +1288,7 @@
         b12month_vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
         b12month_vtkMRMLModelNode17.setOpacity(1.0);
         b12month_vtkMRMLModelNode17.setVisible(true);
-        b12month_vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        b12month_vtkMRMLModelNode17.setCaption('26_Left-Accumbens-area');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode17);
 
         b12month_vtkMRMLModelNode18 = new X.object();
@@ -1289,7 +1296,7 @@
         b12month_vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b12month_vtkMRMLModelNode18.setOpacity(1.0);
         b12month_vtkMRMLModelNode18.setVisible(true);
-        b12month_vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        b12month_vtkMRMLModelNode18.setCaption('28_Left-VentralDC');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode18);
 
         b12month_vtkMRMLModelNode19 = new X.object();
@@ -1297,7 +1304,7 @@
         b12month_vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b12month_vtkMRMLModelNode19.setOpacity(1.0);
         b12month_vtkMRMLModelNode19.setVisible(true);
-        b12month_vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        b12month_vtkMRMLModelNode19.setCaption('30_Left-vessel');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode19);
 
         b12month_vtkMRMLModelNode20 = new X.object();
@@ -1305,7 +1312,7 @@
         b12month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b12month_vtkMRMLModelNode20.setOpacity(1.0);
         b12month_vtkMRMLModelNode20.setVisible(true);
-        b12month_vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        b12month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode20);
 
         b12month_vtkMRMLModelNode21 = new X.object();
@@ -1313,7 +1320,7 @@
         b12month_vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b12month_vtkMRMLModelNode21.setOpacity(1.0);
         b12month_vtkMRMLModelNode21.setVisible(true);
-        b12month_vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        b12month_vtkMRMLModelNode21.setCaption('43_Right-Lateral-Ventricle');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode21);
 
         b12month_vtkMRMLModelNode22 = new X.object();
@@ -1321,7 +1328,7 @@
         b12month_vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b12month_vtkMRMLModelNode22.setOpacity(1.0);
         b12month_vtkMRMLModelNode22.setVisible(true);
-        b12month_vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        b12month_vtkMRMLModelNode22.setCaption('44_Right-Inf-Lat-Vent');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode22);
 
         b12month_vtkMRMLModelNode23 = new X.object();
@@ -1329,7 +1336,7 @@
         b12month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b12month_vtkMRMLModelNode23.setOpacity(1.0);
         b12month_vtkMRMLModelNode23.setVisible(true);
-        b12month_vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        b12month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode23);
 
         b12month_vtkMRMLModelNode24 = new X.object();
@@ -1337,7 +1344,7 @@
         b12month_vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b12month_vtkMRMLModelNode24.setOpacity(1.0);
         b12month_vtkMRMLModelNode24.setVisible(true);
-        b12month_vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        b12month_vtkMRMLModelNode24.setCaption('49_Right-Thalamus-Proper');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode24);
 
         b12month_vtkMRMLModelNode25 = new X.object();
@@ -1345,7 +1352,7 @@
         b12month_vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b12month_vtkMRMLModelNode25.setOpacity(1.0);
         b12month_vtkMRMLModelNode25.setVisible(true);
-        b12month_vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        b12month_vtkMRMLModelNode25.setCaption('50_Right-Caudate');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode25);
 
         b12month_vtkMRMLModelNode26 = new X.object();
@@ -1353,7 +1360,7 @@
         b12month_vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b12month_vtkMRMLModelNode26.setOpacity(1.0);
         b12month_vtkMRMLModelNode26.setVisible(true);
-        b12month_vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        b12month_vtkMRMLModelNode26.setCaption('51_Right-Putamen');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode26);
 
         b12month_vtkMRMLModelNode27 = new X.object();
@@ -1361,7 +1368,7 @@
         b12month_vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
         b12month_vtkMRMLModelNode27.setOpacity(1.0);
         b12month_vtkMRMLModelNode27.setVisible(true);
-        b12month_vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        b12month_vtkMRMLModelNode27.setCaption('52_Right-Pallidum');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode27);
 
         b12month_vtkMRMLModelNode28 = new X.object();
@@ -1369,7 +1376,7 @@
         b12month_vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b12month_vtkMRMLModelNode28.setOpacity(1.0);
         b12month_vtkMRMLModelNode28.setVisible(true);
-        b12month_vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        b12month_vtkMRMLModelNode28.setCaption('53_Right-Hippocampus');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode28);
 
         b12month_vtkMRMLModelNode29 = new X.object();
@@ -1377,7 +1384,7 @@
         b12month_vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
         b12month_vtkMRMLModelNode29.setOpacity(1.0);
         b12month_vtkMRMLModelNode29.setVisible(true);
-        b12month_vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        b12month_vtkMRMLModelNode29.setCaption('54_Right-Amygdala');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode29);
 
         b12month_vtkMRMLModelNode30 = new X.object();
@@ -1385,7 +1392,7 @@
         b12month_vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
         b12month_vtkMRMLModelNode30.setOpacity(1.0);
         b12month_vtkMRMLModelNode30.setVisible(true);
-        b12month_vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        b12month_vtkMRMLModelNode30.setCaption('58_Right-Accumbens-area');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode30);
 
         b12month_vtkMRMLModelNode31 = new X.object();
@@ -1393,7 +1400,7 @@
         b12month_vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b12month_vtkMRMLModelNode31.setOpacity(1.0);
         b12month_vtkMRMLModelNode31.setVisible(true);
-        b12month_vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        b12month_vtkMRMLModelNode31.setCaption('60_Right-VentralDC');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode31);
 
         b12month_vtkMRMLModelNode32 = new X.object();
@@ -1401,7 +1408,7 @@
         b12month_vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b12month_vtkMRMLModelNode32.setOpacity(1.0);
         b12month_vtkMRMLModelNode32.setVisible(true);
-        b12month_vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        b12month_vtkMRMLModelNode32.setCaption('62_Right-vessel');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode32);
 
         b12month_vtkMRMLModelNode33 = new X.object();
@@ -1409,40 +1416,40 @@
         b12month_vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
         b12month_vtkMRMLModelNode33.setOpacity(1.0);
         b12month_vtkMRMLModelNode33.setVisible(true);
-        b12month_vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        b12month_vtkMRMLModelNode33.setCaption('85_Optic-Chiasm');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode33);
 
+        b12month_vtkMRMLModelNode34 = new X.object();
+        b12month_vtkMRMLModelNode34.load('12mo/Model_172_Vermis.vtk');
+        b12month_vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
+        b12month_vtkMRMLModelNode34.setOpacity(1.0);
+        b12month_vtkMRMLModelNode34.setVisible(true);
+        b12month_vtkMRMLModelNode34.setCaption('172_Vermis');
+        b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode34);
+
+        b12month_vtkMRMLModelNode35 = new X.object();
+        b12month_vtkMRMLModelNode35.load('12mo/Model_173_Midbrain.vtk');
+        b12month_vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
+        b12month_vtkMRMLModelNode35.setOpacity(1.0);
+        b12month_vtkMRMLModelNode35.setVisible(true);
+        b12month_vtkMRMLModelNode35.setCaption('173_Midbrain');
+        b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode35);
+
         b12month_vtkMRMLModelNode36 = new X.object();
-        b12month_vtkMRMLModelNode36.load('12mo/Model_172_Vermis.vtk');
-        b12month_vtkMRMLModelNode36.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
+        b12month_vtkMRMLModelNode36.load('12mo/Model_174_Pons.vtk');
+        b12month_vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
         b12month_vtkMRMLModelNode36.setOpacity(1.0);
         b12month_vtkMRMLModelNode36.setVisible(true);
-        b12month_vtkMRMLModelNode36.setCaption('Model_172_Vermis');
+        b12month_vtkMRMLModelNode36.setCaption('174_Pons');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode36);
 
         b12month_vtkMRMLModelNode37 = new X.object();
-        b12month_vtkMRMLModelNode37.load('12mo/Model_173_Midbrain.vtk');
-        b12month_vtkMRMLModelNode37.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
+        b12month_vtkMRMLModelNode37.load('12mo/Model_175_Medulla.vtk');
+        b12month_vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
         b12month_vtkMRMLModelNode37.setOpacity(1.0);
         b12month_vtkMRMLModelNode37.setVisible(true);
-        b12month_vtkMRMLModelNode37.setCaption('Model_173_Midbrain');
+        b12month_vtkMRMLModelNode37.setCaption('175_Medulla');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode37);
-
-        b12month_vtkMRMLModelNode38 = new X.object();
-        b12month_vtkMRMLModelNode38.load('12mo/Model_174_Pons.vtk');
-        b12month_vtkMRMLModelNode38.setColor(0.466667, 0.623529, 0.39215699999999998);
-        b12month_vtkMRMLModelNode38.setOpacity(1.0);
-        b12month_vtkMRMLModelNode38.setVisible(true);
-        b12month_vtkMRMLModelNode38.setCaption('Model_174_Pons');
-        b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode38);
-
-        b12month_vtkMRMLModelNode39 = new X.object();
-        b12month_vtkMRMLModelNode39.load('12mo/Model_175_Medulla.vtk');
-        b12month_vtkMRMLModelNode39.setColor(0.466667, 0.623529, 0.78431399999999996);
-        b12month_vtkMRMLModelNode39.setOpacity(1.0);
-        b12month_vtkMRMLModelNode39.setVisible(true);
-        b12month_vtkMRMLModelNode39.setCaption('Model_175_Medulla');
-        b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode39);
 
 
 
@@ -1455,6 +1462,7 @@
 
         b13month_r0 = new X.renderer('b13month_r0');
         b13month_r0.init();
+        b13month_r0.canvas().style.position = "fixed";
 
 
         scene = new X.object();
@@ -1466,7 +1474,7 @@
         b13month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b13month_vtkMRMLModelNode4.setOpacity(1.0);
         b13month_vtkMRMLModelNode4.setVisible(true);
-        b13month_vtkMRMLModelNode4.setCaption('Model_3_Left-Cerebral-Cortex');
+        b13month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode4);
 
         b13month_vtkMRMLModelNode5 = new X.object();
@@ -1474,7 +1482,7 @@
         b13month_vtkMRMLModelNode5.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b13month_vtkMRMLModelNode5.setOpacity(1.0);
         b13month_vtkMRMLModelNode5.setVisible(true);
-        b13month_vtkMRMLModelNode5.setCaption('Model_4_Left-Lateral-Ventricle');
+        b13month_vtkMRMLModelNode5.setCaption('4_Left-Lateral-Ventricle');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode5);
 
         b13month_vtkMRMLModelNode6 = new X.object();
@@ -1482,7 +1490,7 @@
         b13month_vtkMRMLModelNode6.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b13month_vtkMRMLModelNode6.setOpacity(1.0);
         b13month_vtkMRMLModelNode6.setVisible(true);
-        b13month_vtkMRMLModelNode6.setCaption('Model_5_Left-Inf-Lat-Vent');
+        b13month_vtkMRMLModelNode6.setCaption('5_Left-Inf-Lat-Vent');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode6);
 
         b13month_vtkMRMLModelNode7 = new X.object();
@@ -1490,7 +1498,7 @@
         b13month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b13month_vtkMRMLModelNode7.setOpacity(1.0);
         b13month_vtkMRMLModelNode7.setVisible(true);
-        b13month_vtkMRMLModelNode7.setCaption('Model_8_Left-Cerebellum-Cortex');
+        b13month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode7);
 
         b13month_vtkMRMLModelNode8 = new X.object();
@@ -1498,7 +1506,7 @@
         b13month_vtkMRMLModelNode8.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b13month_vtkMRMLModelNode8.setOpacity(1.0);
         b13month_vtkMRMLModelNode8.setVisible(true);
-        b13month_vtkMRMLModelNode8.setCaption('Model_10_Left-Thalamus-Proper');
+        b13month_vtkMRMLModelNode8.setCaption('10_Left-Thalamus-Proper');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode8);
 
         b13month_vtkMRMLModelNode9 = new X.object();
@@ -1506,7 +1514,7 @@
         b13month_vtkMRMLModelNode9.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b13month_vtkMRMLModelNode9.setOpacity(1.0);
         b13month_vtkMRMLModelNode9.setVisible(true);
-        b13month_vtkMRMLModelNode9.setCaption('Model_11_Left-Caudate');
+        b13month_vtkMRMLModelNode9.setCaption('11_Left-Caudate');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode9);
 
         b13month_vtkMRMLModelNode10 = new X.object();
@@ -1514,7 +1522,7 @@
         b13month_vtkMRMLModelNode10.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b13month_vtkMRMLModelNode10.setOpacity(1.0);
         b13month_vtkMRMLModelNode10.setVisible(true);
-        b13month_vtkMRMLModelNode10.setCaption('Model_12_Left-Putamen');
+        b13month_vtkMRMLModelNode10.setCaption('12_Left-Putamen');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode10);
 
         b13month_vtkMRMLModelNode11 = new X.object();
@@ -1522,7 +1530,7 @@
         b13month_vtkMRMLModelNode11.setColor(0.047058799999999998, 0.18823500000000001, 1.0);
         b13month_vtkMRMLModelNode11.setOpacity(1.0);
         b13month_vtkMRMLModelNode11.setVisible(true);
-        b13month_vtkMRMLModelNode11.setCaption('Model_13_Left-Pallidum');
+        b13month_vtkMRMLModelNode11.setCaption('13_Left-Pallidum');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode11);
 
         b13month_vtkMRMLModelNode12 = new X.object();
@@ -1530,7 +1538,7 @@
         b13month_vtkMRMLModelNode12.setColor(0.80000000000000004, 0.71372500000000005, 0.556863);
         b13month_vtkMRMLModelNode12.setOpacity(1.0);
         b13month_vtkMRMLModelNode12.setVisible(true);
-        b13month_vtkMRMLModelNode12.setCaption('Model_14_3rd-Ventricle');
+        b13month_vtkMRMLModelNode12.setCaption('14_3rd-Ventricle');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode12);
 
         b13month_vtkMRMLModelNode13 = new X.object();
@@ -1538,7 +1546,7 @@
         b13month_vtkMRMLModelNode13.setColor(0.16470599999999999, 0.80000000000000004, 0.64313699999999996);
         b13month_vtkMRMLModelNode13.setOpacity(1.0);
         b13month_vtkMRMLModelNode13.setVisible(true);
-        b13month_vtkMRMLModelNode13.setCaption('Model_15_4th-Ventricle');
+        b13month_vtkMRMLModelNode13.setCaption('15_4th-Ventricle');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode13);
 
         b13month_vtkMRMLModelNode14 = new X.object();
@@ -1546,7 +1554,7 @@
         b13month_vtkMRMLModelNode14.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b13month_vtkMRMLModelNode14.setOpacity(1.0);
         b13month_vtkMRMLModelNode14.setVisible(true);
-        b13month_vtkMRMLModelNode14.setCaption('Model_17_Left-Hippocampus');
+        b13month_vtkMRMLModelNode14.setCaption('17_Left-Hippocampus');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode14);
 
         b13month_vtkMRMLModelNode15 = new X.object();
@@ -1554,7 +1562,7 @@
         b13month_vtkMRMLModelNode15.setColor(0.403922, 1.0, 1.0);
         b13month_vtkMRMLModelNode15.setOpacity(1.0);
         b13month_vtkMRMLModelNode15.setVisible(true);
-        b13month_vtkMRMLModelNode15.setCaption('Model_18_Left-Amygdala');
+        b13month_vtkMRMLModelNode15.setCaption('18_Left-Amygdala');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode15);
 
         b13month_vtkMRMLModelNode16 = new X.object();
@@ -1562,7 +1570,7 @@
         b13month_vtkMRMLModelNode16.setColor(0.235294, 0.235294, 0.235294);
         b13month_vtkMRMLModelNode16.setOpacity(1.0);
         b13month_vtkMRMLModelNode16.setVisible(true);
-        b13month_vtkMRMLModelNode16.setCaption('Model_24_CSF');
+        b13month_vtkMRMLModelNode16.setCaption('24_CSF');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode16);
 
         b13month_vtkMRMLModelNode17 = new X.object();
@@ -1570,7 +1578,7 @@
         b13month_vtkMRMLModelNode17.setColor(1.0, 0.64705900000000005, 0.0);
         b13month_vtkMRMLModelNode17.setOpacity(1.0);
         b13month_vtkMRMLModelNode17.setVisible(true);
-        b13month_vtkMRMLModelNode17.setCaption('Model_26_Left-Accumbens-area');
+        b13month_vtkMRMLModelNode17.setCaption('26_Left-Accumbens-area');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode17);
 
         b13month_vtkMRMLModelNode18 = new X.object();
@@ -1578,7 +1586,7 @@
         b13month_vtkMRMLModelNode18.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b13month_vtkMRMLModelNode18.setOpacity(1.0);
         b13month_vtkMRMLModelNode18.setVisible(true);
-        b13month_vtkMRMLModelNode18.setCaption('Model_28_Left-VentralDC');
+        b13month_vtkMRMLModelNode18.setCaption('28_Left-VentralDC');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode18);
 
         b13month_vtkMRMLModelNode19 = new X.object();
@@ -1586,7 +1594,7 @@
         b13month_vtkMRMLModelNode19.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b13month_vtkMRMLModelNode19.setOpacity(1.0);
         b13month_vtkMRMLModelNode19.setVisible(true);
-        b13month_vtkMRMLModelNode19.setCaption('Model_30_Left-vessel');
+        b13month_vtkMRMLModelNode19.setCaption('30_Left-vessel');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode19);
 
         b13month_vtkMRMLModelNode20 = new X.object();
@@ -1594,7 +1602,7 @@
         b13month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b13month_vtkMRMLModelNode20.setOpacity(1.0);
         b13month_vtkMRMLModelNode20.setVisible(true);
-        b13month_vtkMRMLModelNode20.setCaption('Model_42_Right-Cerebral-Cortex');
+        b13month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode20);
 
         b13month_vtkMRMLModelNode21 = new X.object();
@@ -1602,7 +1610,7 @@
         b13month_vtkMRMLModelNode21.setColor(0.47058800000000001, 0.070588200000000004, 0.52549000000000001);
         b13month_vtkMRMLModelNode21.setOpacity(1.0);
         b13month_vtkMRMLModelNode21.setVisible(true);
-        b13month_vtkMRMLModelNode21.setCaption('Model_43_Right-Lateral-Ventricle');
+        b13month_vtkMRMLModelNode21.setCaption('43_Right-Lateral-Ventricle');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode21);
 
         b13month_vtkMRMLModelNode22 = new X.object();
@@ -1610,7 +1618,7 @@
         b13month_vtkMRMLModelNode22.setColor(0.76862699999999995, 0.22745099999999999, 0.98039200000000004);
         b13month_vtkMRMLModelNode22.setOpacity(1.0);
         b13month_vtkMRMLModelNode22.setVisible(true);
-        b13month_vtkMRMLModelNode22.setCaption('Model_44_Right-Inf-Lat-Vent');
+        b13month_vtkMRMLModelNode22.setCaption('44_Right-Inf-Lat-Vent');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode22);
 
         b13month_vtkMRMLModelNode23 = new X.object();
@@ -1618,7 +1626,7 @@
         b13month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b13month_vtkMRMLModelNode23.setOpacity(1.0);
         b13month_vtkMRMLModelNode23.setVisible(true);
-        b13month_vtkMRMLModelNode23.setCaption('Model_47_Right-Cerebellum-Cortex');
+        b13month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode23);
 
         b13month_vtkMRMLModelNode24 = new X.object();
@@ -1626,7 +1634,7 @@
         b13month_vtkMRMLModelNode24.setColor(0.0, 0.46274500000000002, 0.054901999999999999);
         b13month_vtkMRMLModelNode24.setOpacity(1.0);
         b13month_vtkMRMLModelNode24.setVisible(true);
-        b13month_vtkMRMLModelNode24.setCaption('Model_49_Right-Thalamus-Proper');
+        b13month_vtkMRMLModelNode24.setCaption('49_Right-Thalamus-Proper');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode24);
 
         b13month_vtkMRMLModelNode25 = new X.object();
@@ -1634,7 +1642,7 @@
         b13month_vtkMRMLModelNode25.setColor(0.478431, 0.72941199999999995, 0.86274499999999998);
         b13month_vtkMRMLModelNode25.setOpacity(1.0);
         b13month_vtkMRMLModelNode25.setVisible(true);
-        b13month_vtkMRMLModelNode25.setCaption('Model_50_Right-Caudate');
+        b13month_vtkMRMLModelNode25.setCaption('50_Right-Caudate');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode25);
 
         b13month_vtkMRMLModelNode26 = new X.object();
@@ -1642,7 +1650,7 @@
         b13month_vtkMRMLModelNode26.setColor(0.92549000000000003, 0.050980400000000002, 0.69019600000000003);
         b13month_vtkMRMLModelNode26.setOpacity(1.0);
         b13month_vtkMRMLModelNode26.setVisible(true);
-        b13month_vtkMRMLModelNode26.setCaption('Model_51_Right-Putamen');
+        b13month_vtkMRMLModelNode26.setCaption('51_Right-Putamen');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode26);
 
         b13month_vtkMRMLModelNode27 = new X.object();
@@ -1650,7 +1658,7 @@
         b13month_vtkMRMLModelNode27.setColor(0.050980400000000002, 0.18823500000000001, 1.0);
         b13month_vtkMRMLModelNode27.setOpacity(1.0);
         b13month_vtkMRMLModelNode27.setVisible(true);
-        b13month_vtkMRMLModelNode27.setCaption('Model_52_Right-Pallidum');
+        b13month_vtkMRMLModelNode27.setCaption('52_Right-Pallidum');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode27);
 
         b13month_vtkMRMLModelNode28 = new X.object();
@@ -1658,7 +1666,7 @@
         b13month_vtkMRMLModelNode28.setColor(0.86274499999999998, 0.84705900000000001, 0.078431399999999998);
         b13month_vtkMRMLModelNode28.setOpacity(1.0);
         b13month_vtkMRMLModelNode28.setVisible(true);
-        b13month_vtkMRMLModelNode28.setCaption('Model_53_Right-Hippocampus');
+        b13month_vtkMRMLModelNode28.setCaption('53_Right-Hippocampus');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode28);
 
         b13month_vtkMRMLModelNode29 = new X.object();
@@ -1666,7 +1674,7 @@
         b13month_vtkMRMLModelNode29.setColor(0.403922, 1.0, 1.0);
         b13month_vtkMRMLModelNode29.setOpacity(1.0);
         b13month_vtkMRMLModelNode29.setVisible(true);
-        b13month_vtkMRMLModelNode29.setCaption('Model_54_Right-Amygdala');
+        b13month_vtkMRMLModelNode29.setCaption('54_Right-Amygdala');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode29);
 
         b13month_vtkMRMLModelNode30 = new X.object();
@@ -1674,7 +1682,7 @@
         b13month_vtkMRMLModelNode30.setColor(1.0, 0.64705900000000005, 0.0);
         b13month_vtkMRMLModelNode30.setOpacity(1.0);
         b13month_vtkMRMLModelNode30.setVisible(true);
-        b13month_vtkMRMLModelNode30.setCaption('Model_58_Right-Accumbens-area');
+        b13month_vtkMRMLModelNode30.setCaption('58_Right-Accumbens-area');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode30);
 
         b13month_vtkMRMLModelNode31 = new X.object();
@@ -1682,7 +1690,7 @@
         b13month_vtkMRMLModelNode31.setColor(0.64705900000000005, 0.16470599999999999, 0.16470599999999999);
         b13month_vtkMRMLModelNode31.setOpacity(1.0);
         b13month_vtkMRMLModelNode31.setVisible(true);
-        b13month_vtkMRMLModelNode31.setCaption('Model_60_Right-VentralDC');
+        b13month_vtkMRMLModelNode31.setCaption('60_Right-VentralDC');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode31);
 
         b13month_vtkMRMLModelNode32 = new X.object();
@@ -1690,7 +1698,7 @@
         b13month_vtkMRMLModelNode32.setColor(0.62745099999999998, 0.12548999999999999, 0.94117600000000001);
         b13month_vtkMRMLModelNode32.setOpacity(1.0);
         b13month_vtkMRMLModelNode32.setVisible(true);
-        b13month_vtkMRMLModelNode32.setCaption('Model_62_Right-vessel');
+        b13month_vtkMRMLModelNode32.setCaption('62_Right-vessel');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode32);
 
         b13month_vtkMRMLModelNode33 = new X.object();
@@ -1698,7 +1706,7 @@
         b13month_vtkMRMLModelNode33.setColor(0.91764699999999999, 0.66274500000000003, 0.117647);
         b13month_vtkMRMLModelNode33.setOpacity(1.0);
         b13month_vtkMRMLModelNode33.setVisible(true);
-        b13month_vtkMRMLModelNode33.setCaption('Model_85_Optic-Chiasm');
+        b13month_vtkMRMLModelNode33.setCaption('85_Optic-Chiasm');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode33);
 
         b13month_vtkMRMLModelNode34 = new X.object();
@@ -1706,7 +1714,7 @@
         b13month_vtkMRMLModelNode34.setColor(0.466667, 0.39215699999999998, 0.69019600000000003);
         b13month_vtkMRMLModelNode34.setOpacity(1.0);
         b13month_vtkMRMLModelNode34.setVisible(true);
-        b13month_vtkMRMLModelNode34.setCaption('Model_172_Vermis');
+        b13month_vtkMRMLModelNode34.setCaption('172_Vermis');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode34);
 
         b13month_vtkMRMLModelNode35 = new X.object();
@@ -1714,7 +1722,7 @@
         b13month_vtkMRMLModelNode35.setColor(0.466667, 0.78431399999999996, 0.69019600000000003);
         b13month_vtkMRMLModelNode35.setOpacity(1.0);
         b13month_vtkMRMLModelNode35.setVisible(true);
-        b13month_vtkMRMLModelNode35.setCaption('Model_173_Midbrain');
+        b13month_vtkMRMLModelNode35.setCaption('173_Midbrain');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode35);
 
         b13month_vtkMRMLModelNode36 = new X.object();
@@ -1722,7 +1730,7 @@
         b13month_vtkMRMLModelNode36.setColor(0.466667, 0.623529, 0.39215699999999998);
         b13month_vtkMRMLModelNode36.setOpacity(1.0);
         b13month_vtkMRMLModelNode36.setVisible(true);
-        b13month_vtkMRMLModelNode36.setCaption('Model_174_Pons');
+        b13month_vtkMRMLModelNode36.setCaption('174_Pons');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode36);
 
         b13month_vtkMRMLModelNode37 = new X.object();
@@ -1730,7 +1738,7 @@
         b13month_vtkMRMLModelNode37.setColor(0.466667, 0.623529, 0.78431399999999996);
         b13month_vtkMRMLModelNode37.setOpacity(1.0);
         b13month_vtkMRMLModelNode37.setVisible(true);
-        b13month_vtkMRMLModelNode37.setCaption('Model_175_Medulla');
+        b13month_vtkMRMLModelNode37.setCaption('175_Medulla');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode37);
 
 
@@ -1740,9 +1748,103 @@
         b13month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b13month_r0.render();
 
+
+        //
+        // The GUI panel
+        //
+        var view = {
+          currentView:'view all'       
+        };
         
+        var gui = new dat.GUI();
+        var viewController = gui.add(view, 'currentView', [ 'view all', 'hide all', 'transparency example' ] );
+        
+        viewController.onChange(function(value){
+          
+          if (value == 'view all'){
+            
+            toggleVisibility(true);
+            
+          } else if (value == 'hide all') {
+            
+            toggleVisibility(false);
+            
+          } else if (value == 'transparency example') {
+            
+            //4==left hemisphere, 20==right hemisphere
+            turnTransparent(4);
+            turnTransparent(20);
+            
+          }
+          
+          renderAll();
+          
+        });
+        
+    };
+        
+      types = ['03','04','06','07','12','13'];
       
+      function renderAll() {
+        
+        for (t in types) {
+          
+          t = types[t];
+          
+          var xrenderer = 'b'+t+'month_r0';
+          eval(xrenderer+'.render()');
+                
+        }
+        
       };
+      
+      function turnTransparent(id) {
+
+        for (t in types) {
+          
+          t = types[t];
+          
+          _changeOpacity(t,id,0.3);  
+          
+        }        
+      };
+      
+      
+      function toggleVisibility(visible) {
+        
+        for (t in types) {
+          
+          t = types[t];
+          
+          // loop through all models
+          for(var m=4;m<38;m++) {
+            
+            _toggleVisibility(t,m,visible);
+            _changeOpacity(t,m,1);
+            
+          }
+          
+        }
+        
+      };
+      
+      function _changeOpacity(type,id,opacityValue) {
+        
+        var xobject = 'b'+type+'month_vtkMRMLModelNode'+id;
+        eval(xobject+'.setOpacity('+opacityValue+');');        
+        
+      };
+      
+      function _toggleVisibility(type,id,visible) {
+        
+        var xobject = 'b'+type+'month_vtkMRMLModelNode'+id;
+        eval(xobject+'.setVisible('+visible.toString()+');');
+        
+      };
+      
+      
+      
+      
     </script>
     <style>
 
@@ -1756,26 +1858,26 @@
 	</style>
   </head>
   <body style="margin:0px; padding:0px;" onload="run()">
-    <table width="930" height="610">
+    <table width="100%" height="100%">
       <tr>
-        <td><div id="b03month_r0" style="background-color: #000000; width: 300; height: 300;">a</div></td>
-        <td><div id="b04month_r0" style="background-color: #000000; width: 300; height: 300;">b</div></td>
-        <td><div id="b06month_r0" style="background-color: #000000; width: 300; height: 300;">c</div></td>
+        <td width="33%"><div id="b03month_r0" style="background-color: #000000; width: 100%; height: 100%;position:static;"></div></td>
+        <td width="33%"><div id="b04month_r0" style="background-color: #000000; width: 100%; height: 100%;position:static;"></div></td>
+        <td width="33%"><div id="b06month_r0" style="background-color: #000000; width: 100%; height: 100%;position:static;"></div></td>
       </tr>
       <tr>
-        <td align="center" height="10">3 months</td>
-	    <td align="center">4 months</td>
-        <td align="center">6 months</td>	    
+        <td align="center" height="10" width="33%">3 months</td>
+	    <td align="center" width="33%">4 months</td>
+        <td align="center" width="33%">6 months</td>	    
       </tr>            
       <tr>
-        <td><div id="b07month_r0" style="background-color: #000000; width: 300; height: 300;">d</div></td>
-        <td><div id="b12month_r0" style="background-color: #000000; width: 300; height: 300;">e</div></td>
-        <td><div id="b13month_r0" style="background-color: #000000; width: 300; height: 300;">f</div></td>
+        <td width="33%"><div id="b07month_r0" style="background-color: #000000; width: 100%; height: 100%;"></div></td>
+        <td width="33%"><div id="b12month_r0" style="background-color: #000000; width: 100%; height: 100%;"></div></td>
+        <td width="33%"><div id="b13month_r0" style="background-color: #000000; width: 100%; height: 100%;"></div></td>
       </tr>      
       <tr>
-        <td height="10" align="center">7 months</td>
-	    <td align="center">12 months</td>
-        <td align="center">13 months</td>	    
+        <td height="10" align="center" width="33%">7 months</td>
+	    <td align="center" width="33%">12 months</td>
+        <td align="center" width="33%">13 months</td>	    
       </tr>      
     </table>
   </body>
