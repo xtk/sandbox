@@ -3,7 +3,7 @@
 <!-- WebGL Export for 3D Slicer4 powered by XTK -- http://goXTK.com -->
 <head>
 <title>Myong's Baby Brains</title>
-<script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script>
+<script type="text/javascript" src="xtk.js"></script>
 <script type="text/javascript" src="dat.gui.min.js"></script>
 <script type="text/javascript">
     
@@ -12,7 +12,10 @@
         b03month_r0 = new X.renderer('b03month_r0');
         b03month_r0.init();
         b03month_r0.canvas().style.position = "fixed";
-
+        b03month_r0.interactor().onMouseMove = function(event) {
+          console.log('sth');
+          b04month_r0.interactor().onMouseMovementInside(event);
+        };
 
         scene = new X.object();
         b03month_vtkMRMLModelHierarchyNode1 = new X.object();
@@ -23,7 +26,7 @@
         b03month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b03month_vtkMRMLModelNode4.setOpacity(1.0);
         b03month_vtkMRMLModelNode4.setVisible(true);
-        b03month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
+        b03month_vtkMRMLModelNode4.setCaption('3_Left-Cerebral-Hemisphere');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode4);
 
         b03month_vtkMRMLModelNode5 = new X.object();
@@ -47,7 +50,7 @@
         b03month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b03month_vtkMRMLModelNode7.setOpacity(1.0);
         b03month_vtkMRMLModelNode7.setVisible(true);
-        b03month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
+        b03month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellar-Hemisphere');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode7);
 
         b03month_vtkMRMLModelNode8 = new X.object();
@@ -151,7 +154,7 @@
         b03month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b03month_vtkMRMLModelNode20.setOpacity(1.0);
         b03month_vtkMRMLModelNode20.setVisible(true);
-        b03month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
+        b03month_vtkMRMLModelNode20.setCaption('42_Right-Cerebral-Hemisphere');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode20);
 
         b03month_vtkMRMLModelNode21 = new X.object();
@@ -175,7 +178,7 @@
         b03month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b03month_vtkMRMLModelNode23.setOpacity(1.0);
         b03month_vtkMRMLModelNode23.setVisible(true);
-        b03month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
+        b03month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellar-Hemisphere');
         b03month_vtkMRMLModelHierarchyNode1.children().push(b03month_vtkMRMLModelNode23);
 
         b03month_vtkMRMLModelNode24 = new X.object();
@@ -302,7 +305,10 @@
         b04month_r0 = new X.renderer('b04month_r0');      
         b04month_r0.init();
         b04month_r0.canvas().style.position = "fixed";
-
+        b04month_r0.interactor().onMouseMove = function(event) {
+          console.log('sth2');
+          //b04month_r0.interactor().onMouseMovementInside(event);
+        };
 
         scene = new X.object();
         b04month_vtkMRMLModelHierarchyNode1 = new X.object();        
@@ -313,7 +319,7 @@
         b04month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b04month_vtkMRMLModelNode4.setOpacity(1.0);
         b04month_vtkMRMLModelNode4.setVisible(true);
-        b04month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
+        b04month_vtkMRMLModelNode4.setCaption('3_Left-Cerebral-Hemisphere');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode4);
 
         b04month_vtkMRMLModelNode5 = new X.object();
@@ -337,7 +343,7 @@
         b04month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b04month_vtkMRMLModelNode7.setOpacity(1.0);
         b04month_vtkMRMLModelNode7.setVisible(true);
-        b04month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
+        b04month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellar-Hemisphere');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode7);
 
         b04month_vtkMRMLModelNode8 = new X.object();
@@ -441,7 +447,7 @@
         b04month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b04month_vtkMRMLModelNode20.setOpacity(1.0);
         b04month_vtkMRMLModelNode20.setVisible(true);
-        b04month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
+        b04month_vtkMRMLModelNode20.setCaption('42_Right-Cerebral-Hemisphere');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode20);
 
         b04month_vtkMRMLModelNode21 = new X.object();
@@ -465,7 +471,7 @@
         b04month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b04month_vtkMRMLModelNode23.setOpacity(1.0);
         b04month_vtkMRMLModelNode23.setVisible(true);
-        b04month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
+        b04month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellar-Hemisphere');
         b04month_vtkMRMLModelHierarchyNode1.children().push(b04month_vtkMRMLModelNode23);
 
         b04month_vtkMRMLModelNode24 = new X.object();
@@ -603,7 +609,7 @@
         b06month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b06month_vtkMRMLModelNode4.setOpacity(1.0);
         b06month_vtkMRMLModelNode4.setVisible(true);
-        b06month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
+        b06month_vtkMRMLModelNode4.setCaption('3_Left-Cerebral-Hemisphere');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode4);
 
         b06month_vtkMRMLModelNode5 = new X.object();
@@ -627,7 +633,7 @@
         b06month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b06month_vtkMRMLModelNode7.setOpacity(1.0);
         b06month_vtkMRMLModelNode7.setVisible(true);
-        b06month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
+        b06month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellar-Hemisphere');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode7);
 
         b06month_vtkMRMLModelNode8 = new X.object();
@@ -731,7 +737,7 @@
         b06month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b06month_vtkMRMLModelNode20.setOpacity(1.0);
         b06month_vtkMRMLModelNode20.setVisible(true);
-        b06month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
+        b06month_vtkMRMLModelNode20.setCaption('42_Right-Cerebral-Hemisphere');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode20);
 
         b06month_vtkMRMLModelNode21 = new X.object();
@@ -755,7 +761,7 @@
         b06month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b06month_vtkMRMLModelNode23.setOpacity(1.0);
         b06month_vtkMRMLModelNode23.setVisible(true);
-        b06month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
+        b06month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellar-Hemisphere');
         b06month_vtkMRMLModelHierarchyNode1.children().push(b06month_vtkMRMLModelNode23);
 
         b06month_vtkMRMLModelNode24 = new X.object();
@@ -894,7 +900,7 @@
         b07month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b07month_vtkMRMLModelNode4.setOpacity(1.0);
         b07month_vtkMRMLModelNode4.setVisible(true);
-        b07month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
+        b07month_vtkMRMLModelNode4.setCaption('3_Left-Cerebral-Hemisphere');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode4);
 
         b07month_vtkMRMLModelNode5 = new X.object();
@@ -918,7 +924,7 @@
         b07month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b07month_vtkMRMLModelNode7.setOpacity(1.0);
         b07month_vtkMRMLModelNode7.setVisible(true);
-        b07month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
+        b07month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellar-Hemisphere');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode7);
 
         b07month_vtkMRMLModelNode8 = new X.object();
@@ -1022,7 +1028,7 @@
         b07month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b07month_vtkMRMLModelNode20.setOpacity(1.0);
         b07month_vtkMRMLModelNode20.setVisible(true);
-        b07month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
+        b07month_vtkMRMLModelNode20.setCaption('42_Right-Cerebral-Hemisphere');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode20);
 
         b07month_vtkMRMLModelNode21 = new X.object();
@@ -1046,7 +1052,7 @@
         b07month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b07month_vtkMRMLModelNode23.setOpacity(1.0);
         b07month_vtkMRMLModelNode23.setVisible(true);
-        b07month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
+        b07month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellar-Hemisphere');
         b07month_vtkMRMLModelHierarchyNode1.children().push(b07month_vtkMRMLModelNode23);
 
         b07month_vtkMRMLModelNode24 = new X.object();
@@ -1184,7 +1190,7 @@
         b12month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b12month_vtkMRMLModelNode4.setOpacity(1.0);
         b12month_vtkMRMLModelNode4.setVisible(true);
-        b12month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
+        b12month_vtkMRMLModelNode4.setCaption('3_Left-Cerebral-Hemisphere');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode4);
 
         b12month_vtkMRMLModelNode5 = new X.object();
@@ -1208,7 +1214,7 @@
         b12month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b12month_vtkMRMLModelNode7.setOpacity(1.0);
         b12month_vtkMRMLModelNode7.setVisible(true);
-        b12month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
+        b12month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellar-Hemisphere');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode7);
 
         b12month_vtkMRMLModelNode8 = new X.object();
@@ -1312,7 +1318,7 @@
         b12month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b12month_vtkMRMLModelNode20.setOpacity(1.0);
         b12month_vtkMRMLModelNode20.setVisible(true);
-        b12month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
+        b12month_vtkMRMLModelNode20.setCaption('42_Right-Cerebral-Hemisphere');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode20);
 
         b12month_vtkMRMLModelNode21 = new X.object();
@@ -1336,7 +1342,7 @@
         b12month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b12month_vtkMRMLModelNode23.setOpacity(1.0);
         b12month_vtkMRMLModelNode23.setVisible(true);
-        b12month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
+        b12month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellar-Hemisphere');
         b12month_vtkMRMLModelHierarchyNode1.children().push(b12month_vtkMRMLModelNode23);
 
         b12month_vtkMRMLModelNode24 = new X.object();
@@ -1474,7 +1480,7 @@
         b13month_vtkMRMLModelNode4.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b13month_vtkMRMLModelNode4.setOpacity(1.0);
         b13month_vtkMRMLModelNode4.setVisible(true);
-        b13month_vtkMRMLModelNode4.setCaption('3_Left-Hemisphere');
+        b13month_vtkMRMLModelNode4.setCaption('3_Left-Cerebral-Hemisphere');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode4);
 
         b13month_vtkMRMLModelNode5 = new X.object();
@@ -1498,7 +1504,7 @@
         b13month_vtkMRMLModelNode7.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b13month_vtkMRMLModelNode7.setOpacity(1.0);
         b13month_vtkMRMLModelNode7.setVisible(true);
-        b13month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellum-Cortex');
+        b13month_vtkMRMLModelNode7.setCaption('8_Left-Cerebellar-Hemisphere');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode7);
 
         b13month_vtkMRMLModelNode8 = new X.object();
@@ -1602,7 +1608,7 @@
         b13month_vtkMRMLModelNode20.setColor(0.80392200000000003, 0.24313699999999999, 0.30588199999999999);
         b13month_vtkMRMLModelNode20.setOpacity(1.0);
         b13month_vtkMRMLModelNode20.setVisible(true);
-        b13month_vtkMRMLModelNode20.setCaption('42_Right-Hemisphere');
+        b13month_vtkMRMLModelNode20.setCaption('42_Right-Cerebral-Hemisphere');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode20);
 
         b13month_vtkMRMLModelNode21 = new X.object();
@@ -1626,7 +1632,7 @@
         b13month_vtkMRMLModelNode23.setColor(0.90196100000000001, 0.58039200000000002, 0.13333300000000001);
         b13month_vtkMRMLModelNode23.setOpacity(1.0);
         b13month_vtkMRMLModelNode23.setVisible(true);
-        b13month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellum-Cortex');
+        b13month_vtkMRMLModelNode23.setCaption('47_Right-Cerebellar-Hemisphere');
         b13month_vtkMRMLModelHierarchyNode1.children().push(b13month_vtkMRMLModelNode23);
 
         b13month_vtkMRMLModelNode24 = new X.object();
@@ -1769,7 +1775,7 @@
         };
         
         var gui = new dat.GUI();
-        var viewController = gui.add(view, 'CurrentView', [ 'Whole brain', 'Medial view', 'Thalamus', 'Corpus striatum', 'Amygdala, Hippocampus', 'Cerebellum', 'Brainstem' ] );
+        var viewController = gui.add(view, 'CurrentView', [ 'Whole brain', 'Medial view', 'Deep structures', 'Thalamus', 'Corpus striatum', 'Amygdala, Hippocampus', 'Cerebellum', 'Brainstem', 'Lateral ventricle' ] );
         gui.add(view,'Center');
         
         viewController.onChange(function(value){
@@ -1785,7 +1791,7 @@
             hide(17); // left accumbens area
             hide(6); // left int. lat. ventricle
             hide(12); // 3rd ventricle
-            hide(30); // left vessel
+            hide(19); // left vessel
             
             
           } else if (value == 'Thalamus') {
@@ -1880,7 +1886,48 @@
             show(36);
             show(37);
           
+          } else if(value == "Lateral ventricle") {
+            
+            toggleVisibility(true); // do it to reset opacity
+            toggleVisibility(false); // hide all
+            show(5); // left lateral ventricle
+            show(21); // right lateral ventricle
+            show(4); // left hemisphere
+            show(20); // right hemisphere
+            turnTransparent(4);
+            turnTransparent(20);
+            show(7); // left cerebellum cortex
+            show(23); // right cerebellum cortex
+            turnTransparent(7);
+            turnTransparent(23);     
+            
+          } else if (value == "Deep structures") {
+            
+            toggleVisibility(true);
+            hide(17); // left accumbens area
+            hide(6); // left inf. lat. ventricle
+            //hide(12); // 3rd ventricle
+            
+            hide(19); // left vessel
+            hide(22); // right inf. lat. ventricle
+            hide(30); // right accumbens area
+            hide(32); // right vessel
+            
+            show(4); // left hemisphere
+            show(20); // right hemisphere
+            turnTransparent(4);
+            turnTransparent(20);
+            show(7); // left cerebellum cortex
+            show(23); // right cerebellum cortex
+            turnTransparent(7);
+            turnTransparent(23);    
+            
           }
+          
+          
+          
+          
+          
           
           renderAll();
           
