@@ -3,19 +3,24 @@
 <!-- WebGL Export for 3D Slicer4 powered by XTK -- http://goXTK.com -->
 <head>
 <title>Myong's Baby Brains</title>
-<script type="text/javascript" src="xtk.js"></script>
+<script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script>
+<!-- <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script> -->
+<!-- <script type="text/javascript" src="../../X/xtk-deps.js"></script> -->
 <script type="text/javascript" src="dat.gui.min.js"></script>
 <script type="text/javascript">
+    
+//     goog.require('X.renderer');
+//     goog.require('X.object');
     
     var run = function() {
 
         b03month_r0 = new X.renderer('b03month_r0');
         b03month_r0.init();
         b03month_r0.canvas().style.position = "fixed";
-        b03month_r0.interactor().onMouseMove = function(event) {
-          console.log('sth');
-          b04month_r0.interactor().onMouseMovementInside(event);
+        b03month_r0.interactor().onMouseUp = function(left,middle,right) {
+          linkCams('03', left,middle,right);
         };
+
 
         scene = new X.object();
         b03month_vtkMRMLModelHierarchyNode1 = new X.object();
@@ -296,7 +301,7 @@
 
 
         b03month_r0.add(scene);
-        b03month_r0.camera().setPosition(-290.23600607796453, 144.84560844332805, -32.310614686356232);
+        b03month_r0.camera().setPosition(-290, 144, -32);
         b03month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b03month_r0.render();
         
@@ -305,11 +310,10 @@
         b04month_r0 = new X.renderer('b04month_r0');      
         b04month_r0.init();
         b04month_r0.canvas().style.position = "fixed";
-        b04month_r0.interactor().onMouseMove = function(event) {
-          console.log('sth2');
-          //b04month_r0.interactor().onMouseMovementInside(event);
-        };
-
+        b04month_r0.interactor().onMouseUp = function(left,middle,right) {
+          linkCams('04', left,middle,right);
+        };  
+        
         scene = new X.object();
         b04month_vtkMRMLModelHierarchyNode1 = new X.object();        
         scene.children().push(b04month_vtkMRMLModelHierarchyNode1);
@@ -589,7 +593,7 @@
 
 
         b04month_r0.add(scene);
-        b04month_r0.camera().setPosition(-290.23600607796453, 144.84560844332805, -32.310614686356232);
+        b04month_r0.camera().setPosition(-290, 144, -32);
         b04month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b04month_r0.render();
 
@@ -598,7 +602,9 @@
         b06month_r0 = new X.renderer('b06month_r0');     
         b06month_r0.init();
         b06month_r0.canvas().style.position = "fixed";
-
+        b06month_r0.interactor().onMouseUp = function(left,middle,right) {
+          linkCams('06', left,middle,right);
+        };
 
         scene = new X.object();
         b06month_vtkMRMLModelHierarchyNode1 = new X.object();
@@ -886,7 +892,7 @@
         
         
         b06month_r0.add(scene);
-        b06month_r0.camera().setPosition(-290.23600607796453, 144.84560844332805, -32.310614686356232);
+        b06month_r0.camera().setPosition(-290, 144, -32);
         b06month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b06month_r0.render();
 
@@ -896,7 +902,9 @@
         b07month_r0 = new X.renderer('b07month_r0');
         b07month_r0.init();
         b07month_r0.canvas().style.position = "fixed";
-
+        b07month_r0.interactor().onMouseUp = function(left,middle,right) {
+          linkCams('07', left,middle,right);
+        };
 
         scene = new X.object();
         b07month_vtkMRMLModelHierarchyNode1 = new X.object();
@@ -1182,7 +1190,7 @@
         transform('07',b07matrix);
 
         b07month_r0.add(scene);
-        b07month_r0.camera().setPosition(-290.23600607796453, 144.84560844332805, -32.310614686356232);
+        b07month_r0.camera().setPosition(-290, 144, -32);
         b07month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b07month_r0.render();
         
@@ -1191,7 +1199,9 @@
         b12month_r0 = new X.renderer('b12month_r0');
         b12month_r0.init();
         b12month_r0.canvas().style.position = "fixed";
-
+        b12month_r0.interactor().onMouseUp = function(left,middle,right) {
+          linkCams('12', left,middle,right);
+        };      
 
         scene = new X.object();
         b12month_vtkMRMLModelHierarchyNode1 = new X.object();
@@ -1477,7 +1487,7 @@
         transform('12',b12matrix);
 
         b12month_r0.add(scene);
-        b12month_r0.camera().setPosition(-290.23600607796453, 144.84560844332805, -32.310614686356232);
+        b12month_r0.camera().setPosition(-290, 144, -32);
         b12month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b12month_r0.render();
 
@@ -1486,7 +1496,9 @@
         b13month_r0 = new X.renderer('b13month_r0');
         b13month_r0.init();
         b13month_r0.canvas().style.position = "fixed";
-
+        b13month_r0.interactor().onMouseUp = function(left,middle,right) {
+          linkCams('13', left,middle,right);
+        };
 
         scene = new X.object();
         b13month_vtkMRMLModelHierarchyNode1 = new X.object();
@@ -1772,7 +1784,7 @@
         transform('13',b13matrix);
 
         b13month_r0.add(scene);
-        b13month_r0.camera().setPosition(-290.23600607796453, 144.84560844332805, -32.310614686356232);
+        b13month_r0.camera().setPosition(-290, 144, -32);
         b13month_r0.camera().setUp(-0.070463832964477391, 0.13570918314254524, 0.98823978155847247);
         b13month_r0.render();
 
@@ -2051,6 +2063,24 @@
         var xobject = 'b'+type+'month_vtkMRMLModelNode'+id;
         eval(xobject+'.setVisible('+visible.toString()+');');
         
+      };
+      
+      function linkCams(_t,left,middle,right) {
+        
+        for (t in types) {
+          
+          t = types[t];
+          
+          if (_t == t) continue;
+          
+          var xrenderer = 'b'+t+'month_r0';
+          var _renderer = 'b'+_t+'month_r0';
+          // copy the view matrix over from camera to camera
+          eval(xrenderer+'.camera().setView('+_renderer+'.camera().view())');
+          eval(xrenderer+'.render()');
+          
+        }        
+                  
       };
       
       
