@@ -1,35 +1,51 @@
 <script type="text/javascript">
+
+function destroyTracks() {
+  
+//destroy the old renderer
+  r1.destroy();
+  r1 = null;
+  tracks = null;
+  // .. reset the loading tag for the slide
+  jQuery('#tracks').removeClass('loaded');
+  
+  console.log('tracks destroyed.');  
+  
+}
+
+
+
     // create a new renderer
-    var r = new X.renderer('r3');
-    r.init();
+    r2 = new X.renderer('r3');
+    r2.init();
     
     // load diffusion toolkit data
-    var tracks = new X.object();
-    tracks.load('data/streamline.trk');
+    tracks2 = new X.object();
+    tracks2.load('data/streamline.trk');
     
     // load a freesurfer mesh.. 
     // all freesurfer meshes have to have the extension ".fsm" to be properly recognized by XTK!
-    var lh = new X.object();
+    lh = new X.object();
     lh.load('data/rh.smoothwm.fsm');
     lh.setColor(0.7,0.2,0.2);
     lh.setOpacity(0.6);
     
     // ... and another one
-    var rh = new X.object();
+    rh = new X.object();
     rh.load('data/lh.smoothwm.fsm');
     rh.setColor(0,0.7,0);
     rh.setOpacity(0.6);
     
     // add the objects
-    r.add(tracks);
-    r.add(lh);
-    r.add(rh);
+    r2.add(tracks2);
+    r2.add(lh);
+    r2.add(rh);
     
     // .. and render it
-    r.camera().setPosition(0,0,200);
-    r.render();    
+    r2.camera().setPosition(0,0,200);
+    r2.render();    
     
-    r.onShowtime = function() {
+    r2.onShowtime = function() {
 
       // the following matrices were created by Dan Ginsburg
       // see http://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferTrackVisTransforms
@@ -41,7 +57,7 @@
            [0.00000, -2.00000, 0.00000, 110.00000],
            [0.00000, 0.00000, 0.00000, 1.00000]]); 
             
-      tracks.transform().setMatrix(tracks_transform);
+      tracks2.transform().setMatrix(tracks_transform);
       
       // transform the surfaces
       var brain_transform = new X.matrix([[9.992089867591858e-01, 2.652833424508572e-02, 2.959738858044147e-02, -1.404523849487305e+00], 
@@ -53,19 +69,21 @@
       lh.transform().setMatrix(brain_transform);
       
       // we reset the bounding box and set the world center to 0,0,0
-      r.resetBoundingBox();
+      r2.resetBoundingBox();
             
     };
     
+    console.log('tracksMeshes created.');
 
-
-
+function showTracksMeshesUI(){
+    
+    
     //
     // The GUI panel
     //
     var gui = new dat.GUI();
     var trackgui = gui.addFolder('Fiber Tracks');
-    var trackVisibleController = trackgui.add(tracks,'_visible');
+    var trackVisibleController = trackgui.add(tracks2,'_visible');
     trackgui.open();
     
     var lhgui = gui.addFolder('Left Hemisphere');
@@ -81,32 +99,34 @@
     rhgui.open();
 
     trackVisibleController.onChange(function(value) {
-      r.render();
+      r2.render();
     });      
     
     lhVisibleController.onChange(function(value) {
-      r.render();
+      r2.render();
     });      
     
     lhOpacityController.onChange(function(value) {
-      r.render();
+      r2.render();
     });    
 
     lhColorController.onChange(function(value) {
-      r.render();
+      r2.render();
     });        
     
     rhVisibleController.onChange(function(value) {
-      r.render();
+      r2.render();
     });      
     
     rhOpacityController.onChange(function(value) {
-      r.render();
+      r2.render();
     });            
 
     rhColorController.onChange(function(value) {
-      r.render();
+      r2.render();
     });     
+    
+}    
     
     </script>
 

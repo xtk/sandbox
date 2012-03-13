@@ -1,19 +1,35 @@
 <script type="text/javascript">
-console.log('tracks.html');
+
+function destroyCube() {
+  
+  // destroy the old renderer
+  r0.destroy();
+  r0 = null;
+  cube = null;
+  // .. reset the loading tag for the slide
+  jQuery('#cube').removeClass('loaded');
+  
+  console.log('cube destroyed.');  
+  
+}
+
+
 // create a new renderer
-var r = new X.renderer('r2');
-r.init();
+r1 = new X.renderer('r2');
+r1.init();
 
 // load a .trk file
-var fibers = new X.object();
+fibers = new X.object();
 fibers.load('data/cc_tracks.trk');
 fibers.setCaption('The Corpus Callosum:<br>connecting the two hemispheres<br>of the human brain.')
 
 // add the object
-r.add(fibers);
+r1.add(fibers);
 
 // .. and render it
-r.render();
+r1.render();
+
+console.log('tracks created.');
     
 </script>
 

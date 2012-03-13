@@ -5,36 +5,56 @@
 	<title>WebGL for Baby Brains: Neuroimaging in the Browser</title>
 
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
+	<meta name="author" content="Daniel Haehn, Children's Hospital Boston" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<link href="xmpress.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="http://get.goXTK.com/xtk.js"></script>
+  <script type="text/javascript" src="xtk.js"></script>
   <script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="jmpress.min.js"></script>
+	<script type="text/javascript" src="jquery/js/jquery-1.7.1.min.js"></script>
+	<link id="theme" href="jquery/css/start/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="jmpress/jmpress.min.js"></script>
+	<link href="jmpress/basic-animations.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-<div id="simple">
-	<div id="home" class="step">
-		<p>Hello! My name is jmpress.js...</p>
+<div id="webglchb">
+  <div id="home" class="step init-css" data-x=0>
+    <div class="intro-top ui-state-default">
+      <img src="gfx/chblogo.gif" style="position:absolute;bottom:200px;left:50%;">        
+      <div class="inner">  
+        <h1>WebGL for Baby Brains:</h1>
+      </div>
+    </div>
+    <div class="intro-bottom ui-state-default">
+      <div class="inner">
+        <h1>Neuroimaging in the Browser</h1>
+      </div>
+    </div>
+  </div>
+
+	<div id="chbintro" class="step" data-x="0">
+    <img src="gfx/chbentrance.jpg" width="100%" height="100%" style="position:absolute;left:0px;top:0px">
+    <img src="gfx/chblobby.jpg" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
+    <img src="gfx/chbclowns.jpg" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
+    <video data-jmpress="expand" preload="auto" src="gfx/foodbot.mp4" height="100%"></video>    
 	</div>
 	<div class="step" data-x="1000">
-		<p>and this is a really simple demo.</p>
+       
 	</div>
-  <div class="step" data-src="x/cube.html" data-x="2000">
+  <div id="cube" class="step" data-src="x/cube.html" data-x="2000">
     Loading...
   </div>
 	<div class="step" data-x="3000">
 		<p>You might think it is boring...</p>
 	</div>
-  <div class="step" data-src="x/tracks.html" data-x="4000">
+  <div id="tracks" class="step" data-src="x/tracks.html" data-x="4000">
     Loading...
   </div>
   <div class="step" data-x="5000">
     <p>You might think it is boring2...</p>
   </div>
-  <div class="step" data-src="x/tracks_meshes.html" data-x="6000">
+  <div id ="tracks_meshes" class="step" data-src="x/tracks_meshes.html" data-x="6000">
     Loading...
   </div>  
   <div class="step" data-x="7000">
@@ -42,14 +62,38 @@
   </div>  
 </div>
 
-<div class="hint">
-    <p>Use arrow keys to navigate</p>
-</div>
-
 <script type="text/javascript">
+
+setTimeout(function() {
+  $("#home").removeClass("init-css");
+}, 500);
+
 $(function() {
-	$('#simple').jmpress();
+	$('#webglchb').jmpress({
+	  
+    'setActive':function(step,stepdata) {
+      
+      if (step.is($('#tracks'))) {
+        
+        destroyCube();
+        
+      } else if (step.is($('#tracks_meshes'))) {
+        
+        destroyTracks();
+        showTracksMeshesUI();
+        
+      }
+      
+    } 
+	  
+	});
+
+	
 });
+
+
+
+
 </script>
 
 </body>

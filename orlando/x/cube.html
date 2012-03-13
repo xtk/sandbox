@@ -3,19 +3,20 @@
 
 <script type="text/javascript">
   
-    console.log('NOW!');
-    var r = new X.renderer('r');
-    r.config.ORDERING_ENABLED = false;
-    r.init();
+    r0 = new X.renderer('r0');
+    r0.config.ORDERING_ENABLED = false;
+    r0.init();
     
-    var cube = new X.cube([0,0,0],10,10,10);
+    cube = new X.cube([0,0,0],10,10,10);
     cube.setColor(1,0,0);
     
-    r.add(cube);
+    r0.add(cube);
     
-    r.render();
+    r0.render();
+
+    console.log('cube created.');
     
 </script>
 
-<div id="r" style="background:rgba(0, 0, 0, 0); width: 100%; height: 100%;"></div>
+<div id="r0" style="background:rgba(0, 0, 0, 0); width: 100%; height: 100%;"></div>
 
