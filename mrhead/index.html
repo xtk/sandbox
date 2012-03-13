@@ -46,7 +46,7 @@
     
     r.add(volume);
     
-    r.camera().setUp(0,0,1);
+    r.camera().setUp(0,1,0);
     r.camera().setPosition(700, 80, 80);
     r.render();
     
@@ -81,6 +81,7 @@
         
         // this setting makes the volume rendering look good
         volume.setOpacity(0.15);
+        volume.threshold(34,volume.scalarRange()[1]);
         
         // Iterate over the gui controllers to grab updated values
         for (var i in volumegui.__controllers) {
