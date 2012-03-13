@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>WebGL for Baby Brains: Neuroimaging in the Browser</title>
+
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<link href="xmpress.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="http://get.goXTK.com/xtk.js"></script>
+  <script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jmpress.min.js"></script>
+</head>
+<body>
+
+<div id="simple">
+	<div id="home" class="step">
+		<p>Hello! My name is jmpress.js...</p>
+	</div>
+	<div class="step" data-x="1000">
+		<p>and this is a really simple demo.</p>
+	</div>
+  <div class="step" data-src="x/cube.html" data-x="2000">
+    Loading...
+  </div>
+	<div class="step" data-x="3000">
+		<p>You might think it is boring...</p>
+	</div>
+  <div class="step" data-src="x/tracks.html" data-x="4000">
+    Loading...
+  </div>
+  <div class="step" data-x="5000">
+    <p>You might think it is boring2...</p>
+  </div>
+  <div class="step" data-src="x/tracks_meshes.html" data-x="6000">
+    Loading...
+  </div>  
+  <div class="step" data-x="7000">
+    <p>You might think it is boring3...</p>
+  </div>  
+</div>
+
+<div class="hint">
+    <p>Use arrow keys to navigate</p>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	$('#simple').jmpress();
+});
+</script>
+
+</body>
+</html>

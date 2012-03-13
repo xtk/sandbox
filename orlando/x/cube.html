@@ -1,0 +1,21 @@
+
+
+
+<script type="text/javascript">
+  
+    console.log('NOW!');
+    var r = new X.renderer('r');
+    r.config.ORDERING_ENABLED = false;
+    r.init();
+    
+    var cube = new X.cube([0,0,0],10,10,10);
+    cube.setColor(1,0,0);
+    
+    r.add(cube);
+    
+    r.render();
+    
+</script>
+
+<div id="r" style="background:rgba(0, 0, 0, 0); width: 100%; height: 100%;"></div>
+

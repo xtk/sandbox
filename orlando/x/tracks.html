@@ -1,0 +1,21 @@
+<script type="text/javascript">
+console.log('tracks.html');
+// create a new renderer
+var r = new X.renderer('r2');
+r.init();
+
+// load a .trk file
+var fibers = new X.object();
+fibers.load('data/cc_tracks.trk');
+fibers.setCaption('The Corpus Callosum:<br>connecting the two hemispheres<br>of the human brain.')
+
+// add the object
+r.add(fibers);
+
+// .. and render it
+r.render();
+    
+</script>
+
+<div id="r2" style="background:rgba(0, 0, 0, 0); width: 100%; height: 100%;"></div>
+
