@@ -46,7 +46,8 @@
     
     r.add(volume);
     
-    r.camera().setPosition(120,80,160);
+    r.camera().setUp(0,0,1);
+    r.camera().setPosition(700, 80, 80);
     r.render();
     
     r.onShowtime = function() {
