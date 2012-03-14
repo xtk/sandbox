@@ -4,8 +4,15 @@ body {
 	min-height: 740px;
 	background-color: #000;
 	-webkit-font-smoothing: antialiased;
+	font-size: 1.6em;
 }
-
+.standardtext {
+	font-size: 1.3em;
+}
+li { margin-top:1em; }
+a:link { text-decoration:none; color:#037DFF; }
+a:visited { text-decoration:none; color:#037DFF; }
+a:hover { color:#fff; }
 /** INTRO **/
 .intro-top, .intro-bottom {
   width: 3000px;
