@@ -1,3 +1,33 @@
+<!-- 
+/*
+ * 
+ *                  xxxxxxx      xxxxxxx
+ *                   x:::::x    x:::::x 
+ *                    x:::::x  x:::::x  
+ *                     x:::::xx:::::x   
+ *                      x::::::::::x    
+ *                       x::::::::x     
+ *                       x::::::::x     
+ *                      x::::::::::x    
+ *                     x:::::xx:::::x   
+ *                    x:::::x  x:::::x  
+ *                   x:::::x    x:::::x 
+ *              THE xxxxxxx      xxxxxxx TOOLKIT
+ *                    
+ *                  http://www.goXTK.com
+ *                   
+ * Copyright (c) 2012 The X Toolkit Developers <dev@goXTK.com>
+ *                   
+ *    The X Toolkit (XTK) is licensed under the MIT License:
+ *      http://www.opensource.org/licenses/mit-license.php
+ *
+ * 
+ * This presentation can be used as a template for others if this header stays here.
+ * 
+ * Thank you, @shamakry for the awesome jmpress.js!!
+ *
+ */
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +39,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<link href="xmpress.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="xtk.js"></script>
-  <script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
+  <script type="text/javascript" src="x/xtk.js"></script>
+  <script type="text/javascript" src="x/xtk_xdat.gui.js"></script>
+
 	<script type="text/javascript" src="jquery/js/jquery-1.7.1.min.js"></script>
 	<link id="theme" href="jquery/css/start/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
+
 	<script type="text/javascript" src="jmpress/jmpress.min.js"></script>
 	<link href="jmpress/basic-animations.min.css" rel="stylesheet" type="text/css" />
+	
+  <script type="text/javascript" src="sh/shCore.js"></script>
+  <script type="text/javascript" src="sh/shBrushJScript.js"></script>
+  <link type="text/css" rel="stylesheet" href="sh/shCoreEmacs.css"/>
 </head>
 <body>
 
@@ -37,41 +73,62 @@
     <img src="gfx/chbentrance.jpg" width="100%" height="100%" style="position:absolute;left:0px;top:0px">
     <img src="gfx/chblobby.jpg" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
     <img src="gfx/chbclowns.jpg" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
-    <video data-jmpress="expand" preload="auto" src="gfx/foodbot.mp4" height="100%" autoplay="autoplay" controls="controls" style="position:absolute;left:0px;top:0px"></video>    
+    <video id="robotvid" data-jmpress="expand" preload="auto" src="gfx/foodbot.mp4" height="100%" autoplay="autoplay" controls="controls" style="position:absolute;left:0px;top:0px"></video>    
 	</div>
+	
 	<div class="step" data-x="1000">
     Fetal-Neonatal Neuroimaging and Developmental Science Center
     <ul>
-    <li data-jmpress="expand">.. or short: <b>FNNDSC</b>
-    <li data-jmpress="expand">Interdisciplinary research group
+    <li>.. or short: <b>FNNDSC</b>
+    <li>Interdisciplinary research group
 	    <ul>
-	    <li data-jmpress="expand">Physicians, Psychologists, Physicists, Bio-Engineers..
+	    <li>Physicians, Psychologists, Physicists, Bio-Engineers..
 	    </ul>
-	  <li data-jmpress="expand">Director: P. Ellen Grant, MD<br><br>&nbsp;&nbsp;&nbsp;<img src="gfx/ellen.jpg">
+	  <li>Director: P. Ellen Grant, MD<br><br>&nbsp;&nbsp;&nbsp;<img src="gfx/ellen.jpg">
     </ul>
-    <span data-jmpress="expand" style="position:absolute;right:90px;bottom:100px">
+    <span style="position:absolute;right:90px;bottom:100px">
     <a href="http://childrenshospital.org/FNNDSC" target="_blank">http://childrenshospital.org/FNNDSC</a>
     <br>
     <a href="http://fnndsc.github.com" target="_blank">http://fnndsc.github.com</a>
     </span>
-        
 	</div>
-  <div id="cube" class="step" data-src="x/cube.html" data-x="2000">
+	
+	<div id="nrrds" class="step" data-src="x/nrrds.html" data-x="2000">
+	</div>
+	
+  <div id="cube" class="step" data-src="x/cube.html" data-x="3000">
     Loading...
   </div>
-	<div class="step" data-x="3000">
+  
+	<div class="step" data-x="4000">
 		<p>You might think it is boring...</p>
 	</div>
-  <div id="tracks" class="step" data-src="x/tracks.html" data-x="4000">
+  <div id="tracks" class="step" data-src="x/tracks.html" data-x="5000">
     Loading...
   </div>
-  <div class="step" data-x="5000">
-    <p>You might think it is boring2...</p>
+  <div class="step" data-x="6000">
+  The Code
+		<pre class="brush: js;">
+// create a new renderer
+r1 = new X.renderer('r2');
+r1.init();
+
+// load a .trk file
+fibers = new X.object();
+fibers.load('data/cc_tracks.trk');
+fibers.setCaption('The Corpus Callosum:<br>connecting the two hemispheres<br>of the human brain.')
+
+// add the object
+r1.add(fibers);
+
+// .. and render it
+r1.render();
+		</pre>
   </div>
-  <div id ="tracks_meshes" class="step" data-src="x/tracks_meshes.html" data-x="6000">
+  <div id ="tracks_meshes" class="step" data-src="x/tracks_meshes.html" data-x="7000">
     Loading...
   </div>  
-  <div class="step" data-x="7000">
+  <div class="step" data-x="8000">
     <p>You might think it is boring3...</p>
   </div>  
 </div>
@@ -83,31 +140,27 @@ setTimeout(function() {
 }, 500);
 
 $(function() {
-	$('#webglchb').jmpress({
-	  
-    'setActive':function(step,stepdata) {
-      
-      if (step.is($('#tracks'))) {
-        
-        destroyCube();
-        
-      } else if (step.is($('#tracks_meshes'))) {
-        
-        destroyTracks();
-        showTracksMeshesUI();
-        
-      }
-      
-    } 
-	  
-	});
-
-	
+	$('#webglchb').jmpress();
 });
 
+$(document).keypress(function(e) {
+  
+  var currentStepId = $('#webglchb').jmpress('active')[0].id;
+  
+  // play the robot video on enter
+  var code = (e.keyCode ? e.keyCode : e.which);
+  if (code==13) {
+    if (currentStepId == 'nrrds') {
+      adjustThreshold();
+    } else if (currentStepId == 'chbintro') {
+      $('#robotvid').get(0).play();
+    }
+    
+  }
+  
+});
 
-
-
+SyntaxHighlighter.all();
 </script>
 
 </body>

@@ -1,18 +1,25 @@
 <script type="text/javascript">
 
-function destroyCube() {
+$('#tracks').on('enterStep', function(event) {
   
-  // destroy the old renderer
-  r0.destroy();
-  r0 = null;
-  cube = null;
-  // .. reset the loading tag for the slide
-  jQuery('#cube').removeClass('loaded');
+  if (r0) {
+    
+	  // destroy the old renderer
+	  r0.destroy();
+	  r0 = null;
+	  cube = null;
+	  // .. reset the loading tag for the slide
+	  jQuery('#cube').removeClass('loaded');
+	  
+	  console.log('cube destroyed.');
+	  
+  }
   
-  console.log('cube destroyed.');  
-  
-}
-
+})
+.on('leaveStep', function(event) {
+  // jQuery event triggered when leaving a specific step
+  console.log('Goodbye step #home!');
+});
 
 // create a new renderer
 r1 = new X.renderer('r2');

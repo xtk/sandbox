@@ -1,19 +1,29 @@
 <script type="text/javascript">
 
-function destroyTracks() {
+$('#tracks_meshes').on('enterStep', function(event) {
   
-//destroy the old renderer
-  r1.destroy();
-  r1 = null;
-  tracks = null;
-  // .. reset the loading tag for the slide
-  jQuery('#tracks').removeClass('loaded');
+  if (r1){
+    
+	  // destroy the old renderer
+	  r1.destroy();
+	  r1 = null;
+	  tracks = null;
+	  // .. reset the loading tag for the slide
+	  jQuery('#tracks').removeClass('loaded');
+	  
+	  console.log('tracks destroyed.');  
+	  
+  }
   
-  console.log('tracks destroyed.');  
+  showTracksMeshesUI();
   
-}
-
-
+})
+.on('leaveStep', function(event) {
+  
+  gui.destroy();
+  
+  console.log('Goodbye step #tracks_meshes!');
+});
 
     // create a new renderer
     r2 = new X.renderer('r3');
@@ -81,7 +91,7 @@ function showTracksMeshesUI(){
     //
     // The GUI panel
     //
-    var gui = new dat.GUI();
+    gui = new dat.GUI();
     var trackgui = gui.addFolder('Fiber Tracks');
     var trackVisibleController = trackgui.add(tracks2,'_visible');
     trackgui.open();
