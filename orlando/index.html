@@ -96,10 +96,7 @@
 	<div id="nrrds" class="step" data-src="x/nrrds.html" data-x="2000">
 	  Loading...
 	</div>
-	
-  <div class="step" data-x="2500">
-    <p>You might think it is boring...</p>
-  </div>	
+		
   <div id="braincamera" class="step" data-x="3000">
     <img src="gfx/braincamera2.jpg" height="100%" style="position:absolute;left:280px;top:0px">
     <img src="gfx/braincamera.jpg" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
@@ -110,34 +107,193 @@
 	<div id="cube" class="step" data-x="4000">
 	  <img src="gfx/mricube.png" height="100%" style="position:absolute;left:0px;top:0px;">
 	</div>
-  <div id="tracks" class="step" data-src="x/tracks.html" data-x="5000">
+	
+  <div id="slicing0" class="step" data-src="x/slicing.html" data-x="5000">
+    Loading...
+  </div>	
+  
+  <div id="labeling" class="step" data-x="6000">
+    Manual or Automatic Segmentation
+    <img src="gfx/10mo_slice.png" style="position:absolute;left:80px;top:100px;">
+    <img src="gfx/10mo_labels.png" style="position:absolute;right:80px;top:100px;">
+  </div>  
+
+  <div id="labeling2" class="step" data-src="x/labeling2.html" data-x="7000">
     Loading...
   </div>
-  <div class="step" data-x="6000">
+  
+  <div id="dti" class="step" data-x="8000">
+    Diffusion Imaging
+    <img src="gfx/diffusion.png" style="position:absolute;left:0px;width:100%;top:160px;">
+  </div>  
+  
+  <div id="tracks" class="step" data-src="x/tracks.html" data-x="9000">
+    Loading...
+  </div>      
+  
+  <div id="software" class="step" data-x="10000">
+    <img src="gfx/3dslicer.png" width="100%" height="100%" style="position:absolute;left:0px;top:0px">
+    <img src="gfx/freeview.png" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
+    <img src="gfx/osirix.png" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
+    <img src="gfx/trackvis.png" width="100%" height="100%" data-jmpress="expand" style="position:absolute;left:0px;top:0px">
+  </div>  
+  
+  <div id="browser" class="step" data-x="11000">
+    How to bring it to the web?
+    <ul>
+      <li>Many WebGL frameworks exist but the learning curve is rather steep
+      <li>Researchers don't want to deal with Computer Graphics methodologies ..
+      <li>.. if they code, then only Matlab 
+    </ul>
+  </div>
+  
+  <div id="xtkintro" class="step" data-x="12000">
+    The X Toolkit (XTK)
+    <ul>
+      <li>Simple Visualization API
+      <li>Geared towards Scientific Visualization
+      <ul>
+        <li>Support for various common file formats (.stl, .vtk, .trk, .nrrd, .fsm)
+      </ul>
+      <li>Focus on Software Development Process (building+testing)
+      <li>Open source, fully unrestricted
+    </ul>
+  </div>
+  	
+  <div id="slicing1" class="step" data-src="x/slicing2.html" data-x="13000">
+    Loading...
+  </div>  
+  
+  <div id="slicing1code" class="step" data-x="14000">
+  The Code
+    <pre class="brush: js;">
+    renderer = new X.renderer('r');
+    renderer.init();
+    
+    // load a .NRRD file to the X.volume
+    // this works with gzip/gz/raw encoded NRRD files
+    var volume = new X.volume();
+    volume.load('data/10mo.nrrd');
+    
+    // .. add it
+    renderer.add(volume);
+    
+    // showtime
+    renderer.render();
+    </pre>  
+  </div>
+  
+  <div id="surfacemodel" class="step" data-src="x/surfacemodel.html" data-x="15000">
+  Loading...
+  </div>
+
+  <div id="surfacemodel2" class="step" data-x="16000">
+    <pre class="brush: js;">
+// create a new renderer
+r5 = new X.renderer('r5');
+r5.init();
+
+// load a .vtk file
+var model = new X.object();
+model.load('data/Model_42_42.vtk');
+model.setColor(0.7,0.7,0);
+
+// .. add it
+r5.add(model);
+
+// and showtime!
+r5.render();
+</pre>
+  </div>
+  
+  <div id="tracks2" class="step" data-src="x/tracks.html" data-x="17000">
+  Loading...
+  </div>      
+  
+  <div id="tracks2code" class="step" data-x="18000">
   The Code
 		<pre class="brush: js;">
 // create a new renderer
-r1 = new X.renderer('r2');
+r1 = new X.renderer('r1');
 r1.init();
 
 // load a .trk file
 fibers = new X.object();
 fibers.load('data/cc_tracks.trk');
-fibers.setCaption('The Corpus Callosum:<br>connecting the two hemispheres<br>of the human brain.')
 
 // add the object
 r1.add(fibers);
 
 // .. and render it
 r1.render();
-		</pre>
+</pre>
   </div>
-  <div id ="tracks_meshes" class="step" data-src="x/tracks_meshes.html" data-x="7000">
+  
+  <div id="tracks_meshes" class="step" data-src="x/tracks_meshes.html" data-x="19000">
     Loading...
+  </div>
+  
+  <div id="slicer_exporter" class="step" data-x="20000">
+	  <img src="gfx/slicerexport1.png" width="100%" style="position:absolute;left:0px;top:50px">
+	  <img src="gfx/slicerexport2.png" width="100%" data-jmpress="expand" style="position:absolute;left:0px;top:50px">
+	  <img src="gfx/slicerexport3.png" width="100%" data-jmpress="expand" style="position:absolute;left:0px;top:50px">
+  </div>
+
+  <div id="closurecompiler" class="step" data-x="21000">
+    <img src="gfx/closurecompiler.png" style="position:absolute;right:50px;top:50px;">
+    Google Closure Library
+    <ul>
+      <li>dependency mechanism
+      <li>great event system
+      <li>easy object inheritance
+      <li>unit tests
+    </ul>
+    Google Closure Compiler
+    <ul>
+      <li>code check
+      <li>advanced compilation (super minified code)
+    </ul>
+  </div>
+  
+  <div id="getgoxtk" class="step" data-x="22000">
+    <img src="gfx/getgoxtk.png" width="100%" style="position:absolute;left:0px;top:100px">
   </div>  
-  <div class="step" data-x="8000">
-    <p>You might think it is boring3...</p>
+
+  <div id="buildsystem" class="step" data-x="23000">
+    <img src="gfx/build1.png" width="100%" style="position:absolute;left:0px;top:100px">
+    <img src="gfx/build2.png" width="100%" style="position:absolute;left:0px;top:250px">
   </div>  
+  
+  <div id="cdash" class="step" data-x="24000">
+    <img src="gfx/cdashgoxtk.png" width="100%" style="position:absolute;left:0px;top:0px">
+  </div> 
+  
+  <div id="apidoc" class="step" data-x="25000">
+    <img src="gfx/apigoxtk.png" height="100%" style="position:absolute;left:60px;top:0px">
+  </div>  
+  
+  <div id="challenges" class="step" data-x="26000">
+    different file formats + unzipping
+  </div>    
+  
+  <div id="challenges2" class="step" data-x="27000">
+    transparency+object ordering
+  </div>    
+    
+  <div id="challenges3" class="step" data-x="28000">
+    performance
+  </div>      
+  
+  <div id="demos" class="step" data-x="29000">
+    <div style="text-align:center;line-height:500px">Demos</div>
+    <div style="text-align:center;font-size:0.8em;"><a href="http://goXTK.com" target=_blank>http://goXTK.com</a></div>
+  </div> 
+  
+  <div id="thank you" class="step" data-x="30000">
+    <div style="text-align:center;line-height:500px">Thank you!</div>
+    <div style="text-align:center;font-size:0.8em;"><a href="http://babyMRI.org/orlando/" target=_blank>http://babyMRI.org/orlando/</a></div>
+  </div>  
+    
 </div>
 
 <script type="text/javascript">

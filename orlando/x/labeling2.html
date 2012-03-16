@@ -1,0 +1,64 @@
+<script type="text/javascript">
+
+$('#labeling2').on('enterStep', function(event) {
+
+/*   if (rslicing) {
+  
+// 		destroy the old renderer
+		rslicing.destroy();
+		rslicing = null;
+		volume = null;
+// 		.. reset the loading tag for the slide
+		jQuery('#slicing0').removeClass('loaded');
+		
+		console.log('slicing0 destroyed.');
+
+	}    */
+  
+  console.log('Entering step #labeling2');
+})
+.on('leaveStep', function(event) {
+  
+  // jQuery event triggered when leaving a specific step
+  console.log('Goodbye step #labeling2!');
+});
+
+
+rlabeling2 = new X.renderer('rlabeling2');
+rlabeling2.init();
+
+var model42 = new X.object();
+model42.load('data/Model_42_42.vtk');
+model42.setColor(107/255, 163/255, 179/255);
+
+var model47 = new X.object();
+model47.load('data/Model_47_47.vtk');
+model47.setColor(158/255, 114/255, 155/255);
+
+var model48 = new X.object();
+model48.load('data/Model_48_48.vtk');
+model48.setColor(193/255, 180/255, 129/255);
+
+var model173 = new X.object();
+model173.load('data/Model_173_173.vtk');
+model173.setColor(206/255, 180/255,162/255);
+
+var model174 = new X.object();
+model174.load('data/Model_174_174.vtk');
+model174.setColor(184/255, 156/255, 134/255);
+
+rlabeling2.add(model42);
+rlabeling2.add(model47);
+rlabeling2.add(model48);
+rlabeling2.add(model173);
+rlabeling2.add(model174);
+
+rlabeling2.camera().setUp(0,0,1);
+rlabeling2.camera().setPosition(-250,0,0);
+rlabeling2.render();
+
+</script>
+
+Surface Models
+<img src="gfx/10mo_labels.png" style="position:absolute;left:80px;top:100px;">    
+<div style="font-size:0.7em;position:absolute;top:100px;right:80px;text-align:center;"><div id='rlabeling2' style="background:rgba(0, 0, 0, 0);border-style:1px solid;width:353px;height:319px;"></div></div>
