@@ -273,15 +273,40 @@ r1.render();
   </div>  
   
   <div id="challenges" class="step" data-x="26000">
-    different file formats + unzipping
+    Challenges: File I/O
+    <ul>
+      <li>data can be huge (~100 MB)
+      <li>different coordinate systems (RAS, LPS..)
+      <li>some require partial or full unzipping
+      <ul>
+        <li> JXG's unzip library works well but is slow
+      </ul>
+    </ul>
   </div>    
   
   <div id="challenges2" class="step" data-x="27000">
-    transparency+object ordering
+    Challenges: Transparency/Blending
+    <ul>
+      <li>depth ordering required
+      <ul>
+        <li>implemented object based depth ordering
+        <li>performance is good but artifacts appear
+      </ul>
+      <li>depth peeling?
+      <li>other suggestions?
+    </ul>
   </div>    
     
   <div id="challenges3" class="step" data-x="28000">
-    performance
+    Challenges: Performance
+    <ul>
+      <li>optimized loops
+      <ul>
+        <li>Fast Duffs Device
+      </ul>
+      <li>internally only object property access without validation
+      <li>caching, hash maps
+    </ul>
   </div>      
   
   <div id="demos" class="step" data-x="29000">
