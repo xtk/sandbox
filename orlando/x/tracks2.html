@@ -1,0 +1,44 @@
+<script type="text/javascript">
+
+$('#tracks2').on('enterStep', function(event) {
+  
+/*   if (r0) {
+    
+// 	  destroy the old renderer
+	  r0.destroy();
+	  r0 = null;
+	  cube = null;
+// 	  .. reset the loading tag for the slide
+	  jQuery('#cube').removeClass('loaded');
+	  
+	  console.log('cube destroyed.');
+	  
+  } */
+  
+})
+.on('leaveStep', function(event) {
+  // jQuery event triggered when leaving a specific step
+  console.log('Goodbye step #tracks2!');
+});
+
+// create a new renderer
+r10 = new X.renderer('r10');
+r10.init();
+
+// load a .trk file
+fibers2 = new X.object();
+fibers2.load('data/cc_tracks.trk');
+fibers2.setCaption('The Corpus Callosum:<br>connecting the two hemispheres<br>of the human brain.')
+
+// add the object
+r10.add(fibers2);
+
+// .. and render it
+r10.render();
+
+console.log('tracks2 created.');
+    
+</script>
+
+<div id="r10" style="background:rgba(0, 0, 0, 0); width: 100%; height: 100%;"></div>
+
