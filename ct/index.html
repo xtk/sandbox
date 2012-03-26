@@ -48,14 +48,15 @@
 
   var run = function() {
     
-    var r = new X.renderer('r');
+    r = new X.renderer('r');
     r.init();
     
     // load a .NRRD file to the X.volume
     // this works with gzip/gz/raw encoded NRRD files
     volume = new X.volume();
-    volume.setColorTable('sct.txt');
-    volume.load('seg.nrrd');
+    volume.load('daniel.nrrd');
+//     volume.labelMap().load('seg.nrrd');
+//     volume.labelMap().setColorTable('sct.txt');
     
     // load a .VTK file
     var model = new X.object();
