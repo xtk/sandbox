@@ -35,40 +35,32 @@
 <head>
 <title>XTK LESSON 10</title>
 
-<!-- <script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script> -->
-<script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script>
-<script type="text/javascript" src="../../X/xtk-deps.js"></script>
+<script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script>
 <script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
 
 <script type="text/javascript">
 
-  goog.require('X.renderer');
-  goog.require('X.volume');
-  goog.require('X.object');
-
   var run = function() {
     
-    r = new X.renderer('r');
+    var r = new X.renderer('r');
     r.init();
     
     // load a .NRRD file to the X.volume
     // this works with gzip/gz/raw encoded NRRD files
+    // and an attached label map, colored using a color table
     volume = new X.volume();
     volume.load('avf.nrrd');
     volume.labelMap().load('avf-label.nrrd');
-    volume.labelMap().setColorTable('sct.txt');
-    
-    // load a .VTK file
-    var model = new X.object();
-    model.load('../data/avf.vtk');
-    model.setColor(0.7,0,0);
-    model.setVisible(false);
+    volume.labelMap().setColorTable('sct.txt'); // the 3D Slicer generic anatomy color table
     
     // only add the volume for now, the model gets loaded on request
     r.add(volume);
     
     r.camera().setPosition(120,80,160);
     r.render();
+    
+    
+    
     
     r.onShowtime = function() {
       
@@ -94,10 +86,10 @@
       var sliceZController = volumegui.add(volume, '_indexZ', 0, volume.dimensions()[2]-1);
       volumegui.open();
       
-      var modelgui = gui.addFolder('Model');
-      var modelVisibleController = modelgui.add(model,'_visible');
-      var modelColorController = modelgui.addColor(model, '_color');
-      modelgui.open();      
+      var labelmapgui = gui.addFolder('Label Map');
+      var labelMapVisibleController = labelmapgui.add(volume.labelMap(),'_visible');
+      var labelMapOpacityController = labelmapgui.add(volume.labelMap(),'_opacity',0,1);
+      labelmapgui.open();
       
       // volumegui callbacks
       vrController.onChange(function(value) {
@@ -140,23 +132,15 @@
         r.render();
       });                              
       
-      // modelgui callbacks
-      modelVisibleController.onChange(function(value) {
-        
-        if (!modelWasLoaded) {
-          
-          r.add(model);
-          r.onShowtime = function() {};
-          modelWasLoaded = true;
-          
-        }
-        
+      // labelmapgui callbacks
+      labelMapVisibleController.onChange(function(value) {
+        volume.labelMap().modified();
         r.render();
       });
-      modelColorController.onChange(function(value) {
+      labelMapOpacityController.onChange(function(value) {
+        volume.labelMap().modified();
         r.render();
-      });        
-      
+      });
       
     };
     
