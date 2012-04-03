@@ -1,17 +1,44 @@
+<!-- 
+/*
+ * 
+ *                  xxxxxxx      xxxxxxx
+ *                   x:::::x    x:::::x 
+ *                    x:::::x  x:::::x  
+ *                     x:::::xx:::::x   
+ *                      x::::::::::x    
+ *                       x::::::::x     
+ *                       x::::::::x     
+ *                      x::::::::::x    
+ *                     x:::::xx:::::x   
+ *                    x:::::x  x:::::x  
+ *                   x:::::x    x:::::x 
+ *              THE xxxxxxx      xxxxxxx TOOLKIT
+ *                    
+ *                  http://www.goXTK.com
+ *                   
+ * Copyright (c) 2012 The X Toolkit Developers <dev@goXTK.com>
+ *                   
+ *    The X Toolkit (XTK) is licensed under the MIT License:
+ *      http://www.opensource.org/licenses/mit-license.php
+ *
+ * Myong-Sun Choe's research at Children's Hospital Boston compares the brain structures
+ * among different aged babies.
+ *
+ * The base for this demo were six different exports using the WebGLExport module for
+ * 3D Slicer 4 (https://github.com/xtk/SlicerWebGLExport). Then, we put the exported data
+ * together and added some logic to realize the different views.
+ *
+ * Thanks, Myong-Sun for providing the data! 
+ *
+ */
+-->
 
 <html>
-<!-- WebGL Export for 3D Slicer4 powered by XTK -- http://goXTK.com -->
 <head>
 <title>Myong's Baby Brains</title>
 <script type="text/javascript" src="http://get.goXTK.com/xtk.js"></script>
-<!-- <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script> -->
-<!-- <script type="text/javascript" src="../../X/xtk-deps.js"></script> -->
-<script type="text/javascript" src="dat.gui.min.js"></script>
+<script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
 <script type="text/javascript">
-    
-//     goog.require('X.renderer');
-//     goog.require('X.object');
-    
     var run = function() {
 
         b03month_r0 = new X.renderer('b03month_r0');
