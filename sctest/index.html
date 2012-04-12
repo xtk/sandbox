@@ -52,7 +52,7 @@
     
     model = new X.object();
     model.load('lh.smoothwm.fsm');
-    model.setScalars('lh.smoothwm.H.crv');
+
     //model.scalars(1).load('lh.pial.K.crv');
     
     r.add(model);
@@ -66,8 +66,39 @@
       //
       // The GUI panel
       //
-      // (we need to create this during onShowtime(..) since we do not know the volume
-      // dimensions before the loading was completed)
+      var Loader = function() {
+        
+        this.H = function() {
+          model.setScalars('lh.smoothwm.H.crv');
+          model.modified();
+          r.render();
+        }
+        
+        this.C = function() {
+          model.setScalars('lh.smoothwm.C.crv');
+          model.modified();
+          r.render();
+        }
+        
+        this.K1 = function() {
+          model.setScalars('lh.smoothwm.K1.crv');
+          model.modified();
+          r.render();
+        }
+                
+                
+        
+      }
+
+      var _loader = new Loader();
+      
+      var gui = new dat.GUI();
+      var curvgui = gui.addFolder('Curvature');
+      // ,, switch between slicing and volume rendering
+      var vrController = curvgui.add(_loader,'H');
+      var vrController = curvgui.add(_loader,'C');
+      var vrController = curvgui.add(_loader,'K1');
+      curvgui.open();
       
       
     };
