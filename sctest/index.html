@@ -36,14 +36,15 @@
 <title>XTK LESSON 10</title>
 
 <!-- <script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script> -->
-<script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script>
-<script type="text/javascript" src="../../X/xtk-deps.js"></script>
-<script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
+<script type="text/javascript" src="xtk.js"></script>
+<!-- <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script> -->
+<!-- <script type="text/javascript" src="../../X/xtk-deps.js"></script> -->
+<script type="text/javascript" src="http://get.goxtk.com/xtk_xdat.gui.js"></script>
 
 <script type="text/javascript">
 
-  goog.require('X.renderer');
-  goog.require('X.object');
+//   goog.require('X.renderer');
+//   goog.require('X.object');
 
   var run = function() {
     
@@ -51,17 +52,25 @@
     r.init();
     
     model = new X.object();
+    model.setColor(0.5,0.5,0.5);
     model.load('lh.smoothwm.fsm');
-
-    //model.scalars(1).load('lh.pial.K.crv');
+    model.setScalars('lh.smoothwm.C.crv');
+    model.scalars()['_minColor'] = [0,0,1];
+    model.scalars()['_maxColor'] = [1,1,1];
     
     r.add(model);
     
     r.render();
     
-    
-    
+    gui = null;
     r.onShowtime = function() {
+      
+        if (gui) {
+          
+          gui.destroy();
+          gui = null;
+          
+        }
       
       //
       // The GUI panel
@@ -69,20 +78,44 @@
       var Loader = function() {
         
         this.H = function() {
+          
+          var oldMinColor = model.scalars()['_minColor'];
+          var oldMaxColor = model.scalars()['_maxColor'];
+          
           model.setScalars('lh.smoothwm.H.crv');
           model.modified();
+          
+          model.scalars()['_minColor'] = oldMinColor;
+          model.scalars()['_maxColor'] = oldMaxColor;
+          
           r.render();
         }
         
         this.C = function() {
+          
+          var oldMinColor = model.scalars()['_minColor'];
+          var oldMaxColor = model.scalars()['_maxColor'];          
+          
           model.setScalars('lh.smoothwm.C.crv');
           model.modified();
+          
+          model.scalars()['_minColor'] = oldMinColor;
+          model.scalars()['_maxColor'] = oldMaxColor;          
+          
           r.render();
         }
         
         this.K1 = function() {
+          
+          var oldMinColor = model.scalars()['_minColor'];
+          var oldMaxColor = model.scalars()['_maxColor'];                    
+          
           model.setScalars('lh.smoothwm.K1.crv');
           model.modified();
+
+          model.scalars()['_minColor'] = oldMinColor;
+          model.scalars()['_maxColor'] = oldMaxColor;          
+                    
           r.render();
         }
                 
@@ -92,13 +125,34 @@
 
       var _loader = new Loader();
       
-      var gui = new dat.GUI();
+      gui = new dat.GUI();
       var curvgui = gui.addFolder('Curvature');
       // ,, switch between slicing and volume rendering
-      var vrController = curvgui.add(_loader,'H');
-      var vrController = curvgui.add(_loader,'C');
-      var vrController = curvgui.add(_loader,'K1');
+      var controller = curvgui.add(_loader,'H');
+      var controller = curvgui.add(_loader,'C');
+      var controller = curvgui.add(_loader,'K1');
+      var minColorController = curvgui.addColor(model.scalars(), '_minColor');
+      var maxColorController = curvgui.addColor(model.scalars(), '_maxColor');
+      var minThresholdController = curvgui.add(model.scalars(), '_minThreshold', model.scalars().min(), model.scalars().max());
+      var maxThresholdController = curvgui.add(model.scalars(), '_maxThreshold', model.scalars().min(), model.scalars().max());
       curvgui.open();
+      
+      minColorController.onChange(function(value) {
+        r.render();
+      });              
+
+      maxColorController.onChange(function(value) {
+        r.render();
+      });                    
+      
+      minThresholdController.onChange(function(value) {
+        r.render();
+      });              
+
+      maxThresholdController.onChange(function(value) {
+        r.render();
+      });                    
+      
       
       
     };
