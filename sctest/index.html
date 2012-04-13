@@ -23,9 +23,11 @@
  *
  * LESSON 12 - Curves!
  *
- * This lessons shows how to map different scalar overlays to a mesh.
- * It currently only works on .FSM meshes and can only read curvature values from
- * files. 
+ * This lesson shows how to map different scalar overlays to a mesh.
+ * It currently only works on .FSM meshes and can only read curvature values
+ * from .CRV files.
+ *
+ * But it is possible to configure the scalars using an array (see comments below). 
  *
  */
 -->
@@ -34,17 +36,10 @@
 <head>
 <title>XTK LESSON 12</title>
 
-<!-- <script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script> -->
-<script type="text/javascript" src="xtk.js"></script>
-<!-- <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script> -->
-<!-- <script type="text/javascript" src="../../X/xtk-deps.js"></script> -->
+<script type="text/javascript" src="http://get.goxtk.com/xtk.js"></script>
 <script type="text/javascript" src="http://get.goxtk.com/xtk_xdat.gui.js"></script>
 
 <script type="text/javascript">
-
-//   goog.require('X.renderer');
-//   goog.require('X.object');
-
   var run = function() {
     
     var r = new X.renderer('r');
@@ -52,89 +47,92 @@
     
     model = new X.object();
     model.setColor(0.5,0.5,0.5);
+    // load a mesh
     model.load('lh.smoothwm.fsm');
+    // load curvature values from a .crv file
+    // it would also be possible to create an X.scalars object and
+    // configure an array using X.scalars.setArray(arr) to be independent from a file format
     model.setScalars('lh.smoothwm.C.crv');
-    model.scalars()['_minColor'] = [0,0,1];
-    model.scalars()['_maxColor'] = [1,1,1];
+    
+    // we want to map the scalars linear between blue and white
+    model.scalars().setColorRange([0,0,1],[1,1,1]);
     
     r.add(model);
     
     r.render();
     
-    gui = null;
+    
+    
+    
+    //
+    // The GUI
+    //
+    gui = null; // we need to re-load the gui after we change the curvature type
+    // here are the available curvature types and files
+    curvatureTypes = ['C (mm&#x207b;&sup2;)','k&#x2081; (mm&#x207b;&sup1;)','H (mm&#x207b;&sup1;)'];
+    curvatureFiles = ['lh.smoothwm.C.crv','lh.smoothwm.K1.crv','lh.smoothwm.H.crv'];
+    
     r.onShowtime = function() {
       
         if (gui) {
           
+          // if we already have a gui, destroy it
+          // .. it will be re-created immediately
           gui.destroy();
           gui = null;
           
         }
       
-      //
-      // The GUI panel
-      //
+      // we need this Loader as a container for dat.gui
       var Loader = function() {
-        
-        this.H = function() {
-          
-          var oldMinColor = model.scalars()['_minColor'];
-          var oldMaxColor = model.scalars()['_maxColor'];
-          
-          model.setScalars('lh.smoothwm.H.crv');
-          model.modified();
-          
-          model.scalars()['_minColor'] = oldMinColor;
-          model.scalars()['_maxColor'] = oldMaxColor;
-          
-          r.render();
-        }
-        
-        this.C = function() {
-          
-          var oldMinColor = model.scalars()['_minColor'];
-          var oldMaxColor = model.scalars()['_maxColor'];          
-          
-          model.setScalars('lh.smoothwm.C.crv');
-          model.modified();
-          
-          model.scalars()['_minColor'] = oldMinColor;
-          model.scalars()['_maxColor'] = oldMaxColor;          
-          
-          r.render();
-        }
-        
-        this.K1 = function() {
-          
-          var oldMinColor = model.scalars()['_minColor'];
-          var oldMaxColor = model.scalars()['_maxColor'];                    
-          
-          model.setScalars('lh.smoothwm.K1.crv');
-          model.modified();
-
-          model.scalars()['_minColor'] = oldMinColor;
-          model.scalars()['_maxColor'] = oldMaxColor;          
-                    
-          r.render();
-        }
                 
-                
+        // default type
+        this.Type = 'C (mm&#x207b;&sup2;)'
         
       }
-
       var _loader = new Loader();
       
+      //
+      // create the GUI panel
+      //
       gui = new dat.GUI();
+      var modelgui = gui.addFolder('Model');
+      var modelColorController = modelgui.addColor(model,'_color');
+      modelgui.open();
+      
       var curvgui = gui.addFolder('Curvature');
-      // ,, switch between slicing and volume rendering
-      var controller = curvgui.add(_loader,'H');
-      var controller = curvgui.add(_loader,'C');
-      var controller = curvgui.add(_loader,'K1');
+      var typeController = curvgui.add(_loader,'Type',curvatureTypes);
       var minColorController = curvgui.addColor(model.scalars(), '_minColor');
       var maxColorController = curvgui.addColor(model.scalars(), '_maxColor');
       var minThresholdController = curvgui.add(model.scalars(), '_minThreshold', model.scalars().min(), model.scalars().max());
       var maxThresholdController = curvgui.add(model.scalars(), '_maxThreshold', model.scalars().min(), model.scalars().max());
       curvgui.open();
+      
+      modelColorController.onChange(function(value) {
+        r.render();
+      });
+      
+      //
+      // Change the curvature type callback
+      //
+      typeController.onChange(function(value) {
+        
+        var _index = curvatureTypes.indexOf(value);
+        
+        // we need to buffer the (maybe changed) colors
+        // else wise we would start with the default red<->green mapping
+        var oldMinColor = model.scalars().colorRange()[0];
+        var oldMaxColor = model.scalars().colorRange()[1];                    
+        
+        model.setScalars(curvatureFiles[_index]);
+        model.modified();
+
+        model.scalars().setColorRange(oldMinColor,oldMaxColor);
+                  
+        // this render call will trigger the onShowtime function again to re-create the GUI
+        r.render();        
+        
+      });
       
       minColorController.onChange(function(value) {
         r.render();
@@ -151,8 +149,6 @@
       maxThresholdController.onChange(function(value) {
         r.render();
       });                    
-      
-      
       
     };
     
