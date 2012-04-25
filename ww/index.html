@@ -47,21 +47,24 @@
 
   var run = function() {
     
-    var worker = new Worker('loaderVTK.js');
-    worker.onmessage = function(event) {  
-      console.log("Called back by the worker!\n");
-      //console.log(event.data);
-      var obj = new X.object(JSON.parse(event.data));//new X.object(event.data);
-      console.log(obj);
-      ren.add(obj);
-      ren.render();
-      
-    };
+    console.time('loading');
     
     ren = new X.renderer('r');
     ren.init();
     
+    for (i=0;i<10;i++) {
+      var obj = new X.object();
+      obj.load('skull.vtk');
+      obj.transform().translateX(Math.random(10)*100);
+      ren.add(obj);
+    }
     
+    ren.render();
+    
+    ren.onShowtime=function(){
+      console.timeEnd('loading');
+    };
+
     
   };
 </script>

@@ -1,8 +1,12 @@
-// xtk
-window = new Object();
+// 
+// X
+//
+window = {}; // window is not known to workers
 importScripts('xtk_edge.js');
 
-// some loader specific stuff
+//
+// LOADING
+//
 function load(url, callback) {
 
   var xhr = new XMLHttpRequest();
@@ -26,6 +30,9 @@ function load(url, callback) {
   
 };
 
+//
+// PARSING
+//
 function parse(data) {
 
   aparser.parse(anobject, data);
@@ -36,12 +43,5 @@ function parse(data) {
 anobject = new X.object();
 aparser = new X.parserVTK();
 
-load('avf.vtk', parse);
-
-//
-// 
-// 
-//
-// 
-// p = new X.parserNRRD();
-
+// .. start the loading
+load('skull.vtk', parse);
