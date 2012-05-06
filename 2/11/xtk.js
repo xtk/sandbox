@@ -6287,7 +6287,7 @@ $JSCompiler_prototypeAlias$$.$update_$ = function $$JSCompiler_prototypeAlias$$$
   $goog$events$hasListener$$($object$$48$$) || $goog$events$listen$$($object$$48$$, $X$event$events$MODIFIED$$, this.$onModified$.bind(this));
   window.console.log("updating..");
   var $file$$4$$ = $object$$48$$.$_file$;
-  $goog$isDefAndNotNull$$($file$$4$$) && $file$$4$$.$_dirty$ ? $JSCompiler_StaticMethods_loadFile$$(this.$_loader$, $object$$48$$) : window.console.log("updating done", $object$$48$$)
+  $goog$isDefAndNotNull$$($file$$4$$) && $file$$4$$.$_dirty$ ? $JSCompiler_StaticMethods_loadFile$$(this.$_loader$, $object$$48$$) : (window.console.log("updating done", $object$$48$$), this.$render$())
 };
 $JSCompiler_prototypeAlias$$.$render$ = function $$JSCompiler_prototypeAlias$$$$render$$() {
   var $_pixels$$ = this.$_context$.getImageData(0, 0, this.width, this.height), $children_$$ = this.$_topLevelObjects$[0].$_slicesX$.children(), $x$$80$$ = 0;
