@@ -34,15 +34,15 @@
 <head>
 <title>XTK LESSON 11</title>
 
-<!-- <script type="text/javascript" src="http://get.goxtk.com/xtk.js"></script> -->
-<script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script>
-<script type="text/javascript" src="../../X/xtk-deps.js"></script>
+<script type="text/javascript" src="xtk.js"></script>
+<!-- <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script> -->
+<!-- <script type="text/javascript" src="../../X/xtk-deps.js"></script> -->
 <script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
 
 <script type="text/javascript">
 
-  goog.require('X.renderer2D');
-  goog.require('X.volume');
+//   goog.require('X.renderer2D');
+//   goog.require('X.volume');
 
   var run = function() {
     
@@ -63,7 +63,9 @@
     //r.camera().setPosition(120,80,160);
     //r.render();
     
-    
+    setTimeout(function(){
+      r.render();
+    },5000);
     
     
     r.onShowtime = function() {
