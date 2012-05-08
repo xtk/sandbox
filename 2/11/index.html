@@ -81,9 +81,9 @@
       // .. we can threshold
       var lowerThresholdController = volumegui.add(volume, '_lowerThreshold', volume.scalarRange()[0], volume.scalarRange()[1]);
       var upperThresholdController = volumegui.add(volume, '_upperThreshold', volume.scalarRange()[0], volume.scalarRange()[1]);
-      var sliceXController = volumegui.add(volume, '_indexX', 0, volume.dimensions()[0]-1);
-      var sliceYController = volumegui.add(volume, '_indexY', 0, volume.dimensions()[1]-1);
-      var sliceZController = volumegui.add(volume, '_indexZ', 0, volume.dimensions()[2]-1);
+      var sliceXController = volumegui.add(volume, '_indexX', 0, volume.dimensions()[0]-1).listen();
+      var sliceYController = volumegui.add(volume, '_indexY', 0, volume.dimensions()[1]-1).listen();
+      var sliceZController = volumegui.add(volume, '_indexZ', 0, volume.dimensions()[2]-1).listen();
       volumegui.open();      
       
       
