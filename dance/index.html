@@ -54,8 +54,13 @@
     sliceY.init();
     var sliceZ = new X.renderer2D('sliceZ','Z');
     sliceZ.init();    
-
     
+    var volume = new X.volume();
+    volume.load('vol.nrrd');
+    
+    sliceX.add(volume);
+    sliceX.render();
+
     sliceX.interactor.onMouseWheel = function() {
       
       volume.modified();
@@ -73,23 +78,17 @@
       volume.modified();
       threeD.render();
       
-    }    
-    
-    var volume = new X.volume();
-    volume.load('vol.nrrd');
-    
-    threeD.add(volume);
-    threeD.render();
+    }        
     
     
-    threeD.onShowtime = function() { 
+    sliceX.onShowtime = function() { 
       
       // clear the showtime function
-      threeD.onShowtime = function() {}
+      sliceX.onShowtime = function() {}
       
       // propagate volume to the slice viewers
-      sliceX.add(volume);
-      sliceX.render();
+      threeD.add(volume);
+      threeD.render();
       sliceY.add(volume);
       sliceY.render();
       sliceZ.add(volume);
@@ -175,6 +174,7 @@
         }
         
         volume.modified();
+        
         threeD.render();
         sliceX.render();
         sliceY.render();
