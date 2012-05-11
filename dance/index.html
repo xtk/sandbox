@@ -34,58 +34,65 @@
 <script type="text/javascript" src="xtk.js"></script>
 <!-- <script type="text/javascript" src="../../../X/lib/closure-library/closure/goog/base.js"></script> -->
 <!-- <script type="text/javascript" src="../../../X/xtk-deps.js"></script> -->
-<script type="text/javascript" src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
+<script type="text/javascript"
+	src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
 
 <script type="text/javascript">
-
-//   goog.require('X.renderer2D');
-//   goog.require('X.renderer2D');
-//   goog.require('X.volume');
-
+  //   goog.require('X.renderer2D');
+  //   goog.require('X.renderer2D');
+  //   goog.require('X.volume');
+  
   var run = function() {
- 
-   
-    var threeD = new X.renderer3D('3d');
-    threeD.init();
+
+    try {
+      var threeD = new X.renderer3D('3d');
+      threeD.init();
+    } catch (Exception) {
+      
+      // no webgl on this machine
+      
+    }
     
-    var sliceX = new X.renderer2D('sliceX','X');
+    var sliceX = new X.renderer2D('sliceX', 'X');
     sliceX.init();
-    var sliceY = new X.renderer2D('sliceY','Y');
+    var sliceY = new X.renderer2D('sliceY', 'Y');
     sliceY.init();
-    var sliceZ = new X.renderer2D('sliceZ','Z');
-    sliceZ.init();    
+    var sliceZ = new X.renderer2D('sliceZ', 'Z');
+    sliceZ.init();
     
     var volume = new X.volume();
     volume.load('vol.nrrd');
     
     sliceX.add(volume);
     sliceX.render();
-
+    
     sliceX.interactor.onMouseWheel = function() {
-      
+
       volume.modified();
       threeD.render();
       
     }
     sliceY.interactor.onMouseWheel = function() {
-      
+
       volume.modified();
       threeD.render();
       
-    }        
+    }
     sliceZ.interactor.onMouseWheel = function() {
-      
+
       volume.modified();
       threeD.render();
       
-    }        
-    
-    
-    sliceX.onShowtime = function() { 
-      
+    }
+
+
+    sliceX.onShowtime = function() {
+
       // clear the showtime function
-      sliceX.onShowtime = function() {}
-      
+      sliceX.onShowtime = function() {
+
+      }
+
       // propagate volume to the slice viewers
       threeD.add(volume);
       threeD.render();
@@ -93,8 +100,8 @@
       sliceY.render();
       sliceZ.add(volume);
       sliceZ.render();
-
       
+
       //
       // The GUI panel
       //
@@ -106,61 +113,71 @@
       var gui = new dat.GUI();
       var volumegui = gui.addFolder('Volume');
       // .. we can threshold
-      var lowerThresholdController = volumegui.add(volume, '_lowerThreshold', volume.scalarRange()[0], volume.scalarRange()[1]);
-      var upperThresholdController = volumegui.add(volume, '_upperThreshold', volume.scalarRange()[0], volume.scalarRange()[1]);
-      var sliceXController = volumegui.add(volume, '_indexX', 0, volume.dimensions()[0]-1).listen();
-      var sliceYController = volumegui.add(volume, '_indexY', 0, volume.dimensions()[1]-1).listen();
-      var sliceZController = volumegui.add(volume, '_indexZ', 0, volume.dimensions()[2]-1).listen();
-      volumegui.open();      
+      var lowerThresholdController = volumegui.add(volume, '_lowerThreshold',
+          volume.scalarRange()[0], volume.scalarRange()[1]);
+      var upperThresholdController = volumegui.add(volume, '_upperThreshold',
+          volume.scalarRange()[0], volume.scalarRange()[1]);
+      var sliceXController = volumegui.add(volume, '_indexX', 0,
+          volume.dimensions()[0] - 1).listen();
+      var sliceYController = volumegui.add(volume, '_indexY', 0,
+          volume.dimensions()[1] - 1).listen();
+      var sliceZController = volumegui.add(volume, '_indexZ', 0,
+          volume.dimensions()[2] - 1).listen();
+      volumegui.open();
       
-      
-      lowerThresholdController.onChange(function(value){
-        volume.modified();
-        threeD.render();
-        sliceX.render();
-        sliceY.render();
-        sliceZ.render();        
-      });
-      upperThresholdController.onChange(function(value){
+
+      lowerThresholdController.onChange(function(value) {
+
         volume.modified();
         threeD.render();
         sliceX.render();
         sliceY.render();
         sliceZ.render();
-      });     
-      sliceXController.onChange(function(value) {
+      });
+      upperThresholdController.onChange(function(value) {
+
         volume.modified();
         threeD.render();
         sliceX.render();
         sliceY.render();
-        sliceZ.render();        
+        sliceZ.render();
+      });
+      sliceXController.onChange(function(value) {
+
+        volume.modified();
+        threeD.render();
+        sliceX.render();
+        sliceY.render();
+        sliceZ.render();
       });
       sliceYController.onChange(function(value) {
+
         volume.modified();
         threeD.render();
         sliceX.render();
         sliceY.render();
-        sliceZ.render();        
-      });          
+        sliceZ.render();
+      });
       sliceZController.onChange(function(value) {
+
         volume.modified();
         threeD.render();
         sliceX.render();
         sliceY.render();
-        sliceZ.render();        
-      });       
-      
+        sliceZ.render();
+      });
       
 
-      var _slices = ['X','Y','Z'];      
-      var loop = function(){
-        
-        for (i=0;i<3;i++) {
-        
+
+      var _slices = ['X', 'Y', 'Z'];
+      var loop = function() {
+
+        for (i = 0; i < 3; i++) {
+          
           var _currentO = _slices[i];
           var _currentIndex = eval('volume._index' + _currentO);
-
           
+
           if (_currentIndex < volume.dimensions()[_slices.indexOf(_currentO)]) {
             
             eval('volume._index' + _currentO + '++;');
@@ -168,8 +185,8 @@
           } else {
             
             eval('volume._index' + _currentO + '=0;')
-            
-          }          
+
+          }
           
         }
         
@@ -183,23 +200,24 @@
       };
       
       // NOW DANCE!      
-      setInterval(loop,1);      
+      setInterval(loop, 1);
       
     };
     
-    
 
-    
-    
+
   };
 </script>
+<body onload="run()" style="margin: 0px; background-color: #000">
 
-<body onload="run()" style="margin:0px;background-color:#000">
-  
-  <!-- the container for the renderer -->
-  <div id="3d" style="background-color: #000; width: 100%; height: 69%;margin-bottom:2px;"></div>
-  <div id="sliceX" style="border-style: solid; border-color:yellow; background-color: #000; width: 32%; height: 30%;float:left;"></div>
-  <div id="sliceY" style="border-style: solid; border-color:red;background-color: #000; width: 32%; height: 30%;float:left;"></div>
-  <div id="sliceZ" style="border-style: solid; border-color:green;background-color: #000; width: 32%; height: 30%;float:left;"></div>
-    
+	<!-- the container for the renderer -->
+	<div id="3d"
+		style="background-color: #000; width: 100%; height: 69%; margin-bottom: 2px;"></div>
+	<div id="sliceX"
+		style="border-style: solid; border-color: yellow; background-color: #000; width: 32%; height: 30%; float: left;"></div>
+	<div id="sliceY"
+		style="border-style: solid; border-color: red; background-color: #000; width: 32%; height: 30%; float: left;"></div>
+	<div id="sliceZ"
+		style="border-style: solid; border-color: green; background-color: #000; width: 32%; height: 30%; float: left;"></div>
+
 </body>
