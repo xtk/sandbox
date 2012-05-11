@@ -44,12 +44,14 @@
   
   var run = function() {
 
+    _webGLFriendly = true;
     try {
       var threeD = new X.renderer3D('3d');
       threeD.init();
     } catch (Exception) {
       
       // no webgl on this machine
+      _webGLFriendly = false; 
       
     }
     
@@ -68,20 +70,26 @@
     
     sliceX.interactor.onMouseWheel = function() {
 
-      volume.modified();
-      threeD.render();
+      if (_webGLFriendly) {
+        volume.modified();
+        threeD.render();
+      }
       
     }
     sliceY.interactor.onMouseWheel = function() {
 
-      volume.modified();
-      threeD.render();
+      if (_webGLFriendly) {
+        volume.modified();
+        threeD.render();
+      }
       
     }
     sliceZ.interactor.onMouseWheel = function() {
 
-      volume.modified();
-      threeD.render();
+      if (_webGLFriendly) {
+        volume.modified();
+        threeD.render();
+      }
       
     }
 
@@ -93,9 +101,12 @@
 
       }
 
-      // propagate volume to the slice viewers
-      threeD.add(volume);
-      threeD.render();
+      // propagate volume to the other viewers
+      if (_webGLFriendly) {
+        threeD.add(volume);
+        threeD.render();
+      }      
+
       sliceY.add(volume);
       sliceY.render();
       sliceZ.add(volume);
@@ -129,7 +140,9 @@
       lowerThresholdController.onChange(function(value) {
 
         volume.modified();
-        threeD.render();
+        if (_webGLFriendly) {
+          threeD.render();
+        }        
         sliceX.render();
         sliceY.render();
         sliceZ.render();
@@ -137,7 +150,9 @@
       upperThresholdController.onChange(function(value) {
 
         volume.modified();
-        threeD.render();
+        if (_webGLFriendly) {
+          threeD.render();
+        }        
         sliceX.render();
         sliceY.render();
         sliceZ.render();
@@ -145,7 +160,9 @@
       sliceXController.onChange(function(value) {
 
         volume.modified();
-        threeD.render();
+        if (_webGLFriendly) {
+          threeD.render();
+        }        
         sliceX.render();
         sliceY.render();
         sliceZ.render();
@@ -153,7 +170,9 @@
       sliceYController.onChange(function(value) {
 
         volume.modified();
-        threeD.render();
+        if (_webGLFriendly) {
+          threeD.render();
+        }        
         sliceX.render();
         sliceY.render();
         sliceZ.render();
@@ -161,7 +180,9 @@
       sliceZController.onChange(function(value) {
 
         volume.modified();
-        threeD.render();
+        if (_webGLFriendly) {
+          threeD.render();
+        }        
         sliceX.render();
         sliceY.render();
         sliceZ.render();
@@ -192,7 +213,9 @@
         
         volume.modified();
         
-        threeD.render();
+        if (_webGLFriendly) {
+          threeD.render();
+        }        
         sliceX.render();
         sliceY.render();
         sliceZ.render();
