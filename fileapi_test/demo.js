@@ -1,5 +1,5 @@
 // 
-//
+// Reading files using the HTML5 FileReader.
 //
 function read(files) {
 
@@ -26,7 +26,12 @@ function read(files) {
       var base64StartIndex = data.indexOf(',') + 1;
       data = window.atob(data.substring(base64StartIndex));
       
-      console.log(data);
+      var vol = new X.volume();
+      vol.file = file.name;
+      vol.filedata = data;
+      
+      ren3d.add(vol);
+      ren3d.render();
       
     };
     
@@ -34,5 +39,16 @@ function read(files) {
   
   // start reading the file
   reader.readAsDataURL(file);
+  
+};
+
+//
+//
+//
+window.onload = function() {
+
+  // create and initialize a 3D renderer
+  ren3d = new X.renderer3D();
+  ren3d.init();
   
 };
