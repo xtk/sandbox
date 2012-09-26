@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Touch me!</title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+<script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script>
+
+<script type="text/javascript">
+
+window.onload = function() {
+  
+  ren2d = new X.renderer2D();
+  ren2d.orientation = 'X';
+  ren2d.init();
+  
+  volume = new X.volume();
+  volume.file = 'daniel.nii';
+  
+  ren2d.add(volume);
+  ren2d.render();
+  
+  ren2d.onShowtime = function() {
+    enable_touch();
+  }
+  
+  
+}
+
+function enable_touch() {
+  
+  // disable bouncing
+  document.body.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+  }, false);  
+  
+  var _lastY = null;  
+  
+  ren2d.container.children[0].addEventListener('touchmove', function(event) {
+    touches = event.touches;
+    
+    
+    var onefinger = touches[0];
+   
+    if (!_lastY) _lastY = onefinger.clientY;
+    var _down_movement = onefinger.clientY > _lastY;
+    var _up_movement = onefinger.clientY < _lastY;
+    _lastY = onefinger.clientY;
+    
+    var _right_side = onefinger.clientX>ren2d.container.clientWidth*3/4;
+    
+    if (_right_side) {
+           
+      if (_down_movement) {
+        
+        down();
+        
+      } else if (_up_movement) {
+        
+        up();
+        
+      }
+      
+      
+    }
+    
+    
+  }, false);
+  
+  function down() {
+    
+    if (volume.indexX < volume.dimensions[0]-1)
+    volume.indexX += 1;
+    
+  }  
+  
+  function up() {
+    
+    if (volume.indexX > 1)
+    volume.indexX -= 1;    
+    
+  }
+ 
+};
+
+</script>
+
+<body></body>
+</html>
