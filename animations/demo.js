@@ -1,6 +1,6 @@
-goog.require('X.renderer3D');
-goog.require('X.animation');
-goog.require('X.mesh');
+//goog.require('X.renderer3D');
+//goog.require('X.animation');
+//goog.require('X.mesh');
 
 window.onload = function() {
 
@@ -16,34 +16,34 @@ window.onload = function() {
     
     var _cortex = new X.mesh();
     _cortex.file = 'http://x.babymri.org/?' + i + '/cortex.vtk';
-    _cortex.color = [128/255,174/255,128/255];
+    _cortex.color = [128 / 255, 174 / 255, 128 / 255];
     
     var _ventricles = new X.mesh();
-    _ventricles.file = 'http://x.babymri.org/?' + i + '/ventricles.vtk';    
-    _ventricles.color = [88/255,106/255,215/255];
+    _ventricles.file = 'http://x.babymri.org/?' + i + '/ventricles.vtk';
+    _ventricles.color = [88 / 255, 106 / 255, 215 / 255];
     
     var _hemispheres = new X.mesh();
-    _hemispheres.file = 'http://x.babymri.org/?' + i + '/hemispheres.vtk';    
-    _hemispheres.color = [250/255,250/255,225/255];
+    _hemispheres.file = 'http://x.babymri.org/?' + i + '/hemispheres.vtk';
+    _hemispheres.color = [250 / 255, 250 / 255, 225 / 255];
     
     var _csf = new X.mesh();
-    _csf.file = 'http://x.babymri.org/?' + i + '/csf.vtk';        
-    _csf.color = [85/255,188/255,1];
+    _csf.file = 'http://x.babymri.org/?' + i + '/csf.vtk';
+    _csf.color = [85 / 255, 188 / 255, 1];
     
     _o.children.push(_cortex);
     _o.children.push(_csf);
     _o.children.push(_hemispheres);
     _o.children.push(_ventricles);
     
-    
+
     // and configure each of them
-//    _v.lowerThreshold = 80;
-//    _v.windowLower = 115;
-//    _v.windowHigh = 360;
-//    _v.minColor = [0, 0.06666666666666667, 1];
-//    _v.maxColor = [0.5843137254901961, 1, 0];
-//    _v.opacity = 0.2;
-//    _v.volumeRendering = true;
+    // _v.lowerThreshold = 80;
+    // _v.windowLower = 115;
+    // _v.windowHigh = 360;
+    // _v.minColor = [0, 0.06666666666666667, 1];
+    // _v.maxColor = [0.5843137254901961, 1, 0];
+    // _v.opacity = 0.2;
+    // _v.volumeRendering = true;
     _o.caption = i + ' weeks';
     
     // finally add it to the animation
@@ -128,7 +128,7 @@ window.onload = function() {
         
       }
       
-    });    
+    });
     
   };
   
