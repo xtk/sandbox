@@ -3,84 +3,45 @@
 <title>Touch me!</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
-<script type="text/javascript" src="http://get.goXTK.com/xtk_edge.js"></script>
+<script type="text/javascript" src="xtk.js"></script>
+<!--   <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script> -->
+<!--   <script type="text/javascript" src="../../X/xtk-deps.js"></script> -->
 
-<script type="text/javascript">
+<script src="http://jsconsole.com/remote.js?5B68E587-99BC-47FC-9F65-7B5966803E11"></script>
+<script>
+//goog.require('X.renderer2D');
+//goog.require('X.volume');
+//goog.require('X.object');
 
 window.onload = function() {
-  
+console.log('abc')
+abc = Uint16Array
+console.log('fdsf'+abc)
+ sfsafsaf = new Uint16Array(3);
   ren2d = new X.renderer2D();
-  ren2d.orientation = 'X';
+  console.log('bcd');
+  ren2d.orientation = 'Z';
+  console.log('efg');
   ren2d.init();
+  console.log('hgu')
   
-  volume = new X.volume();
-  volume.file = 'daniel.nii';
-  
-  ren2d.add(volume);
-  ren2d.render();
-  
-  ren2d.onShowtime = function() {
-    enable_touch();
-  }
-  
+  console.log('new X.volume');
+   volume = new X.volume();
+   
+   volume.file = 'daniel.dcm';
+   console.log('afgfg');
+//   try{  
+   ren2d.add(volume);
+   console.log('dgdsgsddsg')
+//   ren2d.render();
+//   } catch(Error) {
+    
+//     console.log(Error)
+    
+//   }
   
 }
 
-function enable_touch() {
-  
-  // disable bouncing
-  document.body.addEventListener('touchmove', function(event) {
-    event.preventDefault();
-  }, false);  
-  
-  var _lastY = null;  
-  
-  ren2d.container.children[0].addEventListener('touchmove', function(event) {
-    touches = event.touches;
-    
-    
-    var onefinger = touches[0];
-   
-    if (!_lastY) _lastY = onefinger.clientY;
-    var _down_movement = onefinger.clientY > _lastY;
-    var _up_movement = onefinger.clientY < _lastY;
-    _lastY = onefinger.clientY;
-    
-    var _right_side = onefinger.clientX>ren2d.container.clientWidth*3/4;
-    
-    if (_right_side) {
-           
-      if (_down_movement) {
-        
-        down();
-        
-      } else if (_up_movement) {
-        
-        up();
-        
-      }
-      
-      
-    }
-    
-    
-  }, false);
-  
-  function down() {
-    
-    if (volume.indexX < volume.dimensions[0]-1)
-    volume.indexX += 1;
-    
-  }  
-  
-  function up() {
-    
-    if (volume.indexX > 1)
-    volume.indexX -= 1;    
-    
-  }
- 
-};
 
 </script>
 
