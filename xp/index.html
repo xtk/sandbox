@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>XP</title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+<script type="text/javascript" src="stats.min.js"></script>
+<script type="text/javascript" src="shim.js"></script>
+<script type="text/javascript" src="vec4.js"></script>
+<script type="text/javascript" src="mat4.js"></script>
+<script type="text/javascript" src="quat4.js"></script>
+<script type="text/javascript" src="default.js"></script>
+
+<script id="fragment" type="x-shader/x-fragment">
+  precision mediump float;
+
+  varying vec4 vColor;
+
+  void main(void) {
+    gl_FragColor = vColor;
+  }
+</script>
+
+<script id="vertex" type="x-shader/x-vertex">
+  attribute vec3 aVertexPosition;
+  attribute vec4 aVertexColor;
+
+  uniform vec3 camera_position;
+  uniform float width;
+  uniform float height;
+  uniform mat4 perspective;
+  uniform mat4 view;
+
+  float PI = 3.14159265358979323846264;
+
+  varying vec4 vColor;
+
+  mat4 look_at(
+    vec3 position,
+    vec3 focus
+  ) {
+    
+    vec3 z = normalize(position - focus);
+    vec3 y = vec3(0, 1, 0);
+ 
+    if (y == z) {
+      y.z += 0.000001;
+    }
+
+    vec3 x = cross( y, z);
+    y = cross(z, x);
+    x = normalize(x);
+    y = normalize(y);
+
+    mat4 view = mat4(
+                  //vec4(x.x, x.y, x.z, 0.0-position.x),
+                  //vec4(y.x, y.y, y.z, 0.0-position.y),
+                  //vec4(z.x, z.y, z.z, 0.0-position.z),
+                  //vec4(0.0, 0.0, 0.0, 1.0)
+                  vec4(x.x, y.x, z.x, 0.0),
+                  vec4(x.y, y.y, z.y, 0.0),
+                  vec4(x.z, y.z, z.z, 0.0),
+                  vec4(0.0-position.x, 0.0-position.y, 0.0-position.z, 1.0)
+                );
+
+    return view;
+
+  }
+
+  mat4 make_frustum(
+    float left,
+    float right,
+    float bottom,
+    float top,
+    float z_near,
+    float z_far
+  ) {
+    float x = 2.0 * z_near / (right - left);
+    float y = 2.0 * z_near / (top - bottom);
+    float a = (right + left) / (right - left);
+    float b = (top + bottom) / (top - bottom);
+    float c = -(z_far + z_near) / (z_far - z_near);
+    float d = -2.0 * z_far * z_near / (z_far - z_near);
+
+    return mat4(
+               vec4(x, 0.0, 0.0, 0.0),
+               vec4(0.0, y, 0.0, 0.0),
+               vec4(a, b, c, -1.0),
+               vec4(0.0, 0.0, d, 0.0)
+
+             //vec4(x, 0.0, a, 0.0),
+             //vec4(0.0, y, b, 0.0),
+             //vec4(0.0, 0.0, c, d),
+             //vec4(0.0, 0.0, -1.0, 0.0)
+           );
+
+  }
+
+  mat4 make_perspective(
+    float fov,
+    float aspect_ratio,
+    float z_near,
+    float z_far
+  ) {
+    float ymax = z_near * tan(fov * PI / 360.0);
+    float ymin = -ymax;
+    float xmin = ymin * aspect_ratio;
+    float xmax = ymax * aspect_ratio;
+
+    return make_frustum(xmin, xmax, ymin, ymax, z_near, z_far);
+
+  }
+
+  void main(void) {
+    // perspective * view * invert 
+    //gl_Position = make_perspective(45.0, width/height, 1.0, 10000.0)
+    //              * look_at(camera_position, vec3(0.0, 0.0, 0.0))
+    //              * vec4(aVertexPosition.x, aVertexPosition.y, aVertexPosition.z, 1.0);
+    gl_Position = perspective * view * vec4(aVertexPosition, 1.0);
+    vec4 abc = aVertexColor;
+    vColor = vec4(1.0,1.0,1.0,1.0);//aVertexColor;
+  }
+</script>
+
+
+
+<script>
+
+window.onload = function() {
+
+  start();
+  
+}
+
+
+</script>
+
+<body><canvas id='c' style='width:100%;height:100%;'></canvas></body>
+</html>
