@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript" src="parse.js"></script>
+  <script type="text/javascript" src="../../X/lib/closure-library/closure/goog/base.js"></script>
+  <script type="text/javascript" src="../../X/xtk-deps.js"></script>
+</head>
+
+<style>
+  #byte_content {
+    margin: 5px 0;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  #byte_range { margin-top: 5px; }
+</style>
+<body>
+<input type="file" id="files" name="file" />
+<span class="readBytesButtons">
+  <button>Go!</button>
+</span>
+<div style='width:100%;height:800px;background-color:black;' id='ren'></div>
+<script>
+  document.querySelector('.readBytesButtons').addEventListener('click', function(evt) {
+    main();
+  }, false);
+  
+  goog.require('X.renderer3D');
+  goog.require('X.volume');
+</script>
+</body>
+</html>
