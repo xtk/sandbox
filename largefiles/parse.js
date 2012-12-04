@@ -4,8 +4,8 @@ _CURRENT_IFD = null;
 
 _VOLUME_ADDED = false;
 
-_CACHE_SIZE = 20;
-_CACHE_LIMIT = 3;
+_CACHE_SIZE = 5;
+_CACHE_LIMIT = 2;
 _QUEUE = null;
 
 _LOADED_SLICES = [];
@@ -314,17 +314,17 @@ function reset_cache() {
     
   }
   
-  volume.create_();
+  // volume.create_();
   _LOADED_SLICES = _LOADED_SLICES.slice(-_CACHE_LIMIT * 2);
   
 }
 
 function show(n) {
 
-  if (_LOADED_SLICES.indexOf(n) != -1) {
-    console.log('have already', n);
-    return;
-  }
+  // if (_LOADED_SLICES.indexOf(n) != -1) {
+  // console.log('have already', n);
+  // return;
+  // }
   
   console.log('grabbing ', n);
   
