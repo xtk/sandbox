@@ -1,0 +1,34 @@
+<html>
+<head>
+<!-- <script type="text/javascript" src="x2.js"></script> -->
+<script type="text/javascript" src="xtk.js"></script>
+<script type="text/javascript" src="gl-matrix-min.js"></script>
+<!--   <script type="text/javascript" src="../../X2/lib/google-closure-library/closure/goog/base.js"></script> -->
+<!--   <script type="text/javascript" src="../../X2/x2-deps.js"></script> -->
+<script>
+
+  function testX2Rotate() {
+    var m1 = X.Matrix.identity();
+    var v1 = X.Vector.create(1,2,3);
+    X.Vector.normalize(v1, v1);
+    X.Matrix.rotate(m1, Math.PI / 2, v1[0], v1[1], v1[2]);
+    console.log(m1);
+  }
+
+  function testXRotate() {
+    var m1 = X.matrix.createIdentityMatrix(4);
+    m1 = m1.rotate(Math.PI / 2, [1,2,3]);
+    console.log(m1);
+  }
+  
+  function glMatrixRotate() {
+    var m1 = mat4.create();
+    var v1 = vec3.fromValues(1,2,3);
+    mat4.rotate(m1,m1, Math.PI/2, v1);
+    console.log(m1);
+  }
+  
+</script>
+</head>
+<body></body>
+</html>
