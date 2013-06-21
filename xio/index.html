@@ -1,0 +1,217 @@
+<html>
+<head>
+
+<script type="text/javascript" src="js/xtk.js"></script>
+<!-- jsProgressBarHandler prerequisites : prototype.js -->
+<script type="text/javascript" src="js/prototype/prototype.js"></script>
+
+<!-- jsProgressBarHandler core -->
+<script type="text/javascript" src="js/bramus/jsProgressBarHandler.js"></script>
+<style type="text/css">
+body {
+  font-family: 'Verdana';
+  color: #40454b;
+  font-size: 12px;
+}
+</style>
+
+<script type="text/javascript">
+
+  var _workers_count = 8;
+
+  var _workers = new Array(_workers_count);
+  var _header = new Array(_workers_count);
+  var _slices = new Array(_workers_count);
+  var _slice_number = new Array(_workers_count);
+  var _slice_cache = new Array(_workers_count);
+  var _pbar = new Array(_workers_count);
+  
+  
+  function load_data(i) {
+
+    var worker = new Worker('webworker.js');
+    worker.i = i;
+
+    worker.onmessage = function(i, e) {
+
+      if ( e.data.cmd ) {
+
+        var _cmd = e.data.cmd;
+        var _what = e.data.what;
+        var _value = e.data.value;
+
+        if ( _cmd == 'done' ) {
+
+          if ( _what == 'header' ) {
+            _header[i] = _value;
+
+            rend(i);
+
+            // create slice cache
+            _slice_cache[i] = new Array(_header[i].dim[3]);
+
+            _slice_number[i] = Math.floor(_header[i].dim[3] / 2);
+            get_slice(i, _slice_number[i]);
+
+          }
+
+        } else if ( _cmd == 'progress' ) {
+
+          if ( _what == 'loading' ) {
+
+            _pbar[i].setPercentage(Math.floor(_value));
+
+          }
+
+        }
+
+      } else {
+
+        var _image_data = e.data;
+        var slice = _slices[i]; 
+        slice.texture.rawData = new Uint8Array(_image_data);
+        slice.texture.rawDataWidth = _header[i].dim[1];
+        slice.texture.rawDataHeight = _header[i].dim[2];
+        slice.modified();
+        _slice_cache[i][_slice_number[i]] = _image_data.slice(0);
+
+      }
+
+      _workers[i] = worker;
+
+    }.bind(this, i);
+
+    worker.postMessage({
+      cmd : 'load',
+      what : 'http://x.babymri.org/?' + (23 + i) + '/template.nii',
+      value : null
+    });
+
+    _workers[i] = worker;
+
+  };
+
+  function get_slice(which, i) {
+
+    if ( i<0 || i >= _header[which].dim[3] )
+      return;
+
+    _slice_number[which] = i;
+
+    if ( !_slice_cache[which][i] ) {
+
+      _workers[which].postMessage({
+        cmd : 'get',
+        what : 'http://x.babymri.org/?' + (23 + which) + '/template.nii',
+        value : i
+      });
+
+    } else {
+
+      var slice = _slices[which]; 
+      slice.texture.rawData = new Uint8Array(_slice_cache[which][i]);
+      slice.modified();
+
+    }
+
+  }
+
+  function rend(which) {
+
+    ren3d = new X.renderer3D();
+    ren3d.container = 'ren' + which;
+    ren3d.init();
+
+    document.getElementById('ren' + which).onmousewheel = function(which, e) {
+
+      if ( e.wheelDelta < 0 ) {
+
+        get_slice(which, _slice_number[which] - 1);
+
+      } else {
+
+        get_slice(which, _slice_number[which] + 1);
+
+      }
+
+      return false;
+
+    }.bind(this, which);
+
+    //vol = new X.volume();
+
+    slice = new X.slice();
+    slice.width = _header[which].dim[1];
+    slice.height = _header[which].dim[2];
+    slice.create();
+    _slices[which] = slice;
+    /*     slice.texture._rawData = new Uint8Array(_slices);
+     slice.texture._rawDataWidth = _header.dim[1];
+     slice.texture._rawDataHeight = _header.dim[2]; */
+
+    ren3d.add(slice);
+
+    ren3d.camera.position = [ 0, 0, 100 ];
+    ren3d.render();
+    
+    $('pb'+which).hide()
+
+  }
+
+  window.onload = function() {
+
+    // create progress bars
+    pbar(1);
+    pbar(2);
+    pbar(3);
+    pbar(4);
+    pbar(5);
+    pbar(6);
+    pbar(7);
+    pbar(8);    
+    
+    load_data(1);
+    load_data(2);
+    load_data(3);
+    load_data(4);
+    load_data(5);
+    load_data(6);
+    load_data(7);
+    load_data(8);
+    
+  }
+  
+  function pbar(i) {
+
+    // second manual example : multicolor (and take all other default paramters)
+    _pbar[i] = new JS_BRAMUS.jsProgressBar($('pb'+i), 0, {
+      showText:false,
+      barImage : Array('images/bramus/percentImage_back4.png',
+          'images/bramus/percentImage_back3.png',
+          'images/bramus/percentImage_back2.png',
+          'images/bramus/percentImage_back1.png')
+    });
+  }  
+  
+</script>
+
+</head>
+
+<body>
+<table style='width:100%; height:100%;'>
+<tr>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb1" style='position:absolute;'></span><div id='ren1' style='width: 100%; height: 100%'></div></td>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb2" style='position:absolute;'></span><div id='ren2' style='width: 100%; height: 100%'></div></td>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb3" style='position:absolute;'></span><div id='ren3' style='width: 100%; height: 100%'></div></td>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb4" style='position:absolute;'></span><div id='ren4' style='width: 100%; height: 100%'></div></td>
+</tr>
+<tr>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb5" style='position:absolute;'></span><div id='ren5' style='width: 100%; height: 100%'></div></td>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb6" style='position:absolute;'></span><div id='ren6' style='width: 100%; height: 100%'></div></td>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb7" style='position:absolute;'></span><div id='ren7' style='width: 100%; height: 100%'></div></td>
+<td style='border:1px solid black;width: 25%; height: 50%;'><span id="pb8" style='position:absolute;'></span><div id='ren8' style='width: 100%; height: 100%'></div></td>
+</tr>
+
+</table>
+</body>
+</html>
