@@ -83,7 +83,7 @@ body {
 
     worker.postMessage({
       cmd : 'load',
-      what : 'http://x.babymri.org/?' + (23 + i) + '/template.nii',
+      what : 'http://x.babymri.org/?' + (23 + i) + '/template.nii.gz',
       value : null
     });
 
@@ -102,7 +102,7 @@ body {
 
       _workers[which].postMessage({
         cmd : 'get',
-        what : 'http://x.babymri.org/?' + (23 + which) + '/template.nii',
+        what : 'http://x.babymri.org/?' + (23 + which) + '/template.nii.gz',
         value : i
       });
 
