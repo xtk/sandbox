@@ -122,6 +122,8 @@ body {
     ren3d = new X.renderer3D();
     ren3d.container = 'ren' + which;
     ren3d.init();
+    ren3d.interactor.config.MOUSEWHEEL_ENABLED = false;
+    ren3d.interactor.init();    
 
     document.getElementById('ren' + which).onmousewheel = function(which, e) {
 
