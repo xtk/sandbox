@@ -69,6 +69,7 @@ body {
 
         var _image_data = e.data;
         var slice = _slices[i]; 
+        slice.texture.grayscale = true;
         slice.texture.rawData = new Uint8Array(_image_data);
         slice.texture.rawDataWidth = _header[i].dim[1];
         slice.texture.rawDataHeight = _header[i].dim[2];
