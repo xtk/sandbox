@@ -18,16 +18,16 @@
   window.onload = function() {
 
     // grab a test data set
-    //X.io.load('http://x.babymri.org/?avf.nii');
+    X.io.load('http://x.babymri.org/?avf.nii');
     //X.io.load('http://x.babymri.org/?23/template.nii.gz');
-    X.io.load('http://x.babymri.org/?rudolph.nii');
+//     X.io.load('http://x.babymri.org/?rudolph.nii');
     
     // callback, when everything was loaded
     X.io.oncomplete = function() {
 
       //input = X.io.get('http://x.babymri.org/?23/template.nii.gz');
-      //input = X.io.get('http://x.babymri.org/?avf.nii');
-      input = X.io.get('http://x.babymri.org/?rudolph.nii');
+      input = X.io.get('http://x.babymri.org/?avf.nii');
+//       input = X.io.get('http://x.babymri.org/?rudolph.nii');
       
       // show the middle slice of the input
       new SIMPLEVIEWER('ren1', input.header.dim.subarray(1,4), input.data.image);
