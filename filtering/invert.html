@@ -1,0 +1,107 @@
+<html>
+<head>
+
+<!-- visualization -->
+<script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script>
+<script type="text/javascript" src='simpleviewer.js'></script>
+
+<!-- I/O -->
+<script type="text/javascript" src='xio.js'></script>
+
+<!-- Thread management -->
+<script type="text/javascript" src='workcrew.js'></script>
+
+<script type="text/javascript">
+  var _NUMBER_OF_THREADS_ = 8;
+  
+
+  window.onload = function() {
+
+    // grab a test data set
+    //X.io.load('http://x.babymri.org/?avf.nii');
+    //X.io.load('http://x.babymri.org/?23/template.nii.gz');
+    X.io.load('http://x.babymri.org/?rudolph.nii');
+    
+    // callback, when everything was loaded
+    X.io.oncomplete = function() {
+
+      //input = X.io.get('http://x.babymri.org/?23/template.nii.gz');
+      //input = X.io.get('http://x.babymri.org/?avf.nii');
+      input = X.io.get('http://x.babymri.org/?rudolph.nii');
+      
+      // show the middle slice of the input
+      new SIMPLEVIEWER('ren1', input.header.dim.subarray(1,4), input.data.image);
+      
+      // start the filtering
+      filter(input.data.image);
+      
+    }
+
+  }
+
+
+
+  //
+  // runs an operation for each slice in an external thread
+  //
+  function filter(slices) {
+
+    // allocate output array
+    var output = new Array(slices.length);
+    
+    // spawn the working crew
+    var crew = new WorkCrew('invert.js', _NUMBER_OF_THREADS_);
+    
+    // re-assemble the output image slice-by-slice
+    // when a worker is done
+    crew.oncomplete = function(result) {
+
+      output[result.id] = result.result.data;
+      
+    };
+    
+    //
+    // start slice-based processing
+    //
+    var c = slices.length;
+    for ( var s = 0; s < c; s++) {
+      
+      // perform work on this slice
+      // also pass the dimensions here
+      crew.addWork(slices[s].slice(0));
+      
+    }
+    
+    // callback when everything is done
+    crew.onfinish = function() {
+
+      done(output);
+      
+    };
+    
+  }
+
+
+  //
+  // we are done
+  //
+  function done(output) {
+
+    // show the middle slice of the output
+    new SIMPLEVIEWER('ren2', input.header.dim.subarray(1,4), output);
+    
+  }
+</script>
+
+</head>
+<body>
+	<table style='width: 100%; height: 100%;'>
+		<tr>
+			<td style='border: 1px solid black; width: 50%; height: 100%;'><div
+					id='ren1' style='width: 100%; height: 100%'></div></td>
+			<td style='border: 1px solid black; width: 50%; height: 100%;'><div
+					id='ren2' style='width: 100%; height: 100%'></div></td>
+		</tr>
+	</table>
+</body>
+</html>

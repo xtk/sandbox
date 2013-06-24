@@ -1,0 +1,150 @@
+<html>
+<head>
+
+<!-- visualization -->
+<script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script>
+<script type="text/javascript" src='simpleviewer.js'></script>
+
+<!-- I/O -->
+<script type="text/javascript" src='xio.js'></script>
+
+<!-- Thread management -->
+<script type="text/javascript" src='workcrew.js'></script>
+
+<script type="text/javascript">
+  var _NUMBER_OF_THREADS_ = 8;
+  var output_renderer = null;
+
+  window.onload = function() {
+
+    // grab a test data set
+    X.io.load('http://x.babymri.org/?avf.nii');
+    //X.io.load('http://x.babymri.org/?23/template.nii.gz');
+    //X.io.load('http://x.babymri.org/?rudolph.nii');
+    
+    // callback, when everything was loaded
+    X.io.oncomplete = function() {
+
+      //input = X.io.get('http://x.babymri.org/?23/template.nii.gz');
+      input = X.io.get('http://x.babymri.org/?avf.nii');
+      
+      // show the middle slice of the input
+      new SIMPLEVIEWER('ren1', input.header.dim.subarray(1, 4),
+          input.data.image);
+      
+    }
+    
+    // setup callback for the filter button
+    document.getElementById('filter').onclick = filter;
+
+  }
+
+  // read matrix from UI
+  function matrix3x3() {
+    
+    var m = new Array(9);
+    for (var i=0; i<9; i++) {
+      
+      m[i] = parseInt(document.getElementById('m'+i).value,10);
+      
+    }
+    
+    return m;
+    
+  }
+
+
+  //
+  // runs an operation for each slice in an external thread
+  //
+  function filter() {
+    
+    var slices = input.data.image;
+    
+    // allocate output array
+    var output = new Array(slices.length);
+    
+    // spawn the working crew
+    var crew = new WorkCrew('3x3.js', _NUMBER_OF_THREADS_);
+    crew.dimensions = input.header.dim.subarray(1, 4);
+    crew.filter = matrix3x3(); // attach matrix from UI
+    
+    // re-assemble the output image slice-by-slice
+    // when a worker is done
+    crew.oncomplete = function(result) {
+
+      output[result.id] = result.result.data;
+      
+    };
+    
+    //
+    // start slice-based processing
+    //
+    var c = slices.length;
+    for ( var s = 0; s < c; s++) {
+      
+      // perform work on this slice but don't loose the
+      // local reference since we still might want to visualize (hence the .slice(0))
+      crew.addWork(slices[s].slice(0));
+      
+    }
+    
+    // callback when everything is done
+    crew.onfinish = function() {
+
+      done(output);
+      
+    };
+    
+  }
+
+
+  //
+  // we are done
+  //
+  function done(output) {
+
+    // show the middle slice of the output
+    if (output_renderer) {
+      output_renderer.destroy();
+    }
+    
+    output_renderer = new SIMPLEVIEWER('ren2', input.header.dim.subarray(1, 4), output);
+    
+  }
+</script>
+
+</head>
+<body>
+	<table style='width: 100%; height: 100%;'>
+		<tr>
+			<td style='border: 1px solid black; width: 50%; height: 100%;'><div
+					id='ren1' style='width: 100%; height: 100%'></div></td>
+			<td style='border: 1px solid black; width: 50%; height: 100%;'><div
+					id='ren2' style='width: 100%; height: 100%'></div></td>
+		</tr>
+	</table>
+	<div id='panel'
+		style='position: absolute; top: 0px; left: 0px; background-color: black;'>
+		<table>
+			<tr>
+				<td><input type='text' id='m0' style='width: 20px' value='0'></td>
+				<td><input type='text' id='m1' style='width: 20px' value='0'></td>
+				<td><input type='text' id='m2' style='width: 20px' value='0'></td>
+			</tr>
+			<tr>
+				<td><input type='text' id='m3' style='width: 20px' value='0'></td>
+				<td><input type='text' id='m4' style='width: 20px' value='9'></td>
+				<td><input type='text' id='m5' style='width: 20px' value='0'></td>
+			</tr>
+			<tr>
+				<td><input type='text' id='m6' style='width: 20px' value='0'></td>
+				<td><input type='text' id='m7' style='width: 20px' value='0'></td>
+				<td><input type='text' id='m8' style='width: 20px' value='0'></td>
+			</tr>
+		</table>
+		<input type='button' value='filter' id='filter'>
+
+	</div>
+</body>
+</html>
