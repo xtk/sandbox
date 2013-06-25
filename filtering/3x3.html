@@ -14,7 +14,7 @@
 <script type="text/javascript">
   var _NUMBER_OF_THREADS_ = 8;
   var output_renderer = null;
-
+  
   window.onload = function() {
 
     // grab a test data set
@@ -33,19 +33,19 @@
           input.data.image);
       
     }
-    
+
     // setup callback for the filter button
     document.getElementById('filter').onclick = filter;
-
+    
   }
 
   // read matrix from UI
   function matrix3x3() {
-    
+
     var m = new Array(9);
-    for (var i=0; i<9; i++) {
+    for ( var i = 0; i < 9; i++) {
       
-      m[i] = parseInt(document.getElementById('m'+i).value,10);
+      m[i] = parseInt(document.getElementById('m' + i).value, 10);
       
     }
     
@@ -58,7 +58,7 @@
   // runs an operation for each slice in an external thread
   //
   function filter() {
-    
+
     var slices = input.data.image;
     
     // allocate output array
@@ -109,9 +109,30 @@
       output_renderer.destroy();
     }
     
-    output_renderer = new SIMPLEVIEWER('ren2', input.header.dim.subarray(1, 4), output);
+    output_renderer = new SIMPLEVIEWER('ren2', input.header.dim.subarray(1, 4),
+        output);
     
   }
+  
+  
+  // filter presets
+  function matrix_from_preset() {
+    
+    var combobox = document.getElementById('preset');
+    
+    var idx = combobox.selectedIndex;
+    
+    var matrix = combobox.options[idx].value.split(" ");
+    
+    for (m in matrix) {
+      
+      document.getElementById('m' + m).value = matrix[m];
+      
+    }
+    
+    
+  }
+  
 </script>
 
 </head>
@@ -126,6 +147,23 @@
 	</table>
 	<div id='panel'
 		style='position: absolute; top: 0px; left: 0px; background-color: black;'>
+		<select id='preset' onchange='javascript:matrix_from_preset();'>
+			<option id='identity' selected value='0 0 0 0 9 0 0 0 0'>identity</option>
+			<option id='sobel x' value='1 0 -1 2 0 -2 1 0 -1'>sobel x</option>
+			<option id='sobel y' value='1 2 1 0 0 0 -1 -2 -1'>sobel y</option>
+      <option id='scharr x' value='3 0 -3 10 0 -10 3 0 -3'>scharr x</option>
+      <option id='scharr y' value='3 10 3 0 0 0 -3 -10 -3'>scharr y</option>
+			<option id='laplace' value='0 1 0 1 -4 1 0 1 0'>laplace</option>
+			<option id='laplace2' value='1 1 1 1 -8 1 1 1 1'>laplace2</option>
+			<option id='lowpass 1' value='0 1 0 1 2 1 0 1 0'>lowpass 1</option>
+			<option id='lowpass 2' value='1 1 1 1 1 1 1 1 1'>lowpass 2</option>
+			<option id='lowpass 3' value='1 1 1 1 2 1 1 1 1'>lowpass 3</option>
+			<option id='lowpass 4' value='1 2 1 2 4 2 1 2 1'>lowpass 4</option>
+      <option id='highpass 1' value='0 -1 0 -1 5 -1 0 -1 0'>highpass 1</option>
+      <option id='highpass 2' value='-1 -1 -1 -1 9 -1 -1 -1 -1'>highpass 2</option>
+      <option id='highpass 3' value='1 -2 1 -2 5 -2 1 -2 1'>highpass 3</option>
+            
+		</select>
 		<table>
 			<tr>
 				<td><input type='text' id='m0' style='width: 20px' value='0'></td>
