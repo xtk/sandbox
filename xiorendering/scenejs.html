@@ -1,0 +1,66 @@
+<html>
+<head>
+
+<!-- I/O -->
+<script src='js/xio.js'></script>
+
+<!-- visualization -->
+<script src='http://scenejs.org/api/latest/scenejs.js'></script>
+
+<!-- main code -->
+<script>
+  window.onload = function() {
+
+    X.io.load('http://x.babymri.org/?avf.nii');
+    
+    X.io.oncomplete = function() {
+
+      var input = X.io.get('http://x.babymri.org/?avf.nii');
+      
+      var _slice_number = Math.floor(input.header.dim[3] / 2);
+      
+
+      var scene = SceneJS.createScene({
+        nodes: [{
+          type: "material",
+          color: {
+            r: 0.5,
+            g: 0.5,
+            b: 1.0
+          },
+          nodes: [
+
+                  {
+                     type: "lookAt",
+                     eye: {
+                         x: 0.0,
+                         y: 0.0,
+                         z: 1000000
+                     }},                  
+
+          // Plane showing default property values
+          {
+            type: "geometry",
+            source: {
+              type: "plane",
+              width: 10,
+              height: 10,
+              widthSegments: 20,
+              heightSegments: 20
+            }
+          }]
+        }]
+      });
+      
+    }
+
+  };
+</script>
+
+
+</head>
+<body id='body'>
+
+
+</body>
+</html>

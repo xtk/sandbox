@@ -1,0 +1,96 @@
+<html>
+<head>
+
+<!-- I/O -->
+<script src='js/xio.js'></script>
+
+<!-- visualization -->
+<script src='js/three.min.js'></script>
+
+<!-- main code -->
+<script>
+  window.onload = function() {
+
+    X.io.load('http://x.babymri.org/?avf.nii');
+    
+    X.io.oncomplete = function() {
+
+      var input = X.io.get('http://x.babymri.org/?avf.nii');
+      
+      var _slice_number = Math.floor(input.header.dim[3] / 2);
+      
+      // renderer
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      
+      // scrolling callback
+      renderer.domElement.onmousewheel = function(e) {
+        
+        if (e.wheelDelta < 0) {
+          _slice_number = Math.max(0, --_slice_number);
+        } else {
+          _slice_number = Math.min(input.header.dim[3] - 1, ++_slice_number);
+        }
+        
+        texture.image.data = new Uint8Array(input.data.image[_slice_number]);
+        texture.needsUpdate = true;
+        return false;
+      }
+      
+      
+      // camera
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth /
+          window.innerHeight, 1, 1000);
+      camera.position.x = 0;
+      camera.position.y = 0;
+      camera.position.z = 150;
+      
+      // scene
+      var scene = new THREE.Scene();
+      
+      // texture
+      texture = new THREE.DataTexture(new Uint8Array(input.data.image[_slice_number]),
+          input.header.dim[1], input.header.dim[2], THREE.LuminanceFormat);
+      texture.flipY = false;
+      texture.unpackAlignment = 1;   
+      texture.needsUpdate = true;
+      
+      
+      // plane
+      var plane = new THREE.Mesh(new THREE.PlaneGeometry(input.header.dim[1],
+          input.header.dim[2]), new THREE.MeshBasicMaterial({
+            map: texture
+          }));
+      plane.overdraw = true;
+      scene.add(plane);
+      
+      // this function is executed on each animation frame
+      function animate() {
+
+        // update
+        
+        // render
+        renderer.render(scene, camera);
+        
+        // request new frame
+        requestAnimationFrame(function() {
+
+          animate();
+        });
+      }
+      
+      animate();
+      
+    }
+
+  };
+</script>
+
+
+</head>
+<body id='body'>
+
+
+</body>
+</html>
