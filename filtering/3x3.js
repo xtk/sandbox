@@ -121,7 +121,7 @@ function process(dimensions, filter, data) {
       //
       //
       sum /= 9;
-      //sum = Math.min(Math.max(sum, 0), 255);
+      sum = Math.min(Math.max(sum, 0), 255);
 
       outarr[current_index] = sum;
 
