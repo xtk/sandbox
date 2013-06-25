@@ -32,8 +32,8 @@ function process(dimensions, filter, data) {
 
   // create array view
   var arr = new Uint8Array(data.slice(0));
-  var outarr = new Uint8Array(data.slice(0));
-  //var arr_out = new Uint32Array(data);
+  var outarr = new Uint8Array(data);
+  //var arr_out = new Uint32Array(d;
 
   var cols = dimensions[0];
   var rows = dimensions[1];
@@ -130,6 +130,6 @@ function process(dimensions, filter, data) {
   }
 
 
-
+  //return outarr.buffer;
 
 }
