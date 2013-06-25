@@ -31,7 +31,8 @@ self.onmessage = function(e) {
 function process(dimensions, filter, data) {
 
   // create array view
-  var arr = new Uint8Array(data);
+  var arr = new Uint8Array(data.slice(0));
+  var outarr = new Uint8Array(data.slice(0));
   //var arr_out = new Uint32Array(data);
 
   var cols = dimensions[0];
@@ -122,7 +123,7 @@ function process(dimensions, filter, data) {
       sum /= 9;
       //sum = Math.min(Math.max(sum, 0), 255);
 
-      arr[current_index] = sum;
+      outarr[current_index] = sum;
 
     }
 
