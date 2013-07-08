@@ -1,0 +1,126 @@
+<html>
+<head>
+
+<!-- I/O -->
+<script src='xio.js'></script>
+
+<!-- visualization -->
+<script src='three.min.js'></script>
+<script src='http://threejs.org/examples/js/controls/TrackballControls.js'></script>
+
+
+<!-- main code -->
+<script>
+  window.onload = function() {
+
+    X.io.load('http://x.babymri.org/?lefthemisphere.smoothwm');
+    
+    X.io.onloading = function(id, percentage) {
+
+        console.log('Loading', percentage);
+      
+    };
+    
+    X.io.oncomplete = function() {
+
+      console.log('loaded');
+      
+      input = X.io.get('http://x.babymri.org/?lefthemisphere.smoothwm');
+
+
+      camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
+      camera.position.z = 300;
+
+      controls = new THREE.TrackballControls( camera );
+
+      controls.rotateSpeed = 5.0;
+      controls.zoomSpeed = 5;
+      controls.panSpeed = 2;
+
+      controls.noZoom = false;
+      controls.noPan = false;
+
+      controls.staticMoving = true;
+      controls.dynamicDampingFactor = 0.3;
+
+      scene = new THREE.Scene();
+
+      scene.add( camera );
+
+      // light
+      var dirLight = new THREE.DirectionalLight( 0xffffff );
+      dirLight.position.set( 200, 200, 1000 ).normalize();
+
+      camera.add( dirLight );
+      camera.add( dirLight.target );
+
+      // material
+      var material = new THREE.MeshLambertMaterial( { color:0xffffff, side: THREE.DoubleSide } );
+      
+      // geometry
+      var geometry = new THREE.Geometry();
+      
+      // add vertices
+      var _vertex_count = input.header['vertex_count'];
+      var _vertices = input.data.vertices;
+      for (var i=0; i<_vertex_count*3; i=i+3) {
+        
+        geometry.vertices.push( new THREE.Vector3( _vertices[i+0], _vertices[i+1], _vertices[i+2]));
+        
+      }
+      
+      // add faces
+      var _face_count = input.header['face_count'];
+      var _faces = input.data.faces;
+      for (var i=0; i<_face_count*3; i=i+3) {
+        
+        geometry.faces.push(new THREE.Face3( _faces[i+0], _faces[i+1], _faces[i+2]));
+        
+      }
+      
+      geometry.computeCentroids();
+      geometry.computeFaceNormals();
+      geometry.computeVertexNormals();
+      geometry.computeBoundingSphere();
+      geometry.computeBoundingBox();   
+      
+      var mesh = new THREE.Mesh( geometry, material );      
+      scene.add(mesh);
+      
+      renderer = new THREE.WebGLRenderer( { antialias: false } );
+      renderer.setClearColor( 0x000000, 1 );
+      renderer.setSize( window.innerWidth, window.innerHeight );
+
+      container = document.createElement( 'div' );
+      document.body.appendChild( container );
+      container.appendChild( renderer.domElement );
+      
+      // this function is executed on each animation frame
+      function animate() {
+        
+        // update
+        
+        // render
+        renderer.render(scene, camera);
+        
+        // request new frame
+        requestAnimationFrame(function() {
+          controls.update();
+          animate();
+        });
+      }
+      
+      animate();
+      
+    }
+
+  };
+</script>
+
+
+</head>
+<body id='body'>
+
+
+</body>
+</html>
