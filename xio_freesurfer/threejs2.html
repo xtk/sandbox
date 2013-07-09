@@ -13,7 +13,9 @@
 <script>
   window.onload = function() {
 
-    X.io.load('lh.small.smoothwm');
+    console.time('load');
+    
+    X.io.load('bunny.vtk');
     
     X.io.onloading = function(id, percentage) {
 
@@ -25,7 +27,7 @@
 
       console.log('loaded');
       
-      input = X.io.get('lh.small.smoothwm');
+      input = X.io.get('bunny.vtk');
 
 
       camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
@@ -111,6 +113,7 @@
       }
       
       animate();
+      console.timeEnd('load');
       
     }
 
