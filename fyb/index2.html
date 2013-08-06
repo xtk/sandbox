@@ -1,0 +1,160 @@
+<html>
+<head>
+<style type="text/css">
+
+html, body { 
+  background-color:#000;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden !important;  
+}
+
+
+</style>
+<script type='text/javascript' src='xtk.js'></script>
+<script>
+
+window.onload = function() {
+  
+  ren3d = new X.renderer3D();
+  ren3d.init();
+
+  mesh = new X.mesh();
+  mesh.opacity = 0.3;
+  mesh.file = 'lh.dec3.smoothwm';
+  mesh.scalars.file = 'lh.supersurfaceconnectivity.crv';
+
+  mesh2 = new X.mesh();
+  mesh2.opacity = 0.3;
+  mesh2.file = 'rh.dec3.smoothwm';
+  mesh2.scalars.file = 'rh.supersurfaceconnectivity.crv';
+
+  fibers = new X.fibers();
+  fibers.linewidth = 3;
+  fibers.file = 'tracks.single.trk';
+
+  ren3d.add(mesh);
+  ren3d.add(mesh2);
+  ren3d.add(fibers);
+
+  ren3d.onShowtime = function() {
+
+
+    var s1 = new X.sphere();
+    s1.center = fibers.points.get(0);
+    s1.radius = 10;
+    s1.opacity = 0.3;
+    s1.color = [1,0,0];
+    s1.transform.matrix = fibers.transform.matrix;
+    //ren3d.add(s1);
+
+    var s2 = new X.sphere();
+    s2.center = fibers.points.get(fibers.points.count - 1);
+    s2.radius = 10;
+    s2.opacity = 0.3;
+    s2.color = [0,0,1];
+    s2.transform.matrix = fibers.transform.matrix;
+    //ren3d.add(s2);
+
+    var lh_crv = mesh.scalars.Fc;
+    var lh_crv_length = mesh.scalars.Fc.length;
+    lh_lines = new X.object();
+    lh_lines.type = 'LINES';
+    lh_lines.linewidth = 3;
+
+    var rh_crv = mesh2.scalars.Fc;
+    var rh_crv_length = mesh2.scalars.Fc.length;
+    rh_lines = new X.object();
+    rh_lines.type = 'LINES';
+    rh_lines.linewidth = 3;
+
+
+    var fiber_start = fibers.points.get(0);
+    fiber_start = X.matrix.multiplyByVector(fibers.transform.matrix, fiber_start[0], fiber_start[1], fiber_start[2]);
+
+    var fiber_end = fibers.points.get(fibers.points.count-1);
+    fiber_end = X.matrix.multiplyByVector(fibers.transform.matrix, fiber_end[0], fiber_end[1], fiber_end[2]);
+
+    var mesh_inverse = X.matrix.identity();
+    X.matrix.invert(mesh.transform.matrix, mesh_inverse);
+    var mesh2_inverse = X.matrix.identity();
+    X.matrix.invert(mesh2.transform.matrix, mesh2_inverse);
+
+    fiber_start = X.matrix.multiplyByVector(mesh2_inverse, fiber_start.xx, fiber_start.yy, fiber_start.zz);
+    fiber_end = X.matrix.multiplyByVector(mesh_inverse, fiber_end.xx, fiber_end.yy, fiber_end.zz);
+
+    // console.log(fiber_start);
+    // var f_t = fibers.transform.matrix;//X.matrix.identity();
+    // //X.matrix.invert(fibers.transform.matrix, f_t);
+    // console.log(f_t);
+    // var v = X.matrix.multiplyByVector(f_t, fiber_start[0], fiber_start[1], fiber_start[2]);
+    // fiber_start = [v.xx, v.yy, v.zz];
+    // console.log(v, fiber_start);
+    lh_lines.points = new X.triplets(6 * lh_crv_length);
+    lh_lines.normals = new X.triplets(6 * lh_crv_length);
+    for (var i=0; i<lh_crv_length; i=i+3) {
+
+      if (lh_crv[i] > 0) {
+
+        // create line
+        lh_lines.points.add(fiber_end.xx, fiber_end.yy, fiber_end.zz);
+        var p_x = mesh.points.Q[i];
+        var p_y = mesh.points.Q[i+1];
+        var p_z = mesh.points.Q[i+2];
+        lh_lines.points.add(p_x, p_y, p_z);
+        //console.log(p_x);
+        lh_lines.normals.add(0,0,0);
+        lh_lines.normals.add(0,0,0);
+
+
+      }
+
+    }
+    lh_lines.points.resize();
+    lh_lines.normals.resize();
+    lh_lines.transform.matrix = mesh.transform.matrix;
+    ren3d.add(lh_lines);
+
+    rh_lines.points = new X.triplets(6 * rh_crv_length);
+    rh_lines.normals = new X.triplets(6 * rh_crv_length);
+    for (var i=0; i<rh_crv_length; i=i+3) {
+
+      if (rh_crv[i] > 0) {
+
+        // create line
+        rh_lines.points.add(fiber_start.xx, fiber_start.yy, fiber_start.zz);
+        var p_x = mesh2.points.Q[i];
+        var p_y = mesh2.points.Q[i+1];
+        var p_z = mesh2.points.Q[i+2];
+        rh_lines.points.add(p_x, p_y, p_z);
+        //console.log(p_x);
+        rh_lines.normals.add(0,0,0);
+        rh_lines.normals.add(0,0,0);
+
+
+      }
+
+    }
+    rh_lines.points.resize();
+    rh_lines.normals.resize();
+    rh_lines.transform.matrix = mesh.transform.matrix;
+    ren3d.add(rh_lines);    
+
+
+    ren3d.resetBoundingBox();
+
+  }
+
+  ren3d.render();
+
+  ren3d.camera.position = [0,300,0];
+
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

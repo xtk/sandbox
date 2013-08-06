@@ -1,0 +1,214 @@
+<html>
+<head>
+<style type="text/css">
+
+html, body { 
+  background-color:#000;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden !important;  
+}
+
+
+</style>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+<script type='text/javascript' src='xtk.js'></script>
+<script type='text/javascript' src='http://get.goxtk.com/xtk_xdat.gui.js'></script>
+
+<script>
+
+var QUERIER = {
+
+  radius: 10,
+  fiber_id: -1,
+  first_time: true,
+  first_lines: null,
+  last_lines: null,
+  locked: false,
+  track: null
+
+}
+
+window.onload = function() {
+  
+  ren3d = new X.renderer3D();
+  ren3d.init();
+
+  lh = new X.mesh();
+  lh.opacity = 0.3;
+  lh.file = 'lh.dec3.smoothwm';
+  lh.scalars.file = 'lh.supersurfaceconnectivity.crv';
+
+  rh = new X.mesh();
+  rh.opacity = 0.3;
+  rh.file = 'rh.dec3.smoothwm';
+  rh.scalars.file = 'rh.supersurfaceconnectivity.crv';
+
+  fibers = new X.fibers();
+  fibers.file = 'fibers-to-brain.trk';
+
+  ren3d.add(lh);
+  ren3d.add(rh);
+  ren3d.add(fibers);
+
+  ren3d.onShowtime = function() {
+
+    ren3d.onShowtime = function() {};
+
+//var s = new X.sphere(); s.center = fibers.points.get(0); s.color = [1,0,0]; s.transform.matrix = fibers.transform.matrix; s.radius = 3; ren3d.add(s);
+
+    ren3d.resetBoundingBox();
+
+
+    create_ui();
+
+  }
+
+  ren3d.render();
+
+  ren3d.camera.position = [0,300,0];
+
+}
+
+function create_ui() {
+
+  var ui = new dat.GUI();r
+  var radius_controller = ui.add(QUERIER, 'radius', 1, 10);
+  var fiber_controller = ui.add(QUERIER, 'fiber_id', -1, 80000);
+  ui.add(lh, 'visible');
+  ui.add(rh, 'visible');
+
+  radius_controller.onChange(update);
+
+  fiber_controller.onChange(update);
+
+  var lh_inverse = X.matrix.identity();
+  X.matrix.invert(lh.transform.matrix, lh_inverse);
+  var rh_inverse = X.matrix.identity();
+  X.matrix.invert(rh.transform.matrix, rh_inverse);
+
+  function update() {
+
+    console.log('updating')
+
+    if (QUERIER.locked) {
+      console.log('skipped');
+      return;
+    }
+
+    console.log('locked');
+
+    QUERIER.locked = true;
+
+    if (QUERIER.first_time) {
+      fibers.opacity = 0.2;
+    }
+
+    //console.log('r', QUERIER.radius, 'f', QUERIER.fiber_id);
+
+    $.ajax({
+      url: "http://shaka.tch.harvard.edu:8888/query/"+Math.floor(QUERIER.fiber_id)+"/"+Math.floor(QUERIER.radius),
+      success: function(data) {
+
+        var result = JSON.parse(data);
+
+        console.log(result);
+
+        if (QUERIER.track) {
+          ren3d.remove(QUERIER.track);
+          ren3d.remove(QUERIER.last_lines);
+          ren3d.remove(QUERIER.first_lines);
+        }
+
+
+        track = new X.object();
+        track.type = 'LINES';
+        track.linewidth = 3;
+        var points_count = result['track_points'].length;
+        track.points = new X.triplets(3 * points_count);
+        track.normals = new X.triplets(3 * points_count);
+        for(var i=0; i<points_count; i++) {
+          var p = result['track_points'][i];
+          track.points.add(p[0], p[1], p[2]);
+          track.normals.add(0,0,0);
+        }
+        //track.transform.matrix = fibers.transform.matrix;
+        ren3d.add(track);
+
+        // get the track start point
+        var first = result['track_points'][0];
+        //first = X.matrix.multiplyByVector(fibers.transform.matrix, first[0], first[1], first[2]);
+
+        // and the track end point
+        var last = result['track_points'][result['track_points'].length-1];
+        //last = X.matrix.multiplyByVector(fibers.transform.matrix, last[0], last[1], last[2]);
+
+        // var mesh_inverse = X.matrix.identity();
+        // X.matrix.invert(lh.transform.matrix, mesh_inverse);
+
+        // first = X.matrix.multiplyByVector(mesh_inverse, first.xx, first.yy, first.zz);
+        // last = X.matrix.multiplyByVector(mesh_inverse, last.xx, last.yy, last.zz);
+
+        first_lines = new X.object();
+        first_lines.type = 'LINES';
+        first_lines.linewidth = 3;
+        first_lines.pointsize = 10;
+        points_count = result['first_coords'].length;
+        first_lines.points = new X.triplets(6 * points_count);
+        first_lines.normals = new X.triplets(6 * points_count);
+        for(i=0;i<points_count;i++) {
+          var p = result['first_coords'][i];
+          first_lines.points.add(p[0], p[1], p[2]);
+          first_lines.points.add(first[0], first[1], first[2]);
+
+          first_lines.normals.add(0,0,0);
+          first_lines.normals.add(0,0,0);
+        }
+        //first_lines.transform.matrix = lh.transform.matrix;
+        ren3d.add(first_lines);
+
+        last_lines = new X.object();
+        last_lines.type = 'LINES';
+        last_lines.linewidth = 3;
+        last_lines.pointsize = 10;
+        points_count = result['last_coords'].length;
+        last_lines.points = new X.triplets(6 * points_count);
+        last_lines.normals = new X.triplets(6 * points_count);
+        for(i=0;i<points_count;i++) {
+          var p = result['last_coords'][i];
+          last_lines.points.add(p[0], p[1], p[2]);
+          last_lines.points.add(last[0], last[1], last[2]);
+
+          last_lines.normals.add(0,0,0);
+          last_lines.normals.add(0,0,0);
+        }
+        //last_lines.transform.matrix = lh.transform.matrix;
+        ren3d.add(last_lines);
+
+
+        QUERIER.track = track;
+        QUERIER.first_lines = first_lines;
+        QUERIER.last_lines = last_lines;
+
+        ren3d.resetBoundingBox();
+
+        QUERIER.locked = false;
+
+        console.log('unlocked');
+
+      }
+    })
+
+
+
+  };
+
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

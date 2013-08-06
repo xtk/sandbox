@@ -1,0 +1,74 @@
+<html>
+<head>
+<style type="text/css">
+
+html, body { 
+  background-color:#000;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden !important;  
+}
+
+
+</style>
+<script type='text/javascript' src='xtk.js'></script>
+<script>
+
+window.onload = function() {
+  
+  ren3d = new X.renderer3D();
+  ren3d.init();
+
+  mesh = new X.mesh();
+  mesh.opacity = 0.5;
+  mesh.file = 'lh.dec.sphere';
+
+  fibers = new X.fibers();
+  fibers.file = 'tracks.dec.trk';
+
+  ren3d.add(mesh);
+  ren3d.add(fibers);
+
+  ren3d.onShowtime = function() {
+
+    var s1 = new X.sphere();
+    s1.center = mesh.points.get(0);
+    s1.color = [1,0,0];
+    s1.transform.matrix = mesh.transform.matrix;
+    ren3d.add(s1);
+
+    var s2 = new X.sphere();
+    s2.center = mesh.points.get(10);
+    s2.color = [0,1,0];
+    s2.transform.matrix = mesh.transform.matrix;
+    ren3d.add(s2);
+
+    var s3 = new X.sphere();
+    s3.center = mesh.points.get(20);
+    s3.color = [0,0,1];
+    s3.transform.matrix = mesh.transform.matrix;
+    ren3d.add(s3);
+
+    var s4 = new X.sphere();
+    s4.center = mesh.points.get(30);
+    s4.color = [1,1,0];
+    s4.transform.matrix = mesh.transform.matrix;
+    ren3d.add(s4);
+
+    ren3d.resetBoundingBox();
+
+  }
+
+  ren3d.render();
+
+  ren3d.camera.position = [0,300,0];
+
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>
