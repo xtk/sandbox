@@ -1,0 +1,8 @@
+---
+ name: XTK Lesson 00
+ description: Hello cube! 
+ authors:
+   - XTK 
+ resources:
+ normalize_css: no
+...
