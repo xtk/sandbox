@@ -20,8 +20,14 @@ window.onload = function() {
 
   vol = new X.volume();
   vol.dimensions = [512,512,75];
-  vol.file = 'http://localhost:1337/image/volume/00000001/&.RZ'
-  vol.labelmap.file = 'http://localhost:1337/segmentation/volume/00000001/&.RZ'
+  vol.spacing = [1,1,3];
+  vol.file = 'http://localhost:1337/image/volume/00000001/&.RZ';
+
+  vol.file = 'http://localhost:1337/segmentation/volume/00000001/&.RZ';
+  vol.labelmap._32bit = true;
+  vol.labelmap.file = 'http://localhost:1337/segmentation/volume/00000001/&.RZ';
+  vol.labelmap.dimensions = vol.dimensions;
+  vol.labelmap._dirty = true;
 
   
   r.add(vol);
