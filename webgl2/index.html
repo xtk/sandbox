@@ -15,15 +15,14 @@ window.onload = function() {
   r.linkShaders('vs1', 'fs1');
 
 
-  vertices = [
+  var vertices = new Float32Array([
        1.0,  1.0,  0.0,
       -1.0,  1.0,  0.0,
        1.0, -1.0,  0.0,
       -1.0, -1.0,  0.0
-  ];  
+  ]);  
 
   buffer = r.createArrayBuffer(vertices);
-
 
   draw(r);
 
@@ -43,7 +42,7 @@ function draw(r) {
 
 <!-- SHADERS -->
 <script id="fs1" type="x-shader/x-fragment">
-#version proto-200
+
 
 void main() {
 
@@ -52,7 +51,7 @@ void main() {
 }
 </script>
 <script id="vs1" type="x-shader/x-vertex">
-#version proto-200
+
 
 attribute vec3 aPosition;
 varying vec3 vPosition;
