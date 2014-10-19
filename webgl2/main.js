@@ -89,7 +89,7 @@ RENDERER.prototyep.readAndCompileShader = function(id) {
 
 };
 
-RENDERER.prototyep.linkShaders = function(vs_id, fs_id) {
+RENDERER.prototype.linkShaders = function(vs_id, fs_id) {
 
   var gl = this._gl;
 
