@@ -10,25 +10,54 @@ html, body {
 }
 </style>
 <script>
- 
-window.onload = function() {
- 
+
+function initGL() {
+
   var canvas = document.getElementById('canvas');
-  var gl = canvas.getContext("experimental-webgl2");
+  this._gl = canvas.getContext("experimental-webgl2");
  
-  console.log(gl);
- 
-  if (!gl) {
+  if (!this._gl) {
   // WebGL 2 not supported
   return false;
   }
  
-  if (!gl instanceof WebGL2RenderingContext) {
+  if (!this._gl instanceof WebGL2RenderingContext) {
   // unexpected rendering context.
   return false;
   }
+
+  // configure the WebGL context
+  this._gl.viewport(0, 0, canvas.width, canvas.height);
+
+  // configure opacity to 0.0 to overwrite the viewport background-color by
+  // the container color
+  this._gl.clearColor(0.0, 0.0, 0.0, 0.0);
+
+  // enable WebGL settings
+  this._gl.clearDepth(0);
+  this._gl.pixelStorei(goog.webgl.UNPACK_ALIGNMENT, 1);
+  this._gl.pixelStorei(goog.webgl.PACK_ALIGNMENT, 1);
+  // this._gl.cullFace(goog.webgl.BACK);
+  // this._gl.enable(goog.webgl.CULL_FACE);
+  this._gl.enable(goog.webgl.DEPTH_TEST);
+  this._gl.depthFunc(goog.webgl.GREATER);
+  this._gl.pixelStorei(goog.webgl.UNPACK_FLIP_Y_WEBGL, true);
+  this._gl.enable(goog.webgl.BLEND);
+  this._gl.blendEquation(goog.webgl.FUNC_ADD);
+  this._gl.blendFunc(goog.webgl.SRC_ALPHA,
+      goog.webgl.ONE_MINUS_SRC_ALPHA);
+
+  // clear color and depth buffer
+  this._gl.clear(goog.webgl.COLOR_BUFFER_BIT | goog.webgl.DEPTH_BUFFER_BIT);  
+
   return gl;
  
+}
+ 
+window.onload = function() {
+
+  initGL();
+
 }
  
  
