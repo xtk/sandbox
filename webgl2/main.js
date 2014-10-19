@@ -117,6 +117,8 @@ RENDERER.prototype.linkShaders = function(vs_id, fs_id) {
 
   }
 
+  gl.useProgram(shaderProgram);
+
   return shaderProgram;
 
 };
