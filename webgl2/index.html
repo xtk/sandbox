@@ -27,7 +27,7 @@ window.onload = function() {
 
   // simple texture
   var gl = r._gl;
-  var texture = gl.createTexture();
+  texture = gl.createTexture();
 
   if (!gl.TEXTURE_3D) {
     console.log('3d textures not supported');
@@ -43,7 +43,7 @@ window.onload = function() {
         0., 1., 1.,
         1., 1., 1.
       ]);
-    r.createArrayBuffer(uvw);
+    uvw_buffer = r.createArrayBuffer(uvw);
 
     // 1 pixel 3d texture
     var data = new Uint8Array([
@@ -53,9 +53,6 @@ window.onload = function() {
       ]);
 
     gl.texImage3D(gl.TEXTURE_3D, 0, gl.RGBA, 1, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
-
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_3D, texture);
 
   }
 
@@ -68,8 +65,16 @@ function draw(r) {
 
   r.draw();
 
-  r.attribute(0, buffer, 3);
+  r.attribute(r._gl.getAttribLocation(r._shaderProgram, 'aPosition'), buffer, 3);
+  r.attribute(r._gl.getAttribLocation(r._shaderProgram, 'uvwPosition', uvw_buffer, 3);
+
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_3D, texture);
+  gl.uniform1i(r._gl.getUniformLocation(r._shaderProgram, 'uTextureSampler'), 0);
+
   r._gl.drawArrays(r._gl.TRIANGLE_STRIP, 0, 4);
+
+  
 
 };
 
@@ -77,11 +82,12 @@ function draw(r) {
 
 <!-- SHADERS -->
 <script id="fs1" type="x-shader/x-fragment">
-
+attribute vec3 uvwPosition;
+uniform sampler3D uTextureSampler;
 
 void main() {
 
-  gl_FragData[0] = vec4(1.,0.,0.,1.);
+  gl_FragData[0] = texture3D(uTextureSampler, uvwPosition.x, uvwPosition.y, uvwPosition.z);
 
 }
 </script>

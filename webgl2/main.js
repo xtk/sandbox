@@ -4,6 +4,7 @@ RENDERER = function() {
   this._gl = null;
   this._width = 0;
   this._height = 0;
+  this._shaderProgram = null;
 
 };
 
@@ -119,6 +120,8 @@ RENDERER.prototype.linkShaders = function(vs_id, fs_id) {
   }
 
   gl.useProgram(shaderProgram);
+
+  this._shaderProgram = shaderProgram;
 
   return shaderProgram;
 
