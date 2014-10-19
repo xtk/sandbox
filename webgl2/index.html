@@ -1,0 +1,34 @@
+<html>
+<head>
+ 
+<script>
+ 
+window.onload = function() {
+ 
+  var canvas = document.getElementById('canvas');
+  var gl = canvas.getContext("experimental-webgl2");
+ 
+  console.log(gl);
+ 
+  if (!gl) {
+  // WebGL 2 not supported
+  return false;
+  }
+ 
+  if (!gl instanceof WebGL2RenderingContext) {
+  // unexpected rendering context.
+  return false;
+  }
+  return gl;
+ 
+}
+ 
+ 
+</script>
+ 
+</head>
+<body>
+<canvas id='canvas'></canvas>
+</body>
+</html>
+
