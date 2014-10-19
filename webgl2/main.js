@@ -1,5 +1,9 @@
 
-RENDERER = {};
+RENDERER = function() {
+
+  this._gl = null;
+
+};
 
 RENDERER.prototype.initGL = function(canvasId) {
 
