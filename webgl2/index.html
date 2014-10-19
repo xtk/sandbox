@@ -14,7 +14,30 @@ window.onload = function() {
   r.initGL('canvas');
   r.linkShaders('vs1', 'fs1');
 
-}
+
+  vertices = [
+       1.0,  1.0,  0.0,
+      -1.0,  1.0,  0.0,
+       1.0, -1.0,  0.0,
+      -1.0, -1.0,  0.0
+  ];  
+
+  buffer = r.createArrayBuffer(vertices);
+
+
+
+
+};
+
+function draw(r) {
+
+  r.draw();
+
+  r.attribute(0, buffer, 3);
+  r._gl.drawArrays(r._gl.TRIANGLE_STRIP, 0, 4);
+
+
+};
 
 </script>
 

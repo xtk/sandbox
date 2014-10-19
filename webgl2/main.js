@@ -2,6 +2,8 @@
 RENDERER = function() {
 
   this._gl = null;
+  this._width = 0;
+  this._height = 0;
 
 };
 
@@ -20,8 +22,11 @@ RENDERER.prototype.initGL = function(canvasId) {
     return null;
   }
 
+  this._width = canvas.width;
+  this._height = canvas.height;
+
   // configure the WebGL context
-  this._gl.viewport(0, 0, canvas.width, canvas.height);
+  this._gl.viewport(0, 0, this._width, this._height);
 
   // configure opacity to 0.0 to overwrite the viewport background-color by
   // the container color
@@ -96,8 +101,6 @@ RENDERER.prototype.linkShaders = function(vs_id, fs_id) {
   var fragmentShader = this.readAndCompileShader(fs_id);
   var vertexShader = this.readAndCompileShader(vs_id);
 
-  console.log(fragmentShader, vertexShader)
-
   var shaderProgram = gl.createProgram();
   gl.attachShader(shaderProgram, vertexShader);
   gl.attachShader(shaderProgram, fragmentShader);
@@ -118,5 +121,32 @@ RENDERER.prototype.linkShaders = function(vs_id, fs_id) {
 
 };
 
+RENDERER.prototype.createArrayBuffer = function(data) {
 
+  var gl = this._gl;
 
+  var gl_buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl_buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+
+  return gl_buffer;
+
+};
+
+RENDERER.prototype.attribute = function(position, gl_buffer, itemsize) {
+
+  var gl = this._gl;
+
+  gl.enableVertexAttribArray(position);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl_buffer);
+  gl.vertexAttribPointer(position, itemsize, gl.FLOAT, false, 0, 0);
+
+};
+
+RENDERER.prototype.draw = function() {
+
+  this._gl.viewport(0, 0, this._width, this._height);
+  this._gl.clearColor(0.0, 0.0, 0.0, 0.0);
+
+};
