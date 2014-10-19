@@ -12,6 +12,8 @@ RENDERER.prototype.initGL = function(canvasId) {
   var canvas = document.getElementById(canvasId);
   this._gl = canvas.getContext("experimental-webgl2");
  
+  console.log(this._gl);
+
   if (!this._gl) {
     // WebGL 2 not supported
     return null;
@@ -57,7 +59,7 @@ RENDERER.prototype.initGL = function(canvasId) {
 RENDERER.prototype.readAndCompileShader = function(id) {
 
   var shaderScript = document.getElementById(id);
-  console.log(shaderScript)
+  
   if (!shaderScript) {
     return null;
   }
