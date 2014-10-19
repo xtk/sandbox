@@ -15,6 +15,7 @@ window.onload = function() {
   r.linkShaders('vs1', 'fs1');
 
 
+  // unit square
   var vertices = new Float32Array([
        1.0,  1.0,  0.0,
       -1.0,  1.0,  0.0,
@@ -23,6 +24,15 @@ window.onload = function() {
   ]);  
 
   buffer = r.createArrayBuffer(vertices);
+
+  // simple texture
+  var gl = r._gl;
+  var texture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_3D, texture);
+
+  gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+
 
   draw(r);
 
@@ -34,7 +44,6 @@ function draw(r) {
 
   r.attribute(0, buffer, 3);
   r._gl.drawArrays(r._gl.TRIANGLE_STRIP, 0, 4);
-
 
 };
 
