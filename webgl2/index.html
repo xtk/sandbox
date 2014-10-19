@@ -1,71 +1,23 @@
 <html>
 <head>
-<style>
-html, body { 
-  background-color:#000;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden !important;  
-}
-</style>
+
+<link rel="stylesheet" type="text/css" href="main.css">
+
+<script type='text/javascript' src='main.js'></script>
+
 <script>
-
-function initGL() {
-
-  var canvas = document.getElementById('canvas');
-  this._gl = canvas.getContext("experimental-webgl2");
- 
-  if (!this._gl) {
-  // WebGL 2 not supported
-  return false;
-  }
- 
-  if (!this._gl instanceof WebGL2RenderingContext) {
-  // unexpected rendering context.
-  return false;
-  }
-
-  // configure the WebGL context
-  this._gl.viewport(0, 0, canvas.width, canvas.height);
-
-  // configure opacity to 0.0 to overwrite the viewport background-color by
-  // the container color
-  this._gl.clearColor(0.0, 0.0, 0.0, 0.0);
-
-  // enable WebGL settings
-  this._gl.clearDepth(0);
-  this._gl.pixelStorei(this._gl.UNPACK_ALIGNMENT, 1);
-  this._gl.pixelStorei(this._gl.PACK_ALIGNMENT, 1);
-  // this._gl.cullFace(this._gl.BACK);
-  // this._gl.enable(this._gl.CULL_FACE);
-  this._gl.enable(this._gl.DEPTH_TEST);
-  this._gl.depthFunc(this._gl.GREATER);
-  this._gl.pixelStorei(this._gl.UNPACK_FLIP_Y_WEBGL, true);
-  this._gl.enable(this._gl.BLEND);
-  this._gl.blendEquation(this._gl.FUNC_ADD);
-  this._gl.blendFunc(this._gl.SRC_ALPHA,
-      this._gl.ONE_MINUS_SRC_ALPHA);
-
-  // clear color and depth buffer
-  this._gl.clear(this._gl.COLOR_BUFFER_BIT | this._gl.DEPTH_BUFFER_BIT);  
-
-  return this._gl;
- 
-}
  
 window.onload = function() {
 
-  initGL();
+  this._gl = initGL('canvas');
 
 }
- 
- 
+
 </script>
  
 </head>
 <body>
-<canvas id='canvas' style='width:100%;height:100%'></canvas>
+  <canvas id='canvas' style='width:100%;height:100%'></canvas>
 </body>
 </html>
 
