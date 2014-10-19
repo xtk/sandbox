@@ -49,7 +49,7 @@ RENDERER.prototype.initGL = function(canvasId) {
 };
 
 
-RENDERER.prototyep.readAndCompileShader = function(id) {
+RENDERER.prototype.readAndCompileShader = function(id) {
 
   var shaderScript = document.getElementById(id);
 
@@ -93,8 +93,8 @@ RENDERER.prototype.linkShaders = function(vs_id, fs_id) {
 
   var gl = this._gl;
 
-  var fragmentShader = readAndCompileShader(gl, fs_id);
-  var vertexShader = readAndCompileShader(gl, vs_id);
+  var fragmentShader = this.readAndCompileShader(gl, fs_id);
+  var vertexShader = this.readAndCompileShader(gl, vs_id);
 
   var shaderProgram = gl.createProgram();
   gl.attachShader(shaderProgram, vertexShader);
