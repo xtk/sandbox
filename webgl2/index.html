@@ -28,10 +28,16 @@ window.onload = function() {
   // simple texture
   var gl = r._gl;
   var texture = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_3D, texture);
 
-  gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-  gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+  if (!gl.TEXTURE_3D) {
+    console.log('3d textures not supported');
+  } else {
+
+    gl.bindTexture(gl.TEXTURE_3D, texture);
+    gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+
+  }
 
 
   draw(r);
