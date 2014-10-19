@@ -82,24 +82,28 @@ function draw(r) {
 
 <!-- SHADERS -->
 <script id="fs1" type="x-shader/x-fragment">
-attribute vec3 uvwPosition;
+
 uniform sampler3D uTextureSampler;
+
+varying vec3 vTexPosition;
 
 void main() {
 
-  gl_FragData[0] = texture3D(uTextureSampler, uvwPosition.x, uvwPosition.y, uvwPosition.z);
+  gl_FragData[0] = texture3D(uTextureSampler, vTexPosition.x, vTexPosition.y, vTexPosition.z);
 
 }
 </script>
 <script id="vs1" type="x-shader/x-vertex">
 
-
+attribute vec3 uvwPosition;
 attribute vec3 aPosition;
 varying vec3 vPosition;
+varying vec3 vTexPosition;
 
 void main() {
 
   vPosition = aPosition;
+  vTexPosition = uvwPosition;
 
   gl_Position = vec4(aPosition,1.);
 
