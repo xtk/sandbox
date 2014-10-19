@@ -11,18 +11,17 @@ RENDERER.prototype.initGL = function(canvasId) {
 
   var canvas = document.getElementById(canvasId);
   this._gl = canvas.getContext("experimental-webgl2");
- 
-  console.log(this._gl);
 
   if (!this._gl) {
-    // WebGL 2 not supported
-    return null;
+    this._gl = canvas.getContext("experimental-webgl");
   }
  
   if (!this._gl instanceof WebGLRenderingContext) {
     // unexpected rendering context.
     return null;
   }
+
+  console.log(this._gl);
 
   this._width = canvas.width;
   this._height = canvas.height;
