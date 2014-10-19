@@ -37,6 +37,26 @@ window.onload = function() {
     gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_3D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 
+    var uvw = new Float32Array([
+        0., 0., 0.,
+        1., 0., 0.,
+        0., 1., 1.,
+        1., 1., 1.
+      ]);
+    r.createArrayBuffer(uvw);
+
+    // 1 pixel 3d texture
+    var data = new Uint8Array([
+      1., 0., 0., 1.,
+      0., 1., 0., 1.,
+      0., 0., 1., 1.
+      ]);
+
+    gl.texImage3D(gl.TEXTURE_3D, 0, gl.RGBA, 1, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
+
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_3D, texture);
+
   }
 
 
