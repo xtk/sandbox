@@ -66,7 +66,7 @@ function draw(r) {
   r.draw();
 
   r.attribute(r._gl.getAttribLocation(r._shaderProgram, 'aPosition'), buffer, 3);
-  r.attribute(r._gl.getAttribLocation(r._shaderProgram, 'uvwPosition', uvw_buffer, 3);
+  r.attribute(r._gl.getAttribLocation(r._shaderProgram, 'uvwPosition'), uvw_buffer, 3);
 
   gl.activeTexture(gl.TEXTURE0);
   gl.bindTexture(gl.TEXTURE_3D, texture);
