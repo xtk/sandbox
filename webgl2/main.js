@@ -8,7 +8,7 @@ RENDERER = function() {
 RENDERER.prototype.initGL = function(canvasId) {
 
   var canvas = document.getElementById(canvasId);
-  this._gl = canvas.getContext("experimental-webgl");
+  this._gl = canvas.getContext("experimental-webgl2");
  
   if (!this._gl) {
     // WebGL 2 not supported
