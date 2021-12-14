@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>XTK TEST WITHOUT COMPILATION</title>
+
+    <style>
+      html, body { 
+        background-color:#000;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden !important;  
+      }
+    </style>
+
+    <script type="text/javascript" src="https://get.goxtk.com/xtk_edge.js"></script>
+<!--     <script type="text/javascript" src="../../X/lib/google-closure-library/closure/goog/base.js"></script>
+    <script type="text/javascript" src="../../X/xtk-deps.js"></script>
+ -->
+    <script type="text/javascript">
+
+      // include all used X-classes here
+      // this is only required when using the xtk-deps.js file
+      // goog.require('X.renderer3D');
+      // goog.require('X.cube');
+
+      window.onload = function() {
+        
+        r = new X.renderer3D();
+        r.init();
+        r.camera.position = [0,0,100];
+
+        all_sphere_ids = [];
+        for(var x = 0; x < 10; ++x) {
+          for(var y = 0; y < 10; ++y) {
+
+            s = new X.sphere();
+            s.center = [x*10, y*10,mv sand   0];
+            s.color = [x, y, 0];
+            s.caption = 'S' + x + y;
+            r.add(s);
+
+            all_sphere_ids.push(s.id);
+
+          }
+        }
+
+
+        r.render();
+
+        r.resetBoundingBox(); // IMPORTANT!!
+
+      };
+
+      window.onkeyup = function() {
+
+        r.showAllCaptions(all_sphere_ids);
+
+      }
+
+    </script>
+  </head>
+
+  <body>
+  </body>
+</html>
