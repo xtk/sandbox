@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>XTK TEST WITHOUT COMPILATION</title>
+
+    <style>
+      html, body { 
+        background-color:#000;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden !important;  
+      }
+    </style>
+
+    <script type="text/javascript" src="https://get.goxtk.com/xtk_edge.js"></script>
+    <script type="text/javascript" src="electrodes.js"></script>
+
+<!--     <script type="text/javascript" src="../../X/lib/google-closure-library/closure/goog/base.js"></script>
+    <script type="text/javascript" src="../../X/xtk-deps.js"></script>
+ -->
+    <script type="text/javascript">
+
+
+
+
+      // include all used X-classes here
+      // this is only required when using the xtk-deps.js file
+      // goog.require('X.renderer3D');
+      // goog.require('X.cube');
+
+      window.onload = function() {
+        
+        r = new X.renderer3D();
+        r.init();
+        r.camera.position = [0,0,100];
+
+        v = new X.volume();
+        v.file = 'fsMNI_T1.nii';
+
+        r.add(v);
+
+        m = new X.mesh();
+        m.file = 'fsMNI_lh.pial';
+
+        r.add(m);
+
+        all_sphere_ids = [];
+        for(var e = 0; e < electrodes["coorX"].length; ++e) {
+
+          var x = electrodes["coorX"][e];
+          var y = electrodes["coorY"][e];
+          var z = electrodes["coorZ"][e];
+
+          s = new X.sphere();
+          s.center = [x, y, z];
+          s.color = [x, y, z];
+          s.radius = 2;
+          s.caption = 'E'+e;
+          r.add(s);
+
+          all_sphere_ids.push(s.id);
+
+        }
+
+
+        r.onShowtime = function() {
+
+          // this waits until everything is loaded
+          r.resetBoundingBox(); // IMPORTANT!!
+
+        };
+
+        r.render();
+
+
+      };
+
+      window.onkeyup = function() {
+
+        r.showAllCaptions(all_sphere_ids);
+
+      };
+
+    </script>
+  </head>
+
+  <body>
+  </body>
+</html>
