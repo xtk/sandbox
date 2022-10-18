@@ -2,7 +2,7 @@
 <head>
 
 <!-- visualization -->
-<script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script>
+<script type="text/javascript" src="https://get.goxtk.com/xtk_edge.js"></script>
 <script type="text/javascript" src='simpleviewer.js'></script>
 
 <!-- I/O -->
@@ -19,13 +19,13 @@
 
     // grab a test data set
     //X.io.load('http://x.babymri.org/?avf.nii');
-    X.io.load('http://x.babymri.org/?23/template.nii.gz');
+    X.io.load('https://x.babymri.org/?23/template.nii.gz');
     //X.io.load('http://x.babymri.org/?rudolph.nii');
     
     // callback, when everything was loaded
     X.io.oncomplete = function() {
 
-      input = X.io.get('http://x.babymri.org/?23/template.nii.gz');
+      input = X.io.get('https://x.babymri.org/?23/template.nii.gz');
       //input = X.io.get('http://x.babymri.org/?avf.nii');
       
       // show the middle slice of the input
